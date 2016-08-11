@@ -5,12 +5,28 @@
     <title>Title</title>
 </head>
 <body>
-efsfasfasefeasfe
+<div class="msgItem you audio msgCard" data-time="2015-12-09 20:26:58.283">  <div class="msg-timestamp"> <div class="msg-timestamp-content">2015年12月09日 20:26</div> </div>   <div class="userAvatar"> <img data-accountid="92314baf-7ba3-4482-9a07-4ebda704d4d3" src="https://dn-mdpic.qbox.me/UserAvatar/33342fb8-e603-47c1-83e8-8cf6bf71ebe8.jpg?imageView2/1/w/48/h/48/q/100" alt="点点滴滴" mdbusinesscard=""> </div>  <div class="msgContainer"> <!--  <div class="msgUserName">点点滴滴</div>  --> <div class="msgWrapper"> <!--<span class="arrow  "></span>--> <i class="icon-task-folder-message messageError"></i> <!--<div class="msgContent ">--> <div class="msgContent">  <div class="msgCard"> <!--<div class="msgTitle">语音</div>--> <div class="cardBody"> <i class="audioIcon"></i> <span class="audioInfo" data-audio="https://dn-mdmedia.qbox.me/fe288386-3d26-4eab-b5d2-51eeab82a7f9/2015/12/09/2015-12-09-12-26-54-832.mp3">3"</span> </div> </div>  </div> </div>  </div></div>
+
+  <video id="my-video" class="video-js" controls preload="auto" width="640" height="264"
+  poster="MY_VIDEO_POSTER.jpg" data-setup="{}">
+   <source src="http://video-js.zencoder.com/oceans-clip.mp4" type='video/mp4' />
+ <source src="http://video-js.zencoder.com/oceans-clip.webm" type='video/webm' />
+ <source src="http://video-js.zencoder.com/oceans-clip.ogv" type='video/ogg' />
+    <p class="vjs-no-js">
+      To view this video please enable JavaScript, and consider upgrading to a web browser that
+      <a href="http://videojs.com/html5-video-support/" target="_blank">supports HTML5 video</a>
+    </p>
+  </video>
+
 </body>
 </html>
 <script type="text/javascript" src="/modules/vendor/jquery/1.8.3/jquery.js"></script>
 <script type="text/javascript" src="/modules/seajs/2.2.1/sea.js"></script>
 <script type="text/javascript" src="/modules/seajs/seajsText.js"></script>
+<script type="text/javascript" src="/modules/seajs-config.js"></script>
+
+<script type="text/javascript" src="/modules/uicontrol/video/video.js"></script>
+<link rel="stylesheet" type="text/css" href="/modules/uicontrol/video/video-js.css">
 <script type="text/javascript" src="/modules/seajs-config.js"></script>
 <script type="text/javascript">
         seajs.use(["/modules/public/main/main"], function (main) {
