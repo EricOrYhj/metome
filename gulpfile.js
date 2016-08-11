@@ -14,13 +14,13 @@ var runSequence = require('gulp-run-sequence');
 gulp.task('js', function () {
     gulp.src('modules/**/*.js')
         .pipe(uglify())  //压缩
-        .pipe(gulp.dest('dist'));
+        .pipe(gulp.dest('dist/modules'));
 });
 
 gulp.task('css', function () {
     gulp.src('src/**/*.css')
         .pipe(cssmin())  //压缩
-         .pipe(gulp.dest('dist'));
+         .pipe(gulp.dest('dist/modules'));
 });
 
 gulp.task("clean", function(){

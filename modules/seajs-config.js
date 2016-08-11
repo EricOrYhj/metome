@@ -7,10 +7,10 @@ seajs.config({
   ],
   alias: {
     /* common*/
-    'util': 'common/util.js',
+    'util': 'modules/common/util.js',
     /* uicontrol*/
-    'twemoji': 'uicontrol/twemoji/twemoji',
-    'dot': 'uicontrol/doT/doT.js'
+    'twemoji': 'modules/uicontrol/twemoji/twemoji',
+    'dot': 'modules/uicontrol/doT/doT.js'
   },
   map: [
      [/^(.*\.(?:css|js|htm|html))(\?.*)?$/i, '$1?2016']

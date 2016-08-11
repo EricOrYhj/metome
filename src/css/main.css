@@ -1,0 +1,30 @@
+a {
+  text-decoration: none;
+}
+*:not(.nano-content)::-webkit-scrollbar-thumb {
+  border-radius: 3px;
+  background: rgba(0, 0, 0, 0.15);
+  width: 4px;
+  margin: 0 1px;
+}
+*:not(.nano-content)::-webkit-scrollbar {
+  width: 4px;
+  background: rgba(0, 0, 0, 0);
+}
+input[type="checkbox"]:disabled {
+  cursor: not-allowed;
+}
+input[type="checkbox"]:disabled:after {
+  background-color: #f5f5f5;
+  border-color: #e5e5e5;
+}
+input[type="checkbox"]:disabled:checked:before {
+  border-color: #ccc;
+}
+input[type="checkbox"]:disabled:checked:after {
+  border: none !important;
+  background: none !important;
+}
+.icon-chat-vip {
+  color: #f6bc2e;
+}
