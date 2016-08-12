@@ -28,3 +28,746 @@ input[type="checkbox"]:disabled:checked:after {
 .icon-chat-vip {
   color: #f6bc2e;
 }
+body {
+  font-size: 26px;
+  background-color: #f5f6fa;
+}
+.AppChat {
+  width: 97%;
+  margin: 20px auto;
+}
+.AppChat audio,
+.AppChat canvas,
+.AppChat progress,
+.AppChat video {
+  display: inline-block;
+  vertical-align: baseline;
+}
+.AppChat audio:not([controls]) {
+  display: none;
+  height: 0;
+}
+.AppChat [hidden],
+.AppChat template {
+  display: none;
+}
+.AppChat a:active,
+.AppChat a:hover {
+  outline: 0;
+}
+.AppChat abbr[title] {
+  border-bottom: 1px dotted;
+}
+.AppChat b,
+.AppChat strong {
+  font-weight: bold;
+}
+.AppChat dfn {
+  font-style: italic;
+}
+.AppChat h1 {
+  font-size: 2em;
+  margin: 0.67em 0;
+}
+.AppChat mark {
+  background: #ff0;
+  color: #000;
+}
+.AppChat small {
+  font-size: 80%;
+}
+.AppChat sub,
+.AppChat sup {
+  font-size: 75%;
+  line-height: 0;
+  position: relative;
+  vertical-align: baseline;
+}
+.AppChat sup {
+  top: -0.5em;
+}
+.AppChat sub {
+  bottom: -0.25em;
+}
+.AppChat img {
+  border: 0;
+}
+.AppChat svg:not(:root) {
+  overflow: hidden;
+}
+.AppChat figure {
+  margin: 1em 40px;
+}
+.AppChat hr {
+  -moz-box-sizing: content-box;
+  box-sizing: content-box;
+  height: 0;
+}
+.AppChat pre {
+  overflow: auto;
+}
+.AppChat code,
+.AppChat kbd,
+.AppChat pre,
+.AppChat samp {
+  font-family: monospace, monospace;
+  font-size: 1em;
+}
+.AppChat button {
+  overflow: visible;
+}
+.AppChat button,
+.AppChat select {
+  text-transform: none;
+}
+.AppChat button,
+.AppChat input[type="button"],
+.AppChat input[type="reset"],
+.AppChat input[type="submit"] {
+  -webkit-appearance: button;
+  cursor: pointer;
+}
+.AppChat button[disabled],
+.AppChat input[disabled] {
+  cursor: default;
+}
+.AppChat button::-moz-focus-inner,
+.AppChat input::-moz-focus-inner {
+  border: 0;
+  padding: 0;
+}
+.AppChat input {
+  line-height: normal;
+}
+.AppChat input[type="number"]::-webkit-inner-spin-button,
+.AppChat input[type="number"]::-webkit-outer-spin-button {
+  height: auto;
+}
+.AppChat input[type="search"] {
+  -webkit-appearance: textfield;
+  -moz-box-sizing: content-box;
+  -webkit-box-sizing: content-box;
+  box-sizing: content-box;
+}
+.AppChat input[type="search"]::-webkit-search-cancel-button,
+.AppChat input[type="search"]::-webkit-search-decoration {
+  -webkit-appearance: none;
+}
+.AppChat fieldset {
+  border: 1px solid #c0c0c0;
+  margin: 0 2px;
+  padding: 0.35em 0.625em 0.75em;
+}
+.AppChat legend {
+  border: 0;
+  padding: 0;
+}
+.AppChat textarea {
+  overflow: auto;
+}
+.AppChat optgroup {
+  font-weight: bold;
+}
+.AppChat table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+.AppChat td,
+.AppChat th {
+  padding: 0;
+}
+.AppChat button {
+  outline: 0;
+  border: none;
+  cursor: pointer;
+}
+.bubbleShadow {
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+}
+.msgList {
+  border-radius: 4px;
+}
+.msgShadow {
+  /*box-shadow: 0px 0px 6px 4px rgba(0, 0, 0, 0.05);*/
+  box-shadow: -10px 0 10px rgba(0, 0, 0, 0.05), /*左边阴影*/ 10px 0 10px rgba(0, 0, 0, 0.05), /*右边阴影*/ 0 -6px 6px rgba(0, 0, 0, 0.05) inset;
+  /*顶部阴影*/
+}
+.msgShadowSame {
+  margin-top: 1.2px;
+  box-shadow: -10px 0 10px rgba(0, 0, 0, 0.05), /*左边阴影*/ 10px 0 10px rgba(0, 0, 0, 0.05), /*右边阴影*/ 0 6px 6px #fff inset;
+  /*顶部阴影*/
+}
+.msgItem {
+  /*margin-bottom: 12px;*/
+  /*border: 1px solid #ccc;*/
+  /*padding: 5px;*/
+  background-color: #fff;
+  font-family: inherit;
+}
+.msgItem:before,
+.msgItem:after {
+  content: " ";
+  display: table;
+}
+.msgItem:after {
+  clear: both;
+}
+.msgItem .userCard {
+  padding: 20px;
+}
+.msgItem .userCard .userAvatar {
+  float: left;
+  width: 120px;
+  height: 120px;
+  border-radius: 12px;
+  margin-right: 13px;
+  overflow: hidden;
+}
+.msgItem .userCard .userAvatar img {
+  width: 100%;
+  height: 100%;
+}
+.msgItem .userCard .userName {
+  float: left;
+  height: 120px;
+  position: relative;
+  width: 70%;
+}
+.msgItem .userCard .msg-timestamp-content {
+  padding-top: 40px;
+  position: absolute;
+  bottom: 0;
+}
+.msgItem .userCard:before,
+.msgItem .userCard:after {
+  content: " ";
+  display: table;
+}
+.msgItem .userCard:after {
+  clear: both;
+}
+.msgItem .msgTail {
+  clear: both;
+  padding: 6px 0 0;
+}
+.msgItem .msgTail,
+.msgItem .msgTail a {
+  color: #D2D2D2;
+}
+.msgItem .msgContainer {
+  width: 100%;
+  display: inline-block;
+}
+.msgItem .msgContainer:before,
+.msgItem .msgContainer:after {
+  content: " ";
+  display: table;
+}
+.msgItem .msgContainer:after {
+  clear: both;
+}
+.msgItem .msgContainer pre {
+  width: 100%;
+  margin: 0;
+  white-space: pre-line;
+  word-break: break-all;
+  font-family: "Helvetica Neue", Helvetica, 'Hiragino Sans GB', 'Microsoft YaHei', arial, sans-serif;
+}
+.msgItem .msgContent {
+  width: 100%;
+  line-height: 1.6;
+  display: inline-block;
+  font-size: 14px;
+  word-break: break-all;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  /*max-width: 640px;*/
+}
+.msgItem .msgContent a {
+  color: #007ddb;
+}
+.msgItem .msgContent a:hover {
+  text-decoration: underline;
+}
+.msgItem .msgContent a.convertLink {
+  display: block;
+}
+.msgItem .msgContent img[class^="emotion-"] {
+  margin: 0 2px;
+  vertical-align: bottom;
+}
+.msgItem .msgContent .emotion-default {
+  width: 24px;
+  height: 24px;
+}
+.msgItem .msgContent .btnDownload {
+  color: #007ddb;
+}
+.msgItem .msgContent .btnDownload:not(:hover) {
+  color: #C4C4C4 !important;
+}
+.msgItem .msgWrapper {
+  width: 100%;
+  position: relative;
+}
+.msgItem .msgWrapper::after {
+  content: '';
+  display: block;
+  width: 16px;
+  height: 16px;
+  border-style: solid;
+  border-width: 0 1px 1px 0;
+  border-color: transparent #ccc #ccc transparent;
+  position: absolute;
+  top: 28px;
+}
+.msgItem .msgWrapper .messageError {
+  display: none;
+  float: left;
+  color: #ec4e1e;
+  font-size: 20px;
+  margin-top: 10px;
+  margin-right: 5px;
+}
+.msgItem .msgWrapper .msgDate {
+  color: #bbb;
+}
+.msgItem.text .msgContent {
+  padding: 8px 13px;
+}
+.msgItem.you .msgWrapper {
+  float: left;
+}
+.msgItem.you .msgWrapper::after {
+  left: 2px;
+  transform: rotate(135deg);
+  background: #fff;
+}
+.msgItem.you .msgContent {
+  background: #fff;
+  color: #000;
+}
+.msgItem.me .userAvatar,
+.msgItem.me .msgContainer {
+  float: right;
+}
+.msgItem.me .msgTail,
+.msgItem.me .msgUserName,
+.msgItem.me .msgDate {
+  text-align: right;
+}
+.msgItem.me .msgWrapper {
+  float: right;
+}
+.msgItem.me .msgWrapper::after {
+  right: 2px;
+  transform: rotate(-45deg);
+  background: #f3f3f3;
+}
+.msgItem.me .msgContent {
+  background: #f3f3f3;
+  color: #000;
+}
+.msgItem.error .messageError {
+  display: block;
+}
+.msg-timestamp {
+  /*text-align: center;*/
+  margin-bottom: 10px;
+  margin-top: 10px;
+}
+.msg-timestamp .msg-timestamp-content {
+  display: inline-block;
+  font-size: 24px;
+  color: #bbb;
+  padding: 0 10px;
+  line-height: 150%;
+}
+.sessionWin.group .msgItem.response {
+  margin-left: 0;
+}
+.msgItem.pic.msgCard .msgContainer {
+  border-radius: 6px;
+}
+.msgItem.pic.msgCard .msgContainer .msgWrapper::after {
+  display: none;
+}
+.msgItem.pic.msgCard .msgContainer .msgWrapper .msgContent {
+  overflow: hidden;
+  font-size: 0;
+  z-index: 2;
+  border-radius: 6px;
+}
+.msgItem.pic.msgCard .msgContainer .msgWrapper .msgContent .msgCard {
+  border-radius: 6px;
+}
+.msgItem.pic.msgCard .msgContainer .msgWrapper .msgContent .msgCard .cardBody {
+  text-align: center;
+  padding: 0;
+  border-radius: 6px;
+}
+.msgItem.pic.msgCard .msgContainer .msgWrapper .msgContent img {
+  font-size: 0;
+  cursor: pointer;
+}
+.msgItem.pic.small.msgCard .msgContainer .msgWrapper .msgContent .msgCard .cardBody {
+  padding: 10px 0;
+}
+.msgItem.emotion {
+  font-family: inherit;
+}
+.msgItem.emotion img {
+  border-radius: 6px;
+  display: block;
+}
+.msgItem.emotion .msgContent {
+  border: 0;
+  background: none;
+  box-shadow: none;
+}
+.msgItem.emotion .msgWrapper::after {
+  display: none;
+}
+.msgItem.file .msgContainer .msgWrapper .msgContent .fileIcon {
+  display: inline-block;
+}
+.msgItem.file .msgContainer .msgWrapper .msgContent .fileIcon i {
+  color: #b0b7bd;
+  font-size: 42px;
+  vertical-align: middle;
+}
+.msgItem.file .msgContainer .msgWrapper .msgContent .fileInfo {
+  display: inline-block;
+  vertical-align: middle;
+  margin-left: 10px;
+  font-size: 12px;
+  width: 190px;
+  color: #C4C4C4;
+}
+.msgItem.file .msgContainer .msgWrapper .msgContent .fileInfo .fileName {
+  color: #333;
+  font-size: 14px;
+  overflow: hidden;
+  -o-text-overflow: ellipsis;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.msgItem.file .msgContainer .msgWrapper .msgContent .fileInfo .fileSize {
+  font-style: normal;
+}
+.msgItem.file .msgContainer .msgWrapper .msgContent .fileInfo .btnDownload {
+  color: inherit;
+  margin-left: 10px;
+  text-decoration: none;
+}
+.msgItem.file .msgContainer .msgWrapper .msgContent .fileInfo .progress {
+  display: inline-block;
+  width: 100%;
+  height: 4px;
+  margin-top: 4px;
+  background: #d6d6d6;
+}
+.msgItem.file .msgContainer .msgWrapper .msgContent .fileInfo .progress .progressBar {
+  background: #3db155;
+  height: 100%;
+  width: 0;
+  vertical-align: middle;
+}
+.msgItem.file .msgContainer .msgWrapper .msgContent .fileInfo .uploadRate {
+  margin-left: 15px;
+}
+.msgItem.file .msgContainer .msgWrapper .msgContent .fileInfo .errorTip {
+  color: #e94218;
+}
+.msgItem.file .msgContainer .msgWrapper .msgContent .fileAction {
+  display: inline-block;
+  vertical-align: middle;
+  margin-left: 10px;
+}
+.msgItem.file .msgContainer .msgWrapper .msgContent .fileAction .btn {
+  padding-left: 5px;
+  padding-right: 6px;
+  color: rgba(48, 53, 58, 0.43);
+}
+.msgItem.file.request .msgContainer .msgWrapper .msgContent {
+  border-color: #000;
+  color: #333;
+}
+.msgItem.file.request .msgContainer .msgWrapper .msgContent a {
+  color: #007ddb;
+}
+.msgItem.audio .audioIcon {
+  display: inline-block;
+  width: 18px;
+  height: 18px;
+  margin-top: 2px;
+  background-size: 18px;
+  background-image: url("../images/audio/audio_start.png");
+}
+@media only screen and (-webkit-min-device-pixel-ratio: 2), only screen and (min--moz-device-pixel-ratio: 2), only screen and (-o-min-device-pixel-ratio: 2/1), only screen and (min-device-pixel-ratio: 2), only screen and (min-resolution: 192dpi), only screen and (min-resolution: 2dppx) {
+  .msgItem.audio .audioIcon {
+    background-image: url("../images/audio/audio_start.png");
+    background-size: 18px 18px;
+  }
+}
+.msgItem.audio .audioInfo {
+  float: right;
+  margin-right: 10px;
+  color: rgba(0, 0, 0, 0.54);
+}
+.msgItem.audio .msgContainer .msgWrapper .msgContent .msgCard .cardBody {
+  padding: 14px 10px;
+}
+.msgItem.audio.audioPlaying .audioIcon {
+  background-image: url("~images/audio/audio_playing.gif");
+}
+@media only screen and (-webkit-min-device-pixel-ratio: 2), only screen and (min--moz-device-pixel-ratio: 2), only screen and (-o-min-device-pixel-ratio: 2/1), only screen and (min-device-pixel-ratio: 2), only screen and (min-resolution: 192dpi), only screen and (min-resolution: 2dppx) {
+  .msgItem.audio.audioPlaying .audioIcon {
+    background-image: url("~images/audio/audio_playing.gif");
+    background-size: 18px 18px;
+  }
+}
+.notification {
+  text-align: center;
+  margin: 0 18%;
+}
+.notification .notifyWrapper {
+  position: relative;
+  display: inline-block;
+  margin: 10px 20px;
+}
+.notification .notifyWrapper .notificationIcon {
+  position: absolute;
+  width: 30px;
+  text-align: center;
+  left: 0;
+  top: 0;
+  line-height: 1;
+  color: #bbb;
+  font-size: 16px;
+}
+.notification .notifyWrapper .notifyContent {
+  font-size: 12px;
+  color: #bbb;
+  text-align: left;
+  padding-left: 30px;
+  padding-right: 5px;
+}
+.notification .notifyWrapper .notifyContent p {
+  margin-top: 0;
+  margin-bottom: 10px;
+}
+.notification .msgDate {
+  margin-bottom: 20px;
+}
+.notification.notificationDate {
+  font-size: 12px;
+}
+.notification.notificationDate .notifyWrapper {
+  padding: 3px 10px;
+  background: #f1f1f1;
+  color: #999;
+}
+.notification.error .notifyWrapper .notificationIcon i {
+  color: rgba(233, 66, 24, 0.5);
+}
+.floatMsg {
+  position: absolute;
+  background: #007ddb;
+  background: rgba(0, 136, 255, 0.8);
+  height: 40px;
+  line-height: 40px;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  color: #FFF;
+  padding: 0 10px;
+  cursor: pointer;
+  overflow: hidden;
+  -o-text-overflow: ellipsis;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.floatMsg .userAvatar {
+  vertical-align: middle;
+  margin-right: 10px;
+  width: 24px;
+  height: 24px;
+}
+.floatMsg .floatMsgContent img {
+  vertical-align: middle;
+}
+.msgPanel {
+  position: absolute;
+  top: 50px;
+  left: 0;
+  right: 0;
+  bottom: 150px;
+}
+.msgPanel .hasMore {
+  display: block;
+  width: 100px;
+  text-align: center;
+  margin: 15px auto;
+  color: #007ddb;
+  cursor: pointer;
+}
+.msgPanel .noMoreTip {
+  text-align: center;
+  color: #999;
+  margin-bottom: 20px;
+}
+.msgPanel .noMoreTip[disabled="disabled"] {
+  cursor: default;
+}
+.msgPanel .msgSeparator {
+  margin: 30px 0;
+  text-align: center;
+}
+.msgPanel .msgSeparator .separatorWrapper {
+  display: inline-block;
+  width: 190px;
+}
+.msgPanel .msgSeparator .separatorWrapper hr {
+  margin-top: 0;
+  margin-bottom: -9px;
+  border: 0;
+  border-top: solid 1px #BBB;
+}
+.msgPanel .msgSeparator .separatorWrapper .text {
+  display: inline-block;
+  color: #BBB;
+  padding: 0 10px;
+  background: #FFF;
+}
+.msgItem.msgCard {
+  border-radius: 6px;
+}
+.msgItem.msgCard .msgWrapper:hover .msgContent {
+  box-shadow: 0 2px 8px 0 rgba(0, 0, 0, 0.25);
+}
+.msgItem.msgCard .msgWrapper::after {
+  background: #fff !important;
+}
+.msgItem.msgCard .msgContent {
+  transition: all .3s;
+  border-radius: 6px;
+}
+.msgItem.msgCard .msgContent .msgCard {
+  background: #ffffff;
+  border-radius: 6px;
+}
+.msgItem.msgCard .msgContent .msgCard .msgTitle {
+  color: #000;
+  padding: 11px;
+  font-size: 12px;
+  line-height: 100%;
+}
+.msgItem.msgCard .msgContent .cardBody {
+  padding: 10px;
+  border-radius: 6px;
+  transition: box-shadow 0.3s;
+  cursor: pointer;
+  position: relative;
+}
+.msgCard .cardIcon {
+  float: left;
+  position: relative;
+  width: 56px;
+  height: 56px;
+  background-color: #06c;
+  line-height: 56px;
+  text-align: center;
+  color: #FFF;
+  font-size: 24px;
+}
+.msgCard .cardIcon i {
+  color: #FFF;
+}
+.msgCard .cardIcon > img {
+  width: 100%;
+}
+.msgCard .cardIcon .calendarIconInnerText {
+  position: absolute;
+  top: 4px;
+  left: 0;
+  color: #000;
+  font-size: 14px;
+  width: 100%;
+  font-weight: normal;
+  text-align: center;
+}
+.msgCard .cardContent {
+  margin-left: 56px;
+  min-height: 56px;
+  padding: 1px 1px 17px 12px;
+  font-size: 13px;
+  line-height: 130%;
+  color: #000;
+}
+.msgCard .cardMetadata {
+  padding: 14px 0 0;
+  height: 30px;
+  font-size: 13px;
+  position: absolute;
+  bottom: 9px;
+  left: 78px;
+}
+.msgCard .cardMetadata > span {
+  margin-right: 6px;
+  color: #bcbcbc;
+}
+.msgCard .cardMetadata > span::before {
+  font-size: 18px;
+  margin-right: 6px;
+}
+.msgCard .cardMetadata [class="icon-post-reply"]::before {
+  font-size: 13px;
+  vertical-align: 1px;
+  display: inline-block;
+}
+.msgCard .cardMetadata [class="icon-task-news-list"]::before {
+  font-size: 17px;
+  margin-right: 5px;
+}
+.msgCard .cardContent {
+  word-break: break-all;
+}
+.msgCard .cardContent p {
+  margin: 0;
+}
+.msgCard .cardContent [card-title] {
+  font-size: 14px;
+  color: #333;
+  line-height: 20px;
+  margin-top: -2px;
+}
+.msgCard .cardContent [card-title] span {
+  word-break: break-all;
+}
+.msgCard .cardContent [card-title] a {
+  text-decoration: none;
+}
+.msgCard .cardContent [card-title] a:hover {
+  text-decoration: underline;
+}
+.msgCard .cardContent [card-title-calendar] {
+  font-size: 14px;
+  margin-top: -2px;
+  color: #3e3e3e;
+  line-height: 20px;
+}
+.msgCard .cardMetadata [card-vote-statusinvalid] {
+  display: none;
+  color: #f44336;
+}
+.msgCard .cardMetadata [card-vote-statusvalid] {
+  display: none;
+  color: #4caf50;
+}
+.msgCard .cardMetadata [card-post-commentcount],
+.msgCard .cardMetadata [card-vote-votenumber],
+.msgCard .cardMetadata [card-vote-commentcount],
+.msgCard .cardMetadata [card-task-sublist] {
+  display: none;
+}

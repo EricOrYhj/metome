@@ -1,0 +1,34 @@
+@import "../variables";
+
+.msgItem {
+  &.pic.msgCard .msgContainer {
+    border-radius: @messageBorderRadius;
+    .msgWrapper {
+      &::after{
+        display: none;
+      }
+      .msgContent {
+        overflow: hidden;
+        font-size: 0;
+        z-index: 2;
+        border-radius: @messageBorderRadius;
+        .msgCard {
+          border-radius: @messageBorderRadius;
+          .cardBody {
+            text-align: center;
+            padding: 0;
+            border-radius: @messageBorderRadius;
+          }
+        }
+        img {
+          font-size: 0;
+          cursor: pointer;
+        }
+      }
+    }
+  }
+
+  &.pic.small.msgCard .msgContainer .msgWrapper .msgContent .msgCard .cardBody {
+    padding: 10px 0;
+  }
+}

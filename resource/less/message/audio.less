@@ -1,0 +1,29 @@
+@import "../mixins";
+
+.msgItem.audio {
+  .audioIcon {
+    display: inline-block;
+    width: 18px;
+    height: 18px;
+    margin-top: 2px;
+    background-size: 18px;
+    .img-retina("../images/audio/audio_start.png", "../images/audio/audio_start.png", 18px, 18px);
+
+  }
+  .audioInfo {
+    float: right;
+    margin-right: 10px;
+    color: rgba(0, 0, 0, .54);
+  }
+  .msgContainer .msgWrapper .msgContent {
+    .msgCard .cardBody {
+      padding: 14px 10px;
+    }
+  }
+
+  &.audioPlaying {
+    .audioIcon {
+      .img-retina("~images/audio/audio_playing.gif", "~images/audio/audio_playing.gif", 18px, 18px);
+    }
+  }
+}

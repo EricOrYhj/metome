@@ -1,0 +1,240 @@
+@import "../variables";
+@import "../mixins";
+
+.bubbleShadow {
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+}
+
+.msgList {
+    border-radius: 4px;
+}
+
+.msgShadow {
+    /*box-shadow: 0px 0px 6px 4px rgba(0, 0, 0, 0.05);*/
+    box-shadow: -10px 0 10px rgba(0, 0, 0, 0.05), /*左边阴影*/
+    10px 0 10px rgba(0, 0, 0, 0.05),/*右边阴影*/
+    0 -6px 6px rgba(0, 0, 0, 0.05) inset; /*顶部阴影*/
+}
+
+.msgShadowSame {
+    margin-top: 1.2px;
+    box-shadow: -10px 0 10px rgba(0, 0, 0, 0.05), /*左边阴影*/
+    10px 0 10px rgba(0, 0, 0, 0.05),/*右边阴影*/
+    0 6px 6px #fff inset; /*顶部阴影*/
+}
+
+.msgItem {
+    /*margin-bottom: 12px;*/
+    /*border: 1px solid #ccc;*/
+    /*padding: 5px;*/
+    background-color: #fff;
+    font-family: inherit;
+    .clearfix();
+
+    .userCard {
+        padding: 20px;
+
+        .userAvatar {
+            float: left;
+            .square(120px);
+            border-radius: 12px;
+            margin-right: 13px;
+            overflow: hidden;
+
+            img {
+                width: 100%;
+                height: 100%;
+            }
+        }
+
+        .userName {
+            float: left;
+            height: 120px;
+            position: relative;
+            width: 70%;
+        }
+
+        .msg-timestamp-content {
+            padding-top: 40px;
+            position: absolute;
+            bottom: 0;
+        }
+
+        .clearfix();
+    }
+
+    .msgTail {
+        clear: both;
+        padding: 6px 0 0;
+
+        &, a {
+            color: #D2D2D2;
+        }
+    }
+
+    .msgContainer {
+        width: 100%;
+        display: inline-block;
+        .clearfix();
+
+        pre {
+            width: 100%;
+            margin: 0;
+            white-space: pre-line;
+            word-break: break-all;
+            font-family: "Helvetica Neue", Helvetica, 'Hiragino Sans GB', 'Microsoft YaHei', arial, sans-serif;
+        }
+    }
+
+    .msgContent {
+        width: 100%;
+        line-height: 1.6;
+        display: inline-block;
+        font-size: 14px;
+        word-break: break-all;
+        border-radius: @messageBorderRadius;
+        border: 1px solid @bubbleBorderColor;
+        /*max-width: 640px;*/
+        //box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.2);
+        a {
+            color: @msgLinkColor;
+
+            &:hover {
+                text-decoration: underline;
+            }
+
+            &.convertLink {
+                display: block;
+            }
+        }
+
+        img[class^="emotion-"] {
+            margin: 0 2px;
+            vertical-align: bottom;
+        }
+
+        .emotion-default {
+            width: 24px;
+            height: 24px;
+        }
+
+        .btnDownload {
+            color: @msgLinkColor;
+
+            &:not(:hover) {
+                color: #C4C4C4 !important;
+            }
+        }
+    }
+
+    .msgWrapper {
+        width: 100%;
+        position: relative;
+
+        &::after {
+            content: '';
+            display: block;
+            width: 16px;
+            height: 16px;
+            border-style: solid;
+            border-width: 0 1px 1px 0;
+            border-color: transparent @bubbleBorderColor @bubbleBorderColor transparent;
+            //&:extend(.bubbleShadow);
+            position: absolute;
+            top: 28px;
+        }
+
+        .messageError {
+            display: none;
+            float: left;
+            color: #ec4e1e;
+            font-size: 20px;
+            margin-top: 10px;
+            margin-right: 5px;
+        }
+
+        .msgDate {
+            color: @msgDateColor;
+        }
+    }
+
+    &.text {
+        .msgContent {
+            padding: 8px 13px;
+        }
+    }
+    //接受到的消息
+    &.you {
+        .msgWrapper {
+            float: left;
+
+            &::after {
+                left: 2px;
+                transform: rotate(135deg);
+                background: @receiveColorBg;
+            }
+        }
+
+        .msgContent {
+            //float: left;
+            background: @receiveColorBg;
+            color: @receiveColor;
+        }
+    }
+    //  自己发送的
+    &.me {
+        .userAvatar, .msgContainer {
+            float: right;
+        }
+
+        .msgTail, .msgUserName, .msgDate {
+            text-align: right;
+        }
+
+        .msgWrapper {
+            float: right;
+
+            &::after {
+                right: 2px;
+                transform: rotate(-45deg);
+                background: @sendColorBg;
+            }
+        }
+
+        .msgContent {
+            background: @sendColorBg;
+            color: @sendColor;
+        }
+    }
+
+    &.error {
+        .messageError {
+            display: block;
+        }
+    }
+}
+
+.msg-timestamp {
+    /*text-align: center;*/
+    margin-bottom: 10px;
+    margin-top: 10px;
+
+    .msg-timestamp-content {
+        display: inline-block;
+        font-size: 24px;
+        color: #bbb;
+        padding: 0 10px;
+        line-height: 150%;
+    }
+}
+
+.sessionWin.group {
+    .msgTail {
+    }
+
+    .msgItem {
+        &.response {
+            margin-left: 0;
+        }
+    }
+}
