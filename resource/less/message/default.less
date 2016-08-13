@@ -5,38 +5,34 @@
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
 }
 
-.msgList {
-    border-radius: 4px;
+.msgYouList {
+    margin-top: 30px;
+    margin-bottom: 30px;
+    border-radius: @messageBorderRadius;
+}
+
+.coverShadow {
+    border-radius: 20px 20px 12px 12px;
+    box-shadow: 0px 0px 4px 4px rgba(0, 0, 0, 0.08);
 }
 
 .msgShadow {
-    /*box-shadow: 0px 0px 6px 4px rgba(0, 0, 0, 0.05);*/
-    box-shadow: -10px 0 10px rgba(0, 0, 0, 0.05), /*左边阴影*/
-    10px 0 10px rgba(0, 0, 0, 0.05),/*右边阴影*/
-    0 -6px 6px rgba(0, 0, 0, 0.05) inset; /*顶部阴影*/
+    margin-top: -4px;
+    box-shadow: 0px 0px 4px 4px rgba(0, 0, 0, 0.08);
+    border-radius: 12px 12px 12px 12px;
 }
 
-.msgShadowSame {
-    margin-top: 1.2px;
-    box-shadow: -10px 0 10px rgba(0, 0, 0, 0.05), /*左边阴影*/
-    10px 0 10px rgba(0, 0, 0, 0.05),/*右边阴影*/
-    0 6px 6px #fff inset; /*顶部阴影*/
-}
-
-.msgItem {
-    /*margin-bottom: 12px;*/
-    /*border: 1px solid #ccc;*/
-    /*padding: 5px;*/
+.msgMeItem {
     background-color: #fff;
     font-family: inherit;
     .clearfix();
 
     .userCard {
-        padding: 20px;
+        padding: 30px;
 
         .userAvatar {
             float: left;
-            .square(120px);
+            .square(130px);
             border-radius: 12px;
             margin-right: 13px;
             overflow: hidden;
@@ -49,9 +45,10 @@
 
         .userName {
             float: left;
-            height: 120px;
+            height: 130px;
             position: relative;
             width: 70%;
+            font-size: 32px;
         }
 
         .msg-timestamp-content {
@@ -76,6 +73,7 @@
         width: 100%;
         display: inline-block;
         .clearfix();
+        padding-top: 20px;
 
         pre {
             width: 100%;
@@ -158,7 +156,18 @@
         }
     }
 
+    .msgImg {
+        width: 100%;
+        height: auto;
+        border-radius: 0 0 12px 12px;
+        margin-bottom: -10px;
+    }
+
     &.text {
+        .msgContainer {
+            padding-top: 10px;
+        }
+
         .msgContent {
             padding: 8px 13px;
         }
@@ -176,7 +185,7 @@
         }
 
         .msgContent {
-            //float: left;
+            float: left;
             background: @receiveColorBg;
             color: @receiveColor;
         }
@@ -212,20 +221,219 @@
             display: block;
         }
     }
+
+    &.pic, &.text {
+        .msgWrapper {
+            &::after {
+                display: none;
+            }
+        }
+    }
+}
+
+.msgYouItem {
+    font-family: inherit;
+    .clearfix();
+
+    .userCard {
+        padding: 20px;
+
+        .userAvatar {
+            float: right;
+            .square(90px);
+            border-radius: 8px;
+            overflow: hidden;
+
+            img {
+                width: 100%;
+                height: 100%;
+            }
+        }
+
+        .userName {
+            float: right;
+            position: relative;
+            width: 85%;
+            text-align: right;
+            margin-right: 10px;
+            margin-top:-2px;
+        }
+
+        .msg-timestamp-content {
+            padding-top: 40px;
+            position: absolute;
+            bottom: 0;
+        }
+
+        .clearfix();
+    }
+
+    .msgTail {
+        clear: both;
+        padding: 6px 0 0;
+
+        &, a {
+            color: #D2D2D2;
+        }
+    }
+
+    .msgContainer {
+        width: 100%;
+        display: inline-block;
+        padding-right: 10px;
+        padding-top: 5px;
+        .clearfix();
+
+        pre {
+            width: 100%;
+            margin: 0;
+            white-space: pre-line;
+            word-break: break-all;
+            font-family: "Helvetica Neue", Helvetica, 'Hiragino Sans GB', 'Microsoft YaHei', arial, sans-serif;
+        }
+    }
+
+    .msgContent {
+        display: inline-block;
+        word-break: break-all;
+        border-radius: @messageBorderRadius;
+        border: 2px solid @msgYouBorderColor;
+        padding: 5px;
+        text-align: left;
+        a {
+            color: @msgLinkColor;
+
+            &:hover {
+                text-decoration: underline;
+            }
+
+            &.convertLink {
+                display: block;
+            }
+        }
+
+        img[class^="emotion-"] {
+            margin: 0 2px;
+            vertical-align: bottom;
+        }
+
+        .emotion-default {
+            width: 24px;
+            height: 24px;
+        }
+
+        .btnDownload {
+            color: @msgLinkColor;
+
+            &:not(:hover) {
+                color: #C4C4C4 !important;
+            }
+        }
+    }
+
+    .msgWrapper {
+        width: 100%;
+        position: relative;
+
+        &::after {
+            content: '';
+            display: block;
+            width: 10px;
+            height: 10px;
+            border-style: solid;
+            border-width: 0 2px 2px 0;
+            border-color: transparent @msgYouBorderColor @msgYouBorderColor transparent;
+            //&:extend(.bubbleShadow);
+            position: absolute;
+            top: 15px;
+        }
+
+        .messageError {
+            display: none;
+            float: left;
+            color: #ec4e1e;
+            font-size: 20px;
+            margin-top: 10px;
+            margin-right: 5px;
+        }
+
+        .msgDate {
+            color: @msgDateColor;
+        }
+    }
+
+    .msgImg {
+        width: 100%;
+        height: auto;
+        border-radius: 0 0 12px 12px;
+        margin-bottom: -10px;
+    }
+
+    &.text {
+        .msgContent {
+            padding: 8px 13px;
+        }
+    }
+
+    &.you {
+        .msgWrapper {
+            float: left;
+
+            &::after {
+                left: 2px;
+                transform: rotate(135deg);
+                background: @bodyColor;
+            }
+        }
+
+        .msgContent {
+            background: @bodyColor;
+            color: @receiveColor;
+        }
+    }
+
+    &.me {
+        .userAvatar, .msgContainer {
+            float: right;
+        }
+
+        .msgTail, .msgUserName, .msgDate {
+            text-align: right;
+        }
+
+        .msgWrapper {
+            float: right;
+
+            &::after {
+                right: -6px;
+                transform: rotate(-45deg);
+                background: @bodyColor;
+            }
+        }
+
+        .msgContent {
+            /*background: @sendColorBg;*/
+            color: @sendColor;
+        }
+    }
+
+    &.error {
+        .messageError {
+            display: block;
+        }
+    }
 }
 
 .msg-timestamp {
-    /*text-align: center;*/
-    margin-bottom: 10px;
-    margin-top: 10px;
-
-    .msg-timestamp-content {
+    padding-top: 24px;
+    padding-left: 20px;
+    /*.msg-timestamp-content {
         display: inline-block;
-        font-size: 24px;
+        font-size: 26px;
         color: #bbb;
-        padding: 0 10px;
+        padding: 6px 0px 3px 20px;
         line-height: 150%;
-    }
+    }*/
 }
 
 .sessionWin.group {

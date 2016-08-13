@@ -307,23 +307,23 @@
         if (dateTime - today >= 0) {
             milliseconds = now - dateTime;
             if (milliseconds < 1000 && milliseconds < 60000) {
-                timeSpanStr = md_lang.myfeed_updates_time_justnow;
+                timeSpanStr = '刚刚';
             } else if (milliseconds > 1000 && milliseconds < 60000) {
-                timeSpanStr = Math.floor(milliseconds / 1000) + md_lang.myfeed_updates_time_second;
+                timeSpanStr = Math.floor(milliseconds / 1000) + '秒前';
             } else if (milliseconds > 60000 && milliseconds < 3600000) {
-                timeSpanStr = Math.floor(milliseconds / 60000) + md_lang.myfeed_updates_time_minute;
+                timeSpanStr = Math.floor(milliseconds / 60000) + '分钟前';
             } else {
-                timeSpanStr = md_lang.date_text_2 + " " + hour + ":" + minute;
+                timeSpanStr = '今天' + " " + hour + ":" + minute;
             }
         }
         else {
             milliseconds = today - dateTime;
             if (milliseconds < 86400000) {
-                timeSpanStr = md_lang.WB130 + " " + hour + ":" + minute;
+                timeSpanStr = '昨天' + " " + hour + ":" + minute;
             } else if (milliseconds > 86400000 && year == today.getFullYear()) {
-                timeSpanStr = (month + 1) + md_lang.C004 + day + md_lang.C005 + " " + hour + ":" + minute;
+                timeSpanStr = (month + 1) + '月' + day + '日' + " " + hour + ":" + minute;
             } else {
-                timeSpanStr = year + md_lang.C003 + (month + 1) + md_lang.C004 + day + md_lang.C005 + " " + hour + ":" + minute;
+                timeSpanStr = year + '年' + (month + 1) + '月' + day + '日' + " " + hour + ":" + minute;
             }
         }
         return timeSpanStr;
@@ -374,11 +374,54 @@
         } else {
             milliseconds = today - dateTime;
             if (milliseconds < 86400000) {
-                timeSpanStr = md_lang.WB130 + " " + hour + ":" + minute;
+                timeSpanStr = '昨天' + " " + hour + ":" + minute;
             } else if (milliseconds > 86400000 && year == today.getFullYear()) {
-                timeSpanStr = (month + 1) + md_lang.C004 + day + md_lang.C005;
+                timeSpanStr = (month + 1) + '月' + day + '日';
             } else {
-                timeSpanStr = year + md_lang.C003 + (month + 1) + md_lang.C004 + day + md_lang.C005;
+                timeSpanStr = year + '年' + (month + 1) + '月' + day + '日';
+            }
+        }
+        return timeSpanStr;
+    };
+
+    /**
+     * 格式化消息的发送时间，以便精简显示
+     * @param dateStr
+     * @returns {*}
+     */
+    Tool.formatMsgTime = function (timespan) {
+
+        var dateTime = new Date(timespan);
+
+        var year = dateTime.getFullYear();
+        var month = dateTime.getMonth() + 1;
+        var day = dateTime.getDate();
+        var hour = dateTime.getHours();
+        var minute = dateTime.getMinutes();
+        var second = dateTime.getSeconds();
+
+        var now = new Date();
+
+        var today = new Date();
+        today.setFullYear(now.getFullYear());
+        today.setMonth(now.getMonth());
+        today.setDate(now.getDate());
+        today.setHours(0);
+        today.setMinutes(0);
+        today.setSeconds(0);
+
+        var milliseconds = 0;
+        var timeSpanStr;
+        if (dateTime - today >= 0) {
+            timeSpanStr = hour + ":" + minute;
+        } else {
+            milliseconds = today - dateTime;
+            if (milliseconds < 86400000) {
+                timeSpanStr = '昨天' + " " + hour + ":" + minute;
+            } else if (milliseconds > 86400000 && year == today.getFullYear()) {
+                timeSpanStr = (month + 1) + '-' + day + ' ' + hour + ':' + minute;
+            } else {
+                timeSpanStr = year + '-' + (month + 1) + '-' + day + ' ' + hour + ':' + minute;
             }
         }
         return timeSpanStr;

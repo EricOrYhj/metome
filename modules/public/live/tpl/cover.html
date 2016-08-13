@@ -1,0 +1,24 @@
+﻿<div class="msgItem msgMeItem you msgCard  Relative coverShadow {{=it.class}}" data-time="{{=it.createTime}}" style="z-index:{{=it.zindex}}">
+    <div class="userCard">
+        <div class="userAvatar">
+            <img data-uid="{{= it.uid}}" src="{{= it.avatar}}" alt="name">
+        </div>
+        <div class="userName">
+            <div class="pTop2">
+                {{= it.uname}}
+            </div>
+            <div class="msg-timestamp-content">
+                {{= it.time}}
+            </div>
+        </div>
+    </div>
+    <div class="pLeft20">
+        {{= it.title}}
+    </div>
+    <div class="msgContainer">
+        <div class="msgWrapper">
+            <img class="msgImg" style="margin-bottom:-20px" data-original="{{=it.file.original}}" data-src="{{=it.file.original}}"
+                 src="{{=it.file.placeholder}}" alt="pic" />
+        </div>
+    </div>
+</div>

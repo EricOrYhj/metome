@@ -1,11 +1,22 @@
-﻿<!DOCTYPE html>
-<html>
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-    <title></title>
-	<meta charset="utf-8" />
-</head>
-<body>
-
-</body>
-</html>
+﻿<div class="msgYouItem me msgCard" data-time="{{=it.time}}">
+    <div class="userCard">
+        <div class="userAvatar">
+            <img data-uid="{{=it.uid}}" src="{{=it.avatar}}" alt="name">
+        </div>
+        <div class="userName">
+            <div class="Font26 Gray_c">
+                {{=it.uname}}
+            </div>
+            <div class="msgContainer">
+                <div class="msgWrapper" style="max-width:90%;">
+                    <i class="icon-task-folder-message messageError"></i>
+                    <div class="msgContent">
+                        <div class="msgCard">
+                            {{=it.content}}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

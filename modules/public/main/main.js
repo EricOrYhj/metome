@@ -1,6 +1,7 @@
 define(function (require, exports, module) {
 
     require('../live/live');
+    require('../common/constant');
 
     var main = {};
 

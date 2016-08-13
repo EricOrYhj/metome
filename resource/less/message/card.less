@@ -4,155 +4,206 @@
 @cardIconHeight: 56px;
 //==========================
 //        卡片消息
-.msgItem.msgCard {
-  border-radius: @messageBorderRadius;
-  .msgWrapper {
-    &:hover .msgContent {
-      box-shadow: 0 2px 8px 0 rgba(0, 0, 0, 0.25);
+.msgMeItem.msgCard {
+    /*border-radius: @messageBorderRadius;*/
+
+    .msgWrapper {
+        &:hover .msgContent {
+            box-shadow: 0 2px 8px 0 rgba(0, 0, 0, 0.25);
+        }
+
+        &::after {
+            background: #fff !important;
+        }
     }
-    &::after {
-      background: #fff !important;
+
+    .msgContent {
+        transition: all .3s;
+        border-radius: @cardBorderRadius;
+
+        .msgCard {
+            background: #ffffff;
+            border-radius: @cardBorderRadius;
+
+            .msgTitle {
+                color: #000;
+                padding: 11px;
+                font-size: 12px;
+                line-height: 100%;
+            }
+        }
+
+        .cardBody {
+            padding: 10px;
+            border-radius: @cardBorderRadius;
+            transition: box-shadow .3s;
+            cursor: pointer;
+            position: relative;
+        }
     }
-  }
-  .msgContent {
-    transition: all .3s;
+}
+
+.msgYouItem.msgCard {
     border-radius: @messageBorderRadius;
-    .msgCard {
-      background: #ffffff;
-      border-radius: @messageBorderRadius;
-      .msgTitle {
-        color: #000;
-        padding: 11px;
-        font-size: 12px;
-        line-height: 100%;
-      }
+
+    .msgWrapper {
+        &:hover .msgContent {
+            box-shadow: 0 2px 8px 0 rgba(0, 0, 0, 0.25);
+        }
+
+        &::after {
+            background: @bodyColor;
+        }
     }
-    .cardBody {
-      padding: 10px;
-      border-radius: @messageBorderRadius;
-      transition: box-shadow .3s;
-      cursor: pointer;
-      position: relative;
+
+    .msgContent {
+        transition: all .3s;
+        border-radius: @cardBorderRadius;
+
+        .msgCard {
+            /*background: #ffffff;*/
+            border-radius: @cardBorderRadius;
+
+            .msgTitle {
+                color: #000;
+                padding: 11px;
+                font-size: 12px;
+                line-height: 100%;
+            }
+        }
+
+        .cardBody {
+            padding: 10px;
+            border-radius: @cardBorderRadius;
+            transition: box-shadow .3s;
+            cursor: pointer;
+            position: relative;
+        }
     }
-  }
-  //&.you {
-  //  .msgCard {
-  //    background: @receiveColorBg;
-  //  }
-  //}
-  //&.me {
-  //  .msgCard {
-  //    background: @sendColorBg;
-  //  }
-  //}
 }
 
 .msgCard {
-  .cardIcon {
-    float: left;
-    position: relative;
-    width: @cardIconHeight;
-    height: @cardIconHeight;
-    background-color: #06c;
-    line-height: @cardIconHeight;
-    text-align: center;
-    color: #FFF;
-    font-size: 24px;
-    i {
-      color: #FFF;
-    }
-    > img {
-      width: 100%;
-    }
-    .calendarIconInnerText {
-      position: absolute;
-      top: 4px;
-      left: 0;
-      color: #000;
-      font-size: 14px;
-      width: 100%;
-      font-weight: normal;
-      text-align: center;
-    }
-  }
+    .cardIcon {
+        float: left;
+        position: relative;
+        width: @cardIconHeight;
+        height: @cardIconHeight;
+        background-color: #06c;
+        line-height: @cardIconHeight;
+        text-align: center;
+        color: #FFF;
+        font-size: 24px;
 
-  .cardContent {
-    margin-left: @cardIconHeight;
-    min-height: @cardIconHeight;
-    padding: 1px 1px 17px 12px;
-    font-size: 13px;
-    line-height: 130%;
-    color: #000;
-  }
-
-  .cardMetadata {
-    padding: 14px 0 0;
-    height: 30px;
-    font-size: 13px;
-    position: absolute;
-    bottom: 9px;
-    left: 78px;
-    > span {
-      margin-right: 6px;
-      color: #bcbcbc;
-      &::before {
-        font-size: 18px;
-        margin-right: 6px;
-      }
-    }
-    [class="icon-post-reply"] {
-      &::before {
-        font-size: 13px;
-        vertical-align: 1px;
-        display: inline-block;
-      }
-    }
-    [class="icon-task-news-list"] {
-      &::before {
-        font-size: 17px;
-        margin-right: 5px;
-      }
-    }
-  }
-
-  .cardContent {
-    word-break: break-all;
-    p {
-      margin: 0;
-    }
-    [card-title] {
-      font-size: 14px;
-      color: #333;
-      line-height: 20px;
-      margin-top: -2px;
-      span {
-        word-break: break-all;
-      }
-      a {
-        text-decoration: none;
-        &:hover {
-          text-decoration: underline;
+        i {
+            color: #FFF;
         }
-      }
+
+        > img {
+            width: 100%;
+        }
+
+        .calendarIconInnerText {
+            position: absolute;
+            top: 4px;
+            left: 0;
+            color: #000;
+            font-size: 14px;
+            width: 100%;
+            font-weight: normal;
+            text-align: center;
+        }
     }
-    [card-title-calendar] {
-      font-size: 14px;
-      margin-top: -2px;
-      color: #3e3e3e;
-      line-height: 20px;
+
+    .cardContent {
+        margin-left: @cardIconHeight;
+        min-height: @cardIconHeight;
+        padding: 1px 1px 17px 12px;
+        font-size: 13px;
+        line-height: 130%;
+        color: #000;
     }
-  }
-  .cardMetadata {
-    [card-vote-statusinvalid] {
-      display: none;
-      color: #f44336;
+
+    .cardMetadata {
+        padding: 14px 0 0;
+        height: 30px;
+        font-size: 13px;
+        position: absolute;
+        bottom: 9px;
+        left: 78px;
+
+        > span {
+            margin-right: 6px;
+            color: #bcbcbc;
+
+            &::before {
+                font-size: 18px;
+                margin-right: 6px;
+            }
+        }
+
+        [class="icon-post-reply"] {
+            &::before {
+                font-size: 13px;
+                vertical-align: 1px;
+                display: inline-block;
+            }
+        }
+
+        [class="icon-task-news-list"] {
+            &::before {
+                font-size: 17px;
+                margin-right: 5px;
+            }
+        }
     }
-    [card-vote-statusvalid] {
-      display: none;
-      color: #4caf50;
+
+    .cardContent {
+        word-break: break-all;
+
+        p {
+            margin: 0;
+        }
+
+        [card-title] {
+            font-size: 14px;
+            color: #333;
+            line-height: 20px;
+            margin-top: -2px;
+
+            span {
+                word-break: break-all;
+            }
+
+            a {
+                text-decoration: none;
+
+                &:hover {
+                    text-decoration: underline;
+                }
+            }
+        }
+
+        [card-title-calendar] {
+            font-size: 14px;
+            margin-top: -2px;
+            color: #3e3e3e;
+            line-height: 20px;
+        }
     }
-    [card-post-commentcount], [card-vote-votenumber], [card-vote-commentcount], [card-task-sublist] {
-      display: none;
+
+    .cardMetadata {
+        [card-vote-statusinvalid] {
+            display: none;
+            color: #f44336;
+        }
+
+        [card-vote-statusvalid] {
+            display: none;
+            color: #4caf50;
+        }
+
+        [card-post-commentcount], [card-vote-votenumber], [card-vote-commentcount], [card-task-sublist] {
+            display: none;
+        }
     }
-  }
 }

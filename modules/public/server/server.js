@@ -2,24 +2,43 @@
     var apiUrl = "http://114.215.196.92:8080";
 
     var api = {
-        liveTimeline: apiUrl + '/api/live/liveTimeline'
+        liveCover: apiUrl + '/api/live/liveCover',
+        liveTimeline: apiUrl + '/api/live/liveTimeline',
     };
 
     var Server = {
         GetLiveTimeLine: function (topicId, sinceId, callback) {
+            var security = { "appId": "100201", "currentTime": "1471077216791", "nonce": "043eb17ae3eb4bc09407e63b3bb10a12", "sign": "aa35ad90185ba7760a9a9bd2b587610af385a761" };
+
             var params = {
-                topicId: '20053',
-                sinceId: '0',
                 uid: '295',
-                token: '76cfdad8ebe94ef9abe6b1e0fa3695e3'
+                token: '76cfdad8ebe94ef9abe6b1e0fa3695e3',
+                appId: '110202',
+                security: JSON.stringify(security),
+                topicId: '28',
+                sinceId: '0',
             }
 
-            callback(returnData.data.liveElements);
+            //callback(returnData.data.liveElements);
 
             JsonPost(api.liveTimeline, params, callback);
         },
-        GetLiveCover: function () {
 
+        GetLiveCover: function (topicId, callback) {
+            var security = { "appId": "100201", "currentTime": "1471077216791", "nonce": "043eb17ae3eb4bc09407e63b3bb10a12", "sign": "aa35ad90185ba7760a9a9bd2b587610af385a761" };
+
+            var params = {
+                uid: '295',
+                token: '76cfdad8ebe94ef9abe6b1e0fa3695e3',
+                appId: '110202',
+                security: JSON.stringify(security),
+                topicId: '28',
+                sinceId: '0',
+            }
+
+            //callback(returnData.data.liveElements);
+
+            JsonPost(api.liveCover, params, callback);
         }
     };
 
@@ -64,6 +83,7 @@
                 callback(result);
             },
             error: function (msg) {
+                console.log(msg);
             }
         });
     };
