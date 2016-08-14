@@ -33,7 +33,7 @@ var less = require('gulp-less');
 gulp.task('less', function () {
     gulp.src('resource/less/main.less')
         .pipe(less())
-        .pipe(gulp.dest('src/css'));
+        .pipe(gulp.dest('resource/less'));
 });
 
 gulp.task('watch', function () {
