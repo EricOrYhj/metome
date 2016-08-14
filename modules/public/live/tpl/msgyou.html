@@ -1,10 +1,10 @@
-﻿<div class="msgYouItem me msgCard" data-time="{{=it.time}}">
+﻿<div class="msgYouItem me msgCard" data-time="{{=it.ctime}}">
     <div class="userCard">
         <div class="userAvatar">
-            <img data-uid="{{=it.uid}}" src="{{=it.avatar}}" alt="name">
+            <img class="scrollLoading" data-uid="{{= it.uid}}" src="{{= it.placeholder}}" data-url="{{=it.avatar}}" alt="name">
         </div>
         <div class="userName">
-            <div class="Font26 Gray_c">
+            <div class="Font12 Gray_c">
                 {{=it.uname}}
             </div>
             <div class="msgContainer">

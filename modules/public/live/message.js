@@ -29,6 +29,7 @@
                 time: Tool.formatMsgTime(data.createTime),
                 uid: data.uid,
                 avatar: data.avatar + Config.AVATAR_100,
+                placeholder: Config.avatarImgPath,
                 uname: data.nickName,
                 me: me,
                 same: same,
@@ -72,6 +73,44 @@
             messages.push(message)
         }
 
+        var audio = {
+            ctime: 1462157542000,
+            time: Tool.formatMsgTime(1462157542000),
+            uid: 301,
+            avatar: "http://cdn.me-to-me.com/FpXdLCD5Nhos0NbWPaLHcegzAiMe?imageView2/1/w/100/h/100/q/90",
+            uname: "sman",
+            me: true,
+            same: true,
+            mid: 841,
+            ustatus: 1,
+            class:"audio msgCard",
+            type:4,
+            file:{
+                original: "https://dn-mdmedia.qbox.me/fe288386-3d26-4eab-b5d2-51eeab82a7f9/2015/12/09/2015-12-09-12-26-54-832.mp3"
+            }
+        }
+
+        var video = {
+            ctime: 1462157542000,
+            time: Tool.formatMsgTime(1462157542000),
+            uid: 301,
+            avatar: "http://cdn.me-to-me.com/FpXdLCD5Nhos0NbWPaLHcegzAiMe?imageView2/1/w/100/h/100/q/90",
+            uname: "sman",
+            me: true,
+            same: true,
+            mid: 841,
+            ustatus: 1,
+            class: "video msgCard",
+            type: 5,
+            file: {
+                original: "http://www.kaltura.com/p/243342/sp/24334200/playManifest/entryId/0_c0r624gh/flavorId/0_w48dtkyq/format/url/protocol/http/a.mp4"
+            }
+        }
+
+        messages.push(audio);
+
+        messages.push(video);
+
         console.log(messages);
 
         return messages;
@@ -83,6 +122,7 @@
             time: Tool.formatMsgTime(data.createTime),
             uid: data.uid,
             avatar: data.avatar + Config.AVATAR_100,
+            placeholder: Config.avatarImgPath,
             uname: data.nickName,
             type: Constant.MSGTYPE_PIC,
             class: "pic msgCard",
@@ -90,7 +130,7 @@
                 original: data.coverImage,
                 placeholder: Config.placeholderImgPath
             },
-            title:data.title,
+            title: data.title,
             zindex: 10001,
         };
 

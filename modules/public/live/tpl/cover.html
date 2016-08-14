@@ -1,23 +1,23 @@
-﻿<div class="msgItem msgMeItem you msgCard  Relative coverShadow {{=it.class}}" data-time="{{=it.createTime}}" style="z-index:{{=it.zindex}}">
+﻿<div class="msgItem msgMeItem you msgCard  Relative coverShadow {{=it.class}}" data-time="{{=it.ctime}}" style="z-index:{{=it.zindex}}">
     <div class="userCard">
         <div class="userAvatar">
-            <img data-uid="{{= it.uid}}" src="{{= it.avatar}}" alt="name">
+            <img class="" data-uid="{{= it.uid}}" src="{{= it.placeholder}}" alt="name" data-original="{{=it.avatar}}" data-src="{{=it.avatar}}">
         </div>
         <div class="userName">
             <div class="pTop2">
                 {{= it.uname}}
             </div>
-            <div class="msg-timestamp-content">
+            <div class="msg-timestamp-content Gray_9">
                 {{= it.time}}
             </div>
         </div>
     </div>
-    <div class="pLeft20">
+    <div class="pLeft10 Font18 pTop2 pBottom10">
         {{= it.title}}
     </div>
     <div class="msgContainer">
         <div class="msgWrapper">
-            <img class="msgImg" style="margin-bottom:-20px" data-original="{{=it.file.original}}" data-src="{{=it.file.original}}"
+            <img class="msgImg" style="margin-bottom:-10px;" data-original="{{=it.file.original}}" data-src="{{=it.file.original}}"
                  src="{{=it.file.placeholder}}" alt="pic" />
         </div>
     </div>

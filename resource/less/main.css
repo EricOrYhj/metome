@@ -887,10 +887,19 @@ textarea {
   transform: scale(0.5);
   display: inline-block;
 }
+.font9 {
+  font-size: 16px;
+  transform: scale(0.5);
+  display: inline-block;
+}
 .font10 {
   font-size: 20px;
   transform: scale(0.5);
   display: inline-block;
+}
+.Font10 {
+  font-size: 6px;
+  -webkit-text-size-adjust: none;
 }
 .Font12 {
   font-size: 12px !important;
@@ -1016,13 +1025,14 @@ textarea {
   max-width: 90% !important;
 }
 body {
-  font-size: 32px;
-  color: #182338;
+  font-size: 12px;
+  color: #213b55;
   background-color: #f5f6fa;
 }
 .App {
-  width: 97%;
-  margin: 30px auto;
+  width: 99.6%;
+  margin: 10px auto;
+  max-width: 640px;
 }
 .App audio,
 .App canvas,
@@ -1169,23 +1179,6 @@ body {
   border: none;
   cursor: pointer;
 }
-.bubbleShadow {
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
-}
-.msgYouList {
-  margin-top: 30px;
-  margin-bottom: 30px;
-  border-radius: 20px;
-}
-.coverShadow {
-  border-radius: 20px 20px 12px 12px;
-  box-shadow: 0px 0px 4px 4px rgba(0, 0, 0, 0.08);
-}
-.msgShadow {
-  margin-top: -4px;
-  box-shadow: 0px 0px 4px 4px rgba(0, 0, 0, 0.08);
-  border-radius: 12px 12px 12px 12px;
-}
 .msgMeItem {
   background-color: #fff;
   font-family: inherit;
@@ -1199,14 +1192,14 @@ body {
   clear: both;
 }
 .msgMeItem .userCard {
-  padding: 30px;
+  padding: 10px;
 }
 .msgMeItem .userCard .userAvatar {
   float: left;
-  width: 130px;
-  height: 130px;
-  border-radius: 12px;
-  margin-right: 13px;
+  width: 45px;
+  height: 45px;
+  border-radius: 4px;
+  margin-right: 10px;
   overflow: hidden;
 }
 .msgMeItem .userCard .userAvatar img {
@@ -1215,10 +1208,9 @@ body {
 }
 .msgMeItem .userCard .userName {
   float: left;
-  height: 130px;
+  height: 45px;
   position: relative;
   width: 70%;
-  font-size: 32px;
 }
 .msgMeItem .userCard .msg-timestamp-content {
   padding-top: 40px;
@@ -1244,7 +1236,7 @@ body {
 .msgMeItem .msgContainer {
   width: 100%;
   display: inline-block;
-  padding-top: 20px;
+  padding-top: 6px;
 }
 .msgMeItem .msgContainer:before,
 .msgMeItem .msgContainer:after {
@@ -1263,13 +1255,13 @@ body {
 }
 .msgMeItem .msgContent {
   width: 100%;
-  line-height: 1.6;
+  line-height: 1;
+  height: 40px;
   display: inline-block;
   font-size: 14px;
   word-break: break-all;
-  border-radius: 20px;
+  border-radius: 4px;
   border: 1px solid #ccc;
-  /*max-width: 640px;*/
 }
 .msgMeItem .msgContent a {
   color: #007ddb;
@@ -1301,13 +1293,13 @@ body {
 .msgMeItem .msgWrapper::after {
   content: '';
   display: block;
-  width: 16px;
-  height: 16px;
+  width: 10px;
+  height: 10px;
   border-style: solid;
   border-width: 0 1px 1px 0;
   border-color: transparent #ccc #ccc transparent;
   position: absolute;
-  top: 28px;
+  top: 25px;
 }
 .msgMeItem .msgWrapper .messageError {
   display: none;
@@ -1323,11 +1315,12 @@ body {
 .msgMeItem .msgImg {
   width: 100%;
   height: auto;
-  border-radius: 0 0 12px 12px;
-  margin-bottom: -10px;
+  border-radius: 0 0 4px 4px;
+  margin-bottom: -5px;
+  box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.04);
 }
 .msgMeItem.text .msgContainer {
-  padding-top: 10px;
+  padding-top: 4px;
 }
 .msgMeItem.text .msgContent {
   padding: 8px 13px;
@@ -1336,7 +1329,7 @@ body {
   float: left;
 }
 .msgMeItem.you .msgWrapper::after {
-  left: 2px;
+  left: 5px;
   transform: rotate(135deg);
   background: #fff;
 }
@@ -1385,13 +1378,21 @@ body {
   clear: both;
 }
 .msgYouItem .userCard {
-  padding: 20px;
+  padding-bottom: 8px;
+}
+.msgYouItem .userCard:before,
+.msgYouItem .userCard:after {
+  content: " ";
+  display: table;
+}
+.msgYouItem .userCard:after {
+  clear: both;
 }
 .msgYouItem .userCard .userAvatar {
   float: right;
-  width: 90px;
-  height: 90px;
-  border-radius: 8px;
+  width: 35px;
+  height: 35px;
+  border-radius: 4px;
   overflow: hidden;
 }
 .msgYouItem .userCard .userAvatar img {
@@ -1401,10 +1402,10 @@ body {
 .msgYouItem .userCard .userName {
   float: right;
   position: relative;
-  width: 85%;
+  width: 80%;
   text-align: right;
-  margin-right: 10px;
   margin-top: -2px;
+  padding-right: 6px;
 }
 .msgYouItem .userCard .msg-timestamp-content {
   padding-top: 40px;
@@ -1430,16 +1431,8 @@ body {
 .msgYouItem .msgContainer {
   width: 100%;
   display: inline-block;
-  padding-right: 10px;
-  padding-top: 5px;
-}
-.msgYouItem .msgContainer:before,
-.msgYouItem .msgContainer:after {
-  content: " ";
-  display: table;
-}
-.msgYouItem .msgContainer:after {
-  clear: both;
+  padding-right: 5px;
+  padding-top: 1px;
 }
 .msgYouItem .msgContainer pre {
   width: 100%;
@@ -1451,10 +1444,11 @@ body {
 .msgYouItem .msgContent {
   display: inline-block;
   word-break: break-all;
-  border-radius: 20px;
-  border: 2px solid #aeaeb6;
-  padding: 5px;
+  border-radius: 2px;
+  border: 1px solid #aeaeb6;
+  padding: 2px;
   text-align: left;
+  font-size: 14px;
 }
 .msgYouItem .msgContent a {
   color: #007ddb;
@@ -1486,13 +1480,13 @@ body {
 .msgYouItem .msgWrapper::after {
   content: '';
   display: block;
-  width: 10px;
-  height: 10px;
+  width: 4px;
+  height: 4px;
   border-style: solid;
-  border-width: 0 2px 2px 0;
+  border-width: 0 1px 1px 0;
   border-color: transparent #aeaeb6 #aeaeb6 transparent;
   position: absolute;
-  top: 15px;
+  top: 8px;
 }
 .msgYouItem .msgWrapper .messageError {
   display: none;
@@ -1539,7 +1533,7 @@ body {
   float: right;
 }
 .msgYouItem.me .msgWrapper::after {
-  right: -6px;
+  right: -2px;
   transform: rotate(-45deg);
   background: #f5f6fa;
 }
@@ -1551,21 +1545,26 @@ body {
   display: block;
 }
 .msg-timestamp {
-  padding-top: 24px;
-  padding-left: 20px;
-  /*.msg-timestamp-content {
-        display: inline-block;
-        font-size: 26px;
-        color: #bbb;
-        padding: 6px 0px 3px 20px;
-        line-height: 150%;
-    }*/
+  padding-top: 12px;
+  padding-left: 10px;
 }
-.sessionWin.group .msgItem.response {
-  margin-left: 0;
+.msgYouList {
+  padding: 10px 10px 0 0;
+  margin-top: 15px;
+  margin-bottom: 15px;
+  border-radius: 4px;
+}
+.coverShadow {
+  border-radius: 4px 4px 4px 4px;
+  box-shadow: 0px 0px 2px 2px rgba(0, 0, 0, 0.04);
+}
+.msgShadow {
+  margin-top: -4px;
+  box-shadow: 0px 0px 2px 2px rgba(0, 0, 0, 0.04);
+  border-radius: 4px 4px 4px 4px;
 }
 .msgItem.pic.msgCard .msgContainer {
-  border-radius: 20px;
+  border-radius: 4px;
 }
 .msgItem.pic.msgCard .msgContainer .msgWrapper::after {
   display: none;
@@ -1574,15 +1573,15 @@ body {
   overflow: hidden;
   font-size: 0;
   z-index: 2;
-  border-radius: 20px;
+  border-radius: 4px;
 }
 .msgItem.pic.msgCard .msgContainer .msgWrapper .msgContent .msgCard {
-  border-radius: 20px;
+  border-radius: 4px;
 }
 .msgItem.pic.msgCard .msgContainer .msgWrapper .msgContent .msgCard .cardBody {
   text-align: center;
   padding: 0;
-  border-radius: 20px;
+  border-radius: 4px;
 }
 .msgItem.pic.msgCard .msgContainer .msgWrapper .msgContent img {
   font-size: 0;
@@ -1595,7 +1594,7 @@ body {
   font-family: inherit;
 }
 .msgItem.emotion img {
-  border-radius: 20px;
+  border-radius: 4px;
   display: block;
 }
 .msgItem.emotion .msgContent {
@@ -1606,85 +1605,17 @@ body {
 .msgItem.emotion .msgWrapper::after {
   display: none;
 }
-.msgItem.file .msgContainer .msgWrapper .msgContent .fileIcon {
-  display: inline-block;
-}
-.msgItem.file .msgContainer .msgWrapper .msgContent .fileIcon i {
-  color: #b0b7bd;
-  font-size: 42px;
-  vertical-align: middle;
-}
-.msgItem.file .msgContainer .msgWrapper .msgContent .fileInfo {
-  display: inline-block;
-  vertical-align: middle;
-  margin-left: 10px;
-  font-size: 12px;
-  width: 190px;
-  color: #C4C4C4;
-}
-.msgItem.file .msgContainer .msgWrapper .msgContent .fileInfo .fileName {
-  color: #333;
-  font-size: 14px;
-  overflow: hidden;
-  -o-text-overflow: ellipsis;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-}
-.msgItem.file .msgContainer .msgWrapper .msgContent .fileInfo .fileSize {
-  font-style: normal;
-}
-.msgItem.file .msgContainer .msgWrapper .msgContent .fileInfo .btnDownload {
-  color: inherit;
-  margin-left: 10px;
-  text-decoration: none;
-}
-.msgItem.file .msgContainer .msgWrapper .msgContent .fileInfo .progress {
-  display: inline-block;
-  width: 100%;
-  height: 4px;
-  margin-top: 4px;
-  background: #d6d6d6;
-}
-.msgItem.file .msgContainer .msgWrapper .msgContent .fileInfo .progress .progressBar {
-  background: #3db155;
-  height: 100%;
-  width: 0;
-  vertical-align: middle;
-}
-.msgItem.file .msgContainer .msgWrapper .msgContent .fileInfo .uploadRate {
-  margin-left: 15px;
-}
-.msgItem.file .msgContainer .msgWrapper .msgContent .fileInfo .errorTip {
-  color: #e94218;
-}
-.msgItem.file .msgContainer .msgWrapper .msgContent .fileAction {
-  display: inline-block;
-  vertical-align: middle;
-  margin-left: 10px;
-}
-.msgItem.file .msgContainer .msgWrapper .msgContent .fileAction .btn {
-  padding-left: 5px;
-  padding-right: 6px;
-  color: rgba(48, 53, 58, 0.43);
-}
-.msgItem.file.request .msgContainer .msgWrapper .msgContent {
-  border-color: #000;
-  color: #333;
-}
-.msgItem.file.request .msgContainer .msgWrapper .msgContent a {
-  color: #007ddb;
-}
 .msgItem.audio .audioIcon {
   display: inline-block;
   width: 18px;
   height: 18px;
-  margin-top: 2px;
+  margin-top: -3px;
   background-size: 18px;
-  background-image: url("../images/audio/audio_start.png");
+  background-image: url("../images/audio_start.png");
 }
 @media only screen and (-webkit-min-device-pixel-ratio: 2), only screen and (min--moz-device-pixel-ratio: 2), only screen and (-o-min-device-pixel-ratio: 2/1), only screen and (min-device-pixel-ratio: 2), only screen and (min-resolution: 192dpi), only screen and (min-resolution: 2dppx) {
   .msgItem.audio .audioIcon {
-    background-image: url("../images/audio/audio_start.png");
+    background-image: url("../images/audio_start.png");
     background-size: 18px 18px;
   }
 }
@@ -1697,285 +1628,11 @@ body {
   padding: 14px 10px;
 }
 .msgItem.audio.audioPlaying .audioIcon {
-  background-image: url("~images/audio/audio_playing.gif");
+  background-image: url("../images/audio_playing.gif");
 }
 @media only screen and (-webkit-min-device-pixel-ratio: 2), only screen and (min--moz-device-pixel-ratio: 2), only screen and (-o-min-device-pixel-ratio: 2/1), only screen and (min-device-pixel-ratio: 2), only screen and (min-resolution: 192dpi), only screen and (min-resolution: 2dppx) {
   .msgItem.audio.audioPlaying .audioIcon {
-    background-image: url("~images/audio/audio_playing.gif");
+    background-image: url("../images/audio_playing.gif");
     background-size: 18px 18px;
   }
-}
-.notification {
-  text-align: center;
-  margin: 0 18%;
-}
-.notification .notifyWrapper {
-  position: relative;
-  display: inline-block;
-  margin: 10px 20px;
-}
-.notification .notifyWrapper .notificationIcon {
-  position: absolute;
-  width: 30px;
-  text-align: center;
-  left: 0;
-  top: 0;
-  line-height: 1;
-  color: #bbb;
-  font-size: 16px;
-}
-.notification .notifyWrapper .notifyContent {
-  font-size: 12px;
-  color: #bbb;
-  text-align: left;
-  padding-left: 30px;
-  padding-right: 5px;
-}
-.notification .notifyWrapper .notifyContent p {
-  margin-top: 0;
-  margin-bottom: 10px;
-}
-.notification .msgDate {
-  margin-bottom: 20px;
-}
-.notification.notificationDate {
-  font-size: 12px;
-}
-.notification.notificationDate .notifyWrapper {
-  padding: 3px 10px;
-  background: #f1f1f1;
-  color: #999;
-}
-.notification.error .notifyWrapper .notificationIcon i {
-  color: rgba(233, 66, 24, 0.5);
-}
-.floatMsg {
-  position: absolute;
-  background: #007ddb;
-  background: rgba(0, 136, 255, 0.8);
-  height: 40px;
-  line-height: 40px;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  color: #FFF;
-  padding: 0 10px;
-  cursor: pointer;
-  overflow: hidden;
-  -o-text-overflow: ellipsis;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-}
-.floatMsg .userAvatar {
-  vertical-align: middle;
-  margin-right: 10px;
-  width: 24px;
-  height: 24px;
-}
-.floatMsg .floatMsgContent img {
-  vertical-align: middle;
-}
-.msgPanel {
-  position: absolute;
-  top: 50px;
-  left: 0;
-  right: 0;
-  bottom: 150px;
-}
-.msgPanel .hasMore {
-  display: block;
-  width: 100px;
-  text-align: center;
-  margin: 15px auto;
-  color: #007ddb;
-  cursor: pointer;
-}
-.msgPanel .noMoreTip {
-  text-align: center;
-  color: #999;
-  margin-bottom: 20px;
-}
-.msgPanel .noMoreTip[disabled="disabled"] {
-  cursor: default;
-}
-.msgPanel .msgSeparator {
-  margin: 30px 0;
-  text-align: center;
-}
-.msgPanel .msgSeparator .separatorWrapper {
-  display: inline-block;
-  width: 190px;
-}
-.msgPanel .msgSeparator .separatorWrapper hr {
-  margin-top: 0;
-  margin-bottom: -9px;
-  border: 0;
-  border-top: solid 1px #BBB;
-}
-.msgPanel .msgSeparator .separatorWrapper .text {
-  display: inline-block;
-  color: #BBB;
-  padding: 0 10px;
-  background: #FFF;
-}
-.msgMeItem.msgCard {
-  /*border-radius: @messageBorderRadius;*/
-}
-.msgMeItem.msgCard .msgWrapper:hover .msgContent {
-  box-shadow: 0 2px 8px 0 rgba(0, 0, 0, 0.25);
-}
-.msgMeItem.msgCard .msgWrapper::after {
-  background: #fff !important;
-}
-.msgMeItem.msgCard .msgContent {
-  transition: all .3s;
-  border-radius: 6px;
-}
-.msgMeItem.msgCard .msgContent .msgCard {
-  background: #ffffff;
-  border-radius: 6px;
-}
-.msgMeItem.msgCard .msgContent .msgCard .msgTitle {
-  color: #000;
-  padding: 11px;
-  font-size: 12px;
-  line-height: 100%;
-}
-.msgMeItem.msgCard .msgContent .cardBody {
-  padding: 10px;
-  border-radius: 6px;
-  transition: box-shadow 0.3s;
-  cursor: pointer;
-  position: relative;
-}
-.msgYouItem.msgCard {
-  border-radius: 20px;
-}
-.msgYouItem.msgCard .msgWrapper:hover .msgContent {
-  box-shadow: 0 2px 8px 0 rgba(0, 0, 0, 0.25);
-}
-.msgYouItem.msgCard .msgWrapper::after {
-  background: #f5f6fa;
-}
-.msgYouItem.msgCard .msgContent {
-  transition: all .3s;
-  border-radius: 6px;
-}
-.msgYouItem.msgCard .msgContent .msgCard {
-  /*background: #ffffff;*/
-  border-radius: 6px;
-}
-.msgYouItem.msgCard .msgContent .msgCard .msgTitle {
-  color: #000;
-  padding: 11px;
-  font-size: 12px;
-  line-height: 100%;
-}
-.msgYouItem.msgCard .msgContent .cardBody {
-  padding: 10px;
-  border-radius: 6px;
-  transition: box-shadow 0.3s;
-  cursor: pointer;
-  position: relative;
-}
-.msgCard .cardIcon {
-  float: left;
-  position: relative;
-  width: 56px;
-  height: 56px;
-  background-color: #06c;
-  line-height: 56px;
-  text-align: center;
-  color: #FFF;
-  font-size: 24px;
-}
-.msgCard .cardIcon i {
-  color: #FFF;
-}
-.msgCard .cardIcon > img {
-  width: 100%;
-}
-.msgCard .cardIcon .calendarIconInnerText {
-  position: absolute;
-  top: 4px;
-  left: 0;
-  color: #000;
-  font-size: 14px;
-  width: 100%;
-  font-weight: normal;
-  text-align: center;
-}
-.msgCard .cardContent {
-  margin-left: 56px;
-  min-height: 56px;
-  padding: 1px 1px 17px 12px;
-  font-size: 13px;
-  line-height: 130%;
-  color: #000;
-}
-.msgCard .cardMetadata {
-  padding: 14px 0 0;
-  height: 30px;
-  font-size: 13px;
-  position: absolute;
-  bottom: 9px;
-  left: 78px;
-}
-.msgCard .cardMetadata > span {
-  margin-right: 6px;
-  color: #bcbcbc;
-}
-.msgCard .cardMetadata > span::before {
-  font-size: 18px;
-  margin-right: 6px;
-}
-.msgCard .cardMetadata [class="icon-post-reply"]::before {
-  font-size: 13px;
-  vertical-align: 1px;
-  display: inline-block;
-}
-.msgCard .cardMetadata [class="icon-task-news-list"]::before {
-  font-size: 17px;
-  margin-right: 5px;
-}
-.msgCard .cardContent {
-  word-break: break-all;
-}
-.msgCard .cardContent p {
-  margin: 0;
-}
-.msgCard .cardContent [card-title] {
-  font-size: 14px;
-  color: #333;
-  line-height: 20px;
-  margin-top: -2px;
-}
-.msgCard .cardContent [card-title] span {
-  word-break: break-all;
-}
-.msgCard .cardContent [card-title] a {
-  text-decoration: none;
-}
-.msgCard .cardContent [card-title] a:hover {
-  text-decoration: underline;
-}
-.msgCard .cardContent [card-title-calendar] {
-  font-size: 14px;
-  margin-top: -2px;
-  color: #3e3e3e;
-  line-height: 20px;
-}
-.msgCard .cardMetadata [card-vote-statusinvalid] {
-  display: none;
-  color: #f44336;
-}
-.msgCard .cardMetadata [card-vote-statusvalid] {
-  display: none;
-  color: #4caf50;
-}
-.msgCard .cardMetadata [card-post-commentcount],
-.msgCard .cardMetadata [card-vote-votenumber],
-.msgCard .cardMetadata [card-vote-commentcount],
-.msgCard .cardMetadata [card-task-sublist] {
-  display: none;
 }

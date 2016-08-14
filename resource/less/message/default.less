@@ -1,40 +1,19 @@
 @import "../variables";
 @import "../mixins";
 
-.bubbleShadow {
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
-}
-
-.msgYouList {
-    margin-top: 30px;
-    margin-bottom: 30px;
-    border-radius: @messageBorderRadius;
-}
-
-.coverShadow {
-    border-radius: 20px 20px 12px 12px;
-    box-shadow: 0px 0px 4px 4px rgba(0, 0, 0, 0.08);
-}
-
-.msgShadow {
-    margin-top: -4px;
-    box-shadow: 0px 0px 4px 4px rgba(0, 0, 0, 0.08);
-    border-radius: 12px 12px 12px 12px;
-}
-
 .msgMeItem {
     background-color: #fff;
     font-family: inherit;
     .clearfix();
 
     .userCard {
-        padding: 30px;
+        padding: 10px;
 
         .userAvatar {
             float: left;
-            .square(130px);
-            border-radius: 12px;
-            margin-right: 13px;
+            .square(@userMeAvatar);
+            border-radius: @messageBorderRadius;
+            margin-right: 10px;
             overflow: hidden;
 
             img {
@@ -45,10 +24,9 @@
 
         .userName {
             float: left;
-            height: 130px;
+            height: @userMeAvatar;
             position: relative;
             width: 70%;
-            font-size: 32px;
         }
 
         .msg-timestamp-content {
@@ -73,7 +51,7 @@
         width: 100%;
         display: inline-block;
         .clearfix();
-        padding-top: 20px;
+        padding-top: 6px;
 
         pre {
             width: 100%;
@@ -86,14 +64,14 @@
 
     .msgContent {
         width: 100%;
-        line-height: 1.6;
+        line-height: 1;
+        height:40px;
         display: inline-block;
         font-size: 14px;
         word-break: break-all;
         border-radius: @messageBorderRadius;
         border: 1px solid @bubbleBorderColor;
-        /*max-width: 640px;*/
-        //box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.2);
+
         a {
             color: @msgLinkColor;
 
@@ -132,14 +110,13 @@
         &::after {
             content: '';
             display: block;
-            width: 16px;
-            height: 16px;
+            width: 10px;
+            height: 10px;
             border-style: solid;
             border-width: 0 1px 1px 0;
             border-color: transparent @bubbleBorderColor @bubbleBorderColor transparent;
-            //&:extend(.bubbleShadow);
             position: absolute;
-            top: 28px;
+            top: 25px;
         }
 
         .messageError {
@@ -159,13 +136,14 @@
     .msgImg {
         width: 100%;
         height: auto;
-        border-radius: 0 0 12px 12px;
-        margin-bottom: -10px;
+        border-radius: 0 0 4px 4px;
+        margin-bottom: -5px;
+        box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.04);
     }
 
     &.text {
         .msgContainer {
-            padding-top: 10px;
+            padding-top: 4px;
         }
 
         .msgContent {
@@ -178,7 +156,7 @@
             float: left;
 
             &::after {
-                left: 2px;
+                left: 5px;
                 transform: rotate(135deg);
                 background: @receiveColorBg;
             }
@@ -236,12 +214,13 @@
     .clearfix();
 
     .userCard {
-        padding: 20px;
+        padding-bottom: 8px;
+        .clearfix();
 
         .userAvatar {
             float: right;
-            .square(90px);
-            border-radius: 8px;
+            .square(35px);
+            border-radius: @messageBorderRadius;
             overflow: hidden;
 
             img {
@@ -253,10 +232,10 @@
         .userName {
             float: right;
             position: relative;
-            width: 85%;
+            width: 80%;
             text-align: right;
-            margin-right: 10px;
-            margin-top:-2px;
+            margin-top: -2px;
+            padding-right:6px;
         }
 
         .msg-timestamp-content {
@@ -280,9 +259,8 @@
     .msgContainer {
         width: 100%;
         display: inline-block;
-        padding-right: 10px;
-        padding-top: 5px;
-        .clearfix();
+        padding-right: 5px;
+        padding-top:1px;
 
         pre {
             width: 100%;
@@ -296,10 +274,12 @@
     .msgContent {
         display: inline-block;
         word-break: break-all;
-        border-radius: @messageBorderRadius;
-        border: 2px solid @msgYouBorderColor;
-        padding: 5px;
+        border-radius: 2px;
+        border: 1px solid @msgYouBorderColor;
+        padding: 2px;
         text-align: left;
+        font-size:14px;
+
         a {
             color: @msgLinkColor;
 
@@ -338,14 +318,13 @@
         &::after {
             content: '';
             display: block;
-            width: 10px;
-            height: 10px;
+            width: 4px;
+            height: 4px;
             border-style: solid;
-            border-width: 0 2px 2px 0;
+            border-width: 0 1px 1px 0;
             border-color: transparent @msgYouBorderColor @msgYouBorderColor transparent;
-            //&:extend(.bubbleShadow);
             position: absolute;
-            top: 15px;
+            top: 8px;
         }
 
         .messageError {
@@ -405,7 +384,7 @@
             float: right;
 
             &::after {
-                right: -6px;
+                right: -2px;
                 transform: rotate(-45deg);
                 background: @bodyColor;
             }
@@ -425,24 +404,24 @@
 }
 
 .msg-timestamp {
-    padding-top: 24px;
-    padding-left: 20px;
-    /*.msg-timestamp-content {
-        display: inline-block;
-        font-size: 26px;
-        color: #bbb;
-        padding: 6px 0px 3px 20px;
-        line-height: 150%;
-    }*/
+    padding-top: 12px;
+    padding-left: 10px;
 }
 
-.sessionWin.group {
-    .msgTail {
-    }
+.msgYouList {
+    padding: 10px 10px 0 0;
+    margin-top: 15px;
+    margin-bottom: 15px;
+    border-radius: @messageBorderRadius;
+}
 
-    .msgItem {
-        &.response {
-            margin-left: 0;
-        }
-    }
+.coverShadow {
+    border-radius: 4px 4px 4px 4px;
+    box-shadow: 0px 0px 2px 2px rgba(0, 0, 0, 0.04);
+}
+
+.msgShadow {
+    margin-top: -4px;
+    box-shadow: 0px 0px 2px 2px rgba(0, 0, 0, 0.04);
+    border-radius: 4px 4px 4px 4px;
 }

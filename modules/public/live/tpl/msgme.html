@@ -1,27 +1,27 @@
-﻿<div class="msgItem msgMeItem you msgCard  Relative msgShadow {{=it.class}}" data-time="{{=it.createTime}}" style="z-index:{{=it.zindex}}">
+﻿<div class="msgItem msgMeItem you msgCard  Relative msgShadow {{=it.class}}" data-time="{{=it.ctime}}" style="z-index:{{=it.zindex}}">
     {{? !it.same}}
     <div class="userCard">
         <div class="userAvatar">
-            <img data-uid="{{= it.uid}}" src="{{= it.avatar}}" alt="name">
+            <img class="scrollLoading" data-uid="{{= it.uid}}" src="{{= it.placeholder}}" data-url="{{=it.avatar}}" alt="name">
         </div>
         <div class="userName">
-            <div class="pTop2">
+            <div>
                 {{= it.uname}}
             </div>
-            <div class="msg-timestamp-content">
+            <div class="msg-timestamp-content Gray_9">
                 {{= it.time}}
             </div>
         </div>
     </div>
     {{??}}
-    <div class="msg-timestamp-content msg-timestamp Gray_c">
+    <div class="msg-timestamp-content msg-timestamp Gray_9">
         {{= it.time}}
     </div>
     {{?}}
 
     <div class="msgContainer">
         {{? it.type== 1}}
-        <div class="pBottom20 pLeft20 Font34">
+        <div class="pBottom10 pLeft10 Font16">
             {{=it.content}}
         </div>
         {{?? it.type== 2}}
@@ -39,12 +39,15 @@
             </div>
         </div>
         {{?? it.type==5}}
-        <div class="msgCard">
-            <div class="cardBody">
-                <i class="audioIcon"></i>
-                <span class="audioInfo" data-audio="{{=it.file.original}}">3"</span>
-            </div>
-        </div>
+        <video id="video_{{=it.videoid}}" class="video-js vjs-default-skin vjs-big-play-centered" controls
+               preload="auto" width="{{=it.width}}" height="264" poster="really-cool-video-poster.jpg"
+               data-setup='{}'>
+            <source src="{{=it.file.original}}" type='video/mp4' />
+            <p class="vjs-no-js">
+                To view this video please enable JavaScript, and consider upgrading to a web browser that
+                <a href="http://videojs.com/html5-video-support/" target="_blank">supports HTML5 video</a>
+            </p>
+        </video>
         {{?}}
     </div>
 </div>

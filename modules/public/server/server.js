@@ -15,8 +15,8 @@
                 token: '76cfdad8ebe94ef9abe6b1e0fa3695e3',
                 appId: '110202',
                 security: JSON.stringify(security),
-                topicId: '28',
-                sinceId: '0',
+                topicId: topicId,
+                sinceId: sinceId,
             }
 
             //callback(returnData.data.liveElements);
@@ -32,7 +32,7 @@
                 token: '76cfdad8ebe94ef9abe6b1e0fa3695e3',
                 appId: '110202',
                 security: JSON.stringify(security),
-                topicId: '28',
+                topicId: topicId,
                 sinceId: '0',
             }
 
