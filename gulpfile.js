@@ -1,6 +1,3 @@
-/**
- * Created by zxw on 2016/8/11.
- */
 var gulp =require("gulp"),
     gutil=require("gulp-util"),
     rename = require('gulp-rename'),
