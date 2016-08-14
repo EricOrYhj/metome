@@ -126,7 +126,6 @@
 
             });
 
-            //Tool.lazyload($AppChat);
             $(".scrollLoading").scrollLoading();
 
             $App.on("click", ".msgItem.audio", Live.PlayAudio);
@@ -134,9 +133,6 @@
 
         Live.options.loading = false;
     };
-
-    Live.GetLiveCover();
-    Live.GetLiveTimeLine();
 
     Live.PlayAudio = function () {
         var $this = $(this);

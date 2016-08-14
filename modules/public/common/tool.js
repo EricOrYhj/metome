@@ -1,63 +1,5 @@
 ﻿define(function (require) {
     var Tool = {};
-    /**
-     * 格式化显示日期格式
-     * @param date
-     * @returns {string}
-     */
-    Tool.formatDate = function (date) {
-        var now = typeof date === "undefined" ? new Date() : new Date(date);
-        var year = now.getFullYear();
-        var month = now.getMonth() + 1;
-        var day = now.getDate();
-        var hour = now.getHours();
-        var minute = now.getMinutes();
-
-        if (month < 10) month = "0" + month;
-        if (minute < 10) minute = "0" + minute;
-        var date = year + "-" + month + "-" + day + " " + hour + ":" + minute;
-
-        return date;
-    };
-    /**
-     * 格式化文件大小，像8MB20KB这样的显示格式
-     * @param size
-     * @returns {string}
-     */
-    Tool.formatFileSize = function (size) {
-        var byteSize = Math.round(size / 1024 * 100) / 100;
-        var suffix = 'K';
-        if (byteSize > 1024) {
-            byteSize = Math.round(byteSize / 1024 * 100) / 100;
-            suffix = 'M';
-        } else {
-            byteSize = Number(byteSize).toFixed(0);
-        }
-
-        return byteSize + suffix;
-    };
-
-    /**
-     * 格式化音频文件的长度，如�:20'20"
-     * @param audioLength
-     * @returns {string}
-     */
-    Tool.formatAudioLength = function (audioLength) {
-
-        if (audioLength < 0) audioLength = 0;
-
-        var audioLen = "",
-          temp;
-
-        temp = Math.floor(audioLength / (60 * 60));
-        audioLen = temp != 0 ? temp + ":" : "";//�
-        temp = Math.floor(audioLength % (60 * 60) / 60);
-        audioLen += (temp != 0) ? temp + "':" : "";//�
-        audioLen += Math.floor(audioLength % 60) + '"';//�
-
-        return audioLen;
-    };
-
 
     /**
      * 获取文件拓展名
@@ -85,67 +27,6 @@
 
         return false;
     };
-    /**
-     * 得到文件相应的class
-     * @param fileExtends
-     * @returns {*}
-     */
-    Tool.getFileClass = function (fileExtends) {
-
-        fileExtends = fileExtends.toLowerCase();
-
-        var fileClass = 'iconFileDefault',//默认不支持的icon
-
-          fileClassJson = {
-              //图片
-              "jpg": "iconFilePic",
-              "gif": "iconFilePic",
-              "png": "iconFilePic",
-              "tif": "iconFilePic",
-              "bmp": "iconFilePic",
-              //MS 文件
-              "ppt": "iconFilePPT",
-              "pptx": "iconFilePPT",
-              "doc": "iconFileWord",
-              "docx": "iconFileWord",
-              "xls": "iconFileExcel",
-              "xlsx": "iconFileExcel",
-              //压缩文件
-              "zip": "iconFileZIP",
-              "rar": "iconFileRAR",
-              "pdf": "iconFilePDF",
-              "txt": "iconFileDefault",
-              "vsd": "iconFileVSD",
-              "mmap": "iconFileMMAP"
-          };
-
-        for (var key in fileClassJson) {
-            if (key === fileExtends) {
-                fileClass = fileClassJson[key];
-                break;
-            }
-        }
-        return fileClass;
-    };
-
-    /**
-     * 链接转化,将字符串中的链接转化为成a 标签
-     * @param str
-     * @returns {*|XML|string|void}
-     */
-    Tool.toLink = function (str) {
-        // url前面加一个空格
-        str = str.replace(/(http|https|ftp):\/\//ig, ' $1://');
-        var urlReg = /((http|https|ftp):\/\/|w{1,3}\.)[^\s\|<\|\u4E00-\u9FA5]+/ig;
-        // var urlReg = /((http|https|ftp):\/\/|www)[^\s\|<\|\u4E00-\u9FA5]*[^(http|https|ftp:\/\/)]/ig;
-        return str.replace(urlReg, function (m) {
-            var _href = m;
-            if (m.match(/^w{1,3}/)) {
-                _href = 'http://' + m;
-            }
-            return '<a class="convertLink" target="_blank" href="' + _href + '">' + m + '</a>';
-        });
-    };
 
     /**
      * 标签转化
@@ -171,18 +52,6 @@
             length++;
         }
         return length;
-    };
-
-    /**
-     * CSS3 animation 执行完的事件的名称
-     * @returns {*}
-     */
-    Tool.getAnimEndEventName = function () {
-        return 'webkitAnimationEnd oAnimationEnd MSAnimationEnd animationend';
-    };
-
-    Tool.getTransEndEventName = function () {
-        return 'webkitTransitionEnd oTransitionEnd otransitionend transitionend';
     };
 
     /**
@@ -330,7 +199,7 @@
     };
 
     /**
-     * 格式化消息的发送时间，以便精简显示
+     * 格式化消息时间
      * @param dateStr
      * @returns {*}
      */
@@ -385,7 +254,7 @@
     };
 
     /**
-     * 格式化消息的发送时间，以便精简显示
+     * 格式化消息时间
      * @param dateStr
      * @returns {*}
      */
@@ -436,11 +305,6 @@
 
         return url + querystring;
     };
-
-    Tool.getFeedUrlById = function (id) {
-        return '/feeddetail?itemID=' + id;
-    };
-
 
     Tool.EventWorker = function () {
         var o = $({});

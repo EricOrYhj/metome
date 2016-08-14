@@ -38,34 +38,18 @@
         .clearfix();
     }
 
-    .msgTail {
-        clear: both;
-        padding: 6px 0 0;
-
-        &, a {
-            color: #D2D2D2;
-        }
-    }
-
     .msgContainer {
         width: 100%;
         display: inline-block;
-        .clearfix();
         padding-top: 6px;
 
-        pre {
-            width: 100%;
-            margin: 0;
-            white-space: pre-line;
-            word-break: break-all;
-            font-family: "Helvetica Neue", Helvetica, 'Hiragino Sans GB', 'Microsoft YaHei', arial, sans-serif;
-        }
+        .clearfix();
     }
 
     .msgContent {
         width: 100%;
         line-height: 1;
-        height:40px;
+        height: 40px;
         display: inline-block;
         font-size: 14px;
         word-break: break-all;
@@ -119,15 +103,6 @@
             top: 25px;
         }
 
-        .messageError {
-            display: none;
-            float: left;
-            color: #ec4e1e;
-            font-size: 20px;
-            margin-top: 10px;
-            margin-right: 5px;
-        }
-
         .msgDate {
             color: @msgDateColor;
         }
@@ -139,6 +114,24 @@
         border-radius: 0 0 4px 4px;
         margin-bottom: -5px;
         box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.04);
+    }
+
+    &.audio {
+        .audioTime{
+            top:14px;
+            left:40px;
+            color:@audioColor;
+        }
+
+        .msgContent {
+            border: 1px solid @audioColor;
+        }
+
+        .msgWrapper {
+            &::after {
+                border-color: transparent @audioColor @audioColor transparent;
+            }
+        }
     }
 
     &.text {
@@ -174,10 +167,6 @@
             float: right;
         }
 
-        .msgTail, .msgUserName, .msgDate {
-            text-align: right;
-        }
-
         .msgWrapper {
             float: right;
 
@@ -191,12 +180,6 @@
         .msgContent {
             background: @sendColorBg;
             color: @sendColor;
-        }
-    }
-
-    &.error {
-        .messageError {
-            display: block;
         }
     }
 
@@ -235,7 +218,7 @@
             width: 80%;
             text-align: right;
             margin-top: -2px;
-            padding-right:6px;
+            padding-right: 6px;
         }
 
         .msg-timestamp-content {
@@ -247,28 +230,11 @@
         .clearfix();
     }
 
-    .msgTail {
-        clear: both;
-        padding: 6px 0 0;
-
-        &, a {
-            color: #D2D2D2;
-        }
-    }
-
     .msgContainer {
         width: 100%;
         display: inline-block;
         padding-right: 5px;
-        padding-top:1px;
-
-        pre {
-            width: 100%;
-            margin: 0;
-            white-space: pre-line;
-            word-break: break-all;
-            font-family: "Helvetica Neue", Helvetica, 'Hiragino Sans GB', 'Microsoft YaHei', arial, sans-serif;
-        }
+        padding-top: 1px;
     }
 
     .msgContent {
@@ -278,7 +244,7 @@
         border: 1px solid @msgYouBorderColor;
         padding: 2px;
         text-align: left;
-        font-size:14px;
+        font-size: 14px;
 
         a {
             color: @msgLinkColor;
@@ -327,15 +293,6 @@
             top: 8px;
         }
 
-        .messageError {
-            display: none;
-            float: left;
-            color: #ec4e1e;
-            font-size: 20px;
-            margin-top: 10px;
-            margin-right: 5px;
-        }
-
         .msgDate {
             color: @msgDateColor;
         }
@@ -376,10 +333,6 @@
             float: right;
         }
 
-        .msgTail, .msgUserName, .msgDate {
-            text-align: right;
-        }
-
         .msgWrapper {
             float: right;
 
@@ -391,14 +344,7 @@
         }
 
         .msgContent {
-            /*background: @sendColorBg;*/
             color: @sendColor;
-        }
-    }
-
-    &.error {
-        .messageError {
-            display: block;
         }
     }
 }

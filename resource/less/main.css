@@ -1225,14 +1225,6 @@ body {
 .msgMeItem .userCard:after {
   clear: both;
 }
-.msgMeItem .msgTail {
-  clear: both;
-  padding: 6px 0 0;
-}
-.msgMeItem .msgTail,
-.msgMeItem .msgTail a {
-  color: #D2D2D2;
-}
 .msgMeItem .msgContainer {
   width: 100%;
   display: inline-block;
@@ -1245,13 +1237,6 @@ body {
 }
 .msgMeItem .msgContainer:after {
   clear: both;
-}
-.msgMeItem .msgContainer pre {
-  width: 100%;
-  margin: 0;
-  white-space: pre-line;
-  word-break: break-all;
-  font-family: "Helvetica Neue", Helvetica, 'Hiragino Sans GB', 'Microsoft YaHei', arial, sans-serif;
 }
 .msgMeItem .msgContent {
   width: 100%;
@@ -1301,14 +1286,6 @@ body {
   position: absolute;
   top: 25px;
 }
-.msgMeItem .msgWrapper .messageError {
-  display: none;
-  float: left;
-  color: #ec4e1e;
-  font-size: 20px;
-  margin-top: 10px;
-  margin-right: 5px;
-}
 .msgMeItem .msgWrapper .msgDate {
   color: #bbb;
 }
@@ -1318,6 +1295,17 @@ body {
   border-radius: 0 0 4px 4px;
   margin-bottom: -5px;
   box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.04);
+}
+.msgMeItem.audio .audioTime {
+  top: 14px;
+  left: 40px;
+  color: #e78002;
+}
+.msgMeItem.audio .msgContent {
+  border: 1px solid #e78002;
+}
+.msgMeItem.audio .msgWrapper::after {
+  border-color: transparent #e78002 #e78002 transparent;
 }
 .msgMeItem.text .msgContainer {
   padding-top: 4px;
@@ -1342,11 +1330,6 @@ body {
 .msgMeItem.me .msgContainer {
   float: right;
 }
-.msgMeItem.me .msgTail,
-.msgMeItem.me .msgUserName,
-.msgMeItem.me .msgDate {
-  text-align: right;
-}
 .msgMeItem.me .msgWrapper {
   float: right;
 }
@@ -1358,9 +1341,6 @@ body {
 .msgMeItem.me .msgContent {
   background: #f3f3f3;
   color: #000;
-}
-.msgMeItem.error .messageError {
-  display: block;
 }
 .msgMeItem.pic .msgWrapper::after,
 .msgMeItem.text .msgWrapper::after {
@@ -1420,26 +1400,11 @@ body {
 .msgYouItem .userCard:after {
   clear: both;
 }
-.msgYouItem .msgTail {
-  clear: both;
-  padding: 6px 0 0;
-}
-.msgYouItem .msgTail,
-.msgYouItem .msgTail a {
-  color: #D2D2D2;
-}
 .msgYouItem .msgContainer {
   width: 100%;
   display: inline-block;
   padding-right: 5px;
   padding-top: 1px;
-}
-.msgYouItem .msgContainer pre {
-  width: 100%;
-  margin: 0;
-  white-space: pre-line;
-  word-break: break-all;
-  font-family: "Helvetica Neue", Helvetica, 'Hiragino Sans GB', 'Microsoft YaHei', arial, sans-serif;
 }
 .msgYouItem .msgContent {
   display: inline-block;
@@ -1488,14 +1453,6 @@ body {
   position: absolute;
   top: 8px;
 }
-.msgYouItem .msgWrapper .messageError {
-  display: none;
-  float: left;
-  color: #ec4e1e;
-  font-size: 20px;
-  margin-top: 10px;
-  margin-right: 5px;
-}
 .msgYouItem .msgWrapper .msgDate {
   color: #bbb;
 }
@@ -1524,11 +1481,6 @@ body {
 .msgYouItem.me .msgContainer {
   float: right;
 }
-.msgYouItem.me .msgTail,
-.msgYouItem.me .msgUserName,
-.msgYouItem.me .msgDate {
-  text-align: right;
-}
 .msgYouItem.me .msgWrapper {
   float: right;
 }
@@ -1538,11 +1490,7 @@ body {
   background: #f5f6fa;
 }
 .msgYouItem.me .msgContent {
-  /*background: @sendColorBg;*/
   color: #000;
-}
-.msgYouItem.error .messageError {
-  display: block;
 }
 .msg-timestamp {
   padding-top: 12px;
