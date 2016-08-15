@@ -6,9 +6,11 @@ seajs.config({
       window.JSON ? '' : 'json',
     ],
     alias: {
+        'main': 'modules/public/main/main',
         /* common*/
         'util': 'modules/common/util.js',
         /* uicontrol*/
+        'emotion': 'modules/uicontrol/emotion/emotion',
         'twemoji': 'modules/uicontrol/twemoji/twemoji',
         'dot': 'modules/uicontrol/doT/doT.js'
     },

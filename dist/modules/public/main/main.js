@@ -1,1 +1,1 @@
-define(function(e,i,n){var t=e("../live/live"),v={};v.Init=function(){t.GetLiveCover(),t.GetLiveTimeLine()},n.exports=v});
+define(function(o,e,i){o("emotion");var t=o("../live/live"),n=o("../common/tool"),r={};r.Init=function(){return t.options.topicId=n.getURLQuery("topicId"),t.options.topicId?(t.GetLiveCover(),void t.GetLiveTimeLine()):(alert("û��ֱ����"),!1)},i.exports=r});

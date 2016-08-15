@@ -1257,14 +1257,6 @@ body {
 .msgMeItem .msgContent a.convertLink {
   display: block;
 }
-.msgMeItem .msgContent img[class^="emotion-"] {
-  margin: 0 2px;
-  vertical-align: bottom;
-}
-.msgMeItem .msgContent .emotion-default {
-  width: 24px;
-  height: 24px;
-}
 .msgMeItem .msgContent .btnDownload {
   color: #007ddb;
 }
@@ -1424,14 +1416,6 @@ body {
 .msgYouItem .msgContent a.convertLink {
   display: block;
 }
-.msgYouItem .msgContent img[class^="emotion-"] {
-  margin: 0 2px;
-  vertical-align: bottom;
-}
-.msgYouItem .msgContent .emotion-default {
-  width: 24px;
-  height: 24px;
-}
 .msgYouItem .msgContent .btnDownload {
   color: #007ddb;
 }
@@ -1510,6 +1494,13 @@ body {
   margin-top: -4px;
   box-shadow: 0px 0px 2px 2px rgba(0, 0, 0, 0.04);
   border-radius: 4px 4px 4px 4px;
+}
+.emotion-default {
+  width: 22px;
+  height: 22px;
+}
+.audioColor {
+  color: #e78002;
 }
 .msgItem.pic.msgCard .msgContainer {
   border-radius: 4px;

@@ -34,7 +34,7 @@ gulp.task('less', function () {
 });
 
 gulp.task('watch', function () {
-    gulp.watch('resource/**/*.less', ['less']); //当所有less文件发生改变时，调用testLess任务
+    gulp.watch('resource/**/*.less', ['less']); 
 });
 
 var  connect = require('gulp-connect');

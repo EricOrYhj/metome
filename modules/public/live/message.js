@@ -40,7 +40,12 @@
             if (data.contentType === 0) {
 
                 message.type = Constant.MSGTYPE_TEXT;
-                message.content = data.fragment;//标签转换
+
+                data.fragment = data.fragment + "[呵呵][哈哈]" + "测试测试👨‍👨‍👧‍👦👖👢👔👑💄👑";
+
+                message.content = Message.parse(data.fragment);
+                Message.Tag(data.fragment);
+
                 message.class = "text";
 
             } else if (data.contentType === 1) {
@@ -83,9 +88,9 @@
             same: true,
             mid: 841,
             ustatus: 1,
-            class:"audio msgCard",
-            type:4,
-            file:{
+            class: "audio msgCard",
+            type: 4,
+            file: {
                 original: "https://dn-mdmedia.qbox.me/fe288386-3d26-4eab-b5d2-51eeab82a7f9/2015/12/09/2015-12-09-12-26-54-832.mp3"
             }
         }
@@ -117,6 +122,9 @@
     };
 
     Message.cover = function (data) {
+
+        data.title = Message.Tag(data.title);
+
         var cover = {
             ctime: data.createTime,
             time: Tool.formatMsgTime(data.createTime),
@@ -136,6 +144,26 @@
 
         return cover;
     }
+
+    Message.Tag = function (msg) {
+
+        var result = /^「(.*)」$/g.exec(msg);
+
+        var reg = new RegExp('\\「(.+)\\」', 'gi');
+
+        var val = reg.exec(msg);  // 返回一个数组.
+
+        if (val && val.length > 0) {
+
+            msg = msg.replace(val[0], '<span class="audioColor">' + val[0] + '</span>');
+        }
+
+        return msg;
+    }
+
+    Message.parse = function (msg) {
+        return $.fn.emotion.parse(msg);
+    };
 
     module.exports = Message;
 });

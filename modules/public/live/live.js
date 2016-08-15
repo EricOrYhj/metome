@@ -24,16 +24,8 @@
         lastisme: true,//上一条是不是直播者
         zindex: 10000,//直播者dom层级开始
         msgyoulistnum: 1,//其他回复的dom id
-        videoId: 0
+        videoId: 0//vodio的序号
     };
-
-    Live.options.topicId = Tool.getURLQuery('topicId');
-
-    if (!Live.options.topicId) {
-        alert('没有直播号');
-
-        return false;
-    }
 
     Live.GetLiveCover = function () {
         Server.GetLiveCover(Live.options.topicId, function (data) {
@@ -87,19 +79,22 @@
 
                     Live.options.lastisme = true;
 
-                    setTimeout(function () {
-                        var player = videojs('video_' + Live.options.videoId, { /* Options */ }, function () {
-                            console.log('video_' + Live.options.videoId + 'Good to go!');
+                    if (item.type === 5) {
+                        setTimeout(function () {
+                            var player = videojs('video_' + Live.options.videoId, { /* Options */ }, function () {
+                                console.log('video_' + Live.options.videoId + 'Good to go!');
 
-                            $(this).find('.vjs-big-play-button').on('click', function () {
-                                this.play();
-                            })
+                                $(this).find('.vjs-big-play-button').on('click', function () {
+                                    this.play();
+                                })
 
-                            this.on('ended', function () {
-                                console.log('awww...over so soon?');
+                                this.on('ended', function () {
+                                    console.log('awww...over so soon?');
+                                });
                             });
-                        });
-                    }, 0);
+                        }, 0);
+                    }
+
                 } else {
 
                     if (Live.options.lastisme) {
@@ -129,9 +124,9 @@
             $(".scrollLoading").scrollLoading();
 
             $App.on("click", ".msgItem.audio", Live.PlayAudio);
-        }
 
-        Live.options.loading = false;
+            Live.options.loading = false;
+        }
     };
 
     Live.PlayAudio = function () {
@@ -170,7 +165,11 @@
         var scrollTop = $(document).scrollTop();
         var wHeight = $(window).height();
         var dHeight = $(document).height();
-        if (scrollTop + wHeight + 30 >= dHeight && !Live.options.loading) {
+        if (scrollTop + wHeight + 10 >= dHeight && !Live.options.loading) {
+
+            console.log(Live.options.sinceId);
+            console.log(Live.options.loading);
+
             Live.options.sinceId++;
             Live.options.loading = Live.GetLiveTimeLine();
         }
