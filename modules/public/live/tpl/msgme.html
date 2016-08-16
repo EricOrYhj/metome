@@ -29,19 +29,19 @@
              src="{{=it.file.placeholder}}" alt="pic" />
         {{?? it.type==4}}
         <div class="msgWrapper {{?it.type==4}} pAll10 MaxWidth90 {{?}}">
-            <div class="msgContent">
+            <div class="msgContent" style="width:{{=it.file.width}}%">
                 <div class="msgCard">
                     <div class="cardBody Relative">
                         <i class="audioIcon"></i>
                         <span class="audioInfo" data-audio="{{=it.file.original}}"></span>
-                        <div class="Absolute audioTime">3s</div>
+                        <div class="Absolute audioTime">{{=it.file.duration}}s</div>
                     </div>
                 </div>
             </div>
         </div>
         {{?? it.type==5}}
         <video id="video_{{=it.videoid}}" class="video-js vjs-default-skin vjs-big-play-centered" controls
-               preload="auto" width="{{=it.width}}" height="264" poster="{{=it.file.fragmentImage}}"
+               preload="auto" width="{{=it.width}}" height="264" poster="{{=it.file.placeholder}}"
                data-setup='{}'>
             <source src="{{=it.file.original}}" type='video/mp4' />
             <p class="vjs-no-js">

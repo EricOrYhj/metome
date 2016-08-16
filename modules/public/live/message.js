@@ -62,8 +62,18 @@
                 message.type = Constant.MSGTYPE_AUDIO;
                 message.class = "audio msgCard";
 
+                var audio = JSON.parse(data.fragment);
+
+                var duration = parseInt(audio.duration / 1000);
+                var width = 30;
+                if ((120 / parseInt(audio.duration / 1000)) < 3) {
+                    width = 100 / parseInt(120 / parseInt(audio.duration / 1000));
+                }
+
                 message.file = {
-                    original: data.fragmentImage
+                    original: data.fragmentImage,
+                    duration: duration,
+                    width: width
                 }
             } else if (data.type === 12 || data.contentType === 12) {
 

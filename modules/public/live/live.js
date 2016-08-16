@@ -141,8 +141,8 @@
             }
             if (!audio) { // 第一次播放
                 audio = new player({
-                    mp3_url: msg + '?avthumb/mp3',
-                    wav_url: msg + '?avthumb/wav',
+                    mp3_url: msg,
+                    wav_url: msg,
                     onStop: function () {
                         $msg.removeClass("audioPlaying");
                     },

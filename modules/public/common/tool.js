@@ -285,9 +285,20 @@
             timeSpanStr = hour + ":" + minute;
         } else {
             milliseconds = today - dateTime;
-            if (milliseconds < 86400000) {
-                timeSpanStr = '昨天' + " " + hour + ":" + minute;
-            } else if (milliseconds > 86400000 && year == today.getFullYear()) {
+
+            if (milliseconds <= 1000 * 60 * 1) {
+                timeSpanStr = '刚刚';
+            }
+            if (1000 * 60 * 1 < milliseconds && milliseconds <= 1000 * 60 * 60) {
+                timeSpanStr = parseInt(milliseconds / (1000 * 60)) + '分钟前';
+            }
+            else if (1000 * 60 * 60 * 1 < milliseconds && milliseconds <= 1000 * 60 * 60 * 24) {
+                timeSpanStr = parseInt(milliseconds / (1000 * 60 * 60)) + '小时前';
+            }
+            else if (1000 * 60 * 60 * 24 < milliseconds && milliseconds <= 1000 * 60 * 60 * 24 * 15) {
+                timeSpanStr = parseInt(milliseconds / (1000 * 60 * 60 * 24)) + '天前';
+            }
+            else if (milliseconds > 1000 * 60 * 60 * 24 * 15 && year == today.getFullYear()) {
                 timeSpanStr = (month + 1) + '-' + day + ' ' + hour + ':' + minute;
             } else {
                 timeSpanStr = year + '-' + (month + 1) + '-' + day + ' ' + hour + ':' + minute;
