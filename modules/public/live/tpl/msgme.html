@@ -41,7 +41,7 @@
         </div>
         {{?? it.type==5}}
         <video id="video_{{=it.videoid}}" class="video-js vjs-default-skin vjs-big-play-centered" controls
-               preload="auto" width="{{=it.width}}" height="264" poster="really-cool-video-poster.jpg"
+               preload="auto" width="{{=it.width}}" height="264" poster="{{=it.file.fragmentImage}}"
                data-setup='{}'>
             <source src="{{=it.file.original}}" type='video/mp4' />
             <p class="vjs-no-js">

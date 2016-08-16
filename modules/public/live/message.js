@@ -25,6 +25,7 @@
             var atUid = data.atUid;
 
             var message = {
+                id: data.id,
                 ctime: data.createTime,
                 time: Tool.formatMsgTime(data.createTime),
                 uid: data.uid,
@@ -41,7 +42,7 @@
 
                 message.type = Constant.MSGTYPE_TEXT;
 
-                data.fragment = data.fragment + "[呵呵][哈哈]" + "测试测试👨‍👨‍👧‍👦👖👢👔👑💄👑";
+                data.fragment = data.fragment;
 
                 message.content = Message.parse(data.fragment);
                 Message.Tag(data.fragment);
@@ -60,7 +61,6 @@
 
                 message.type = Constant.MSGTYPE_AUDIO;
                 message.class = "audio msgCard";
-                message.title = data.fragment;
 
                 message.file = {
                     original: data.fragmentImage
@@ -69,52 +69,52 @@
 
                 message.type = Constant.MSGTYPE_VIDEO;
                 message.class = "video msgCard";
-                message.title = data.fragment;
                 message.file = {
-                    original: data.fragmentImage
+                    original: data.fragment,
+                    placeholder: data.fragmentImage
                 }
             }
 
             messages.push(message)
         }
 
-        var audio = {
-            ctime: 1462157542000,
-            time: Tool.formatMsgTime(1462157542000),
-            uid: 301,
-            avatar: "http://cdn.me-to-me.com/FpXdLCD5Nhos0NbWPaLHcegzAiMe?imageView2/1/w/100/h/100/q/90",
-            uname: "sman",
-            me: true,
-            same: true,
-            mid: 841,
-            ustatus: 1,
-            class: "audio msgCard",
-            type: 4,
-            file: {
-                original: "https://dn-mdmedia.qbox.me/fe288386-3d26-4eab-b5d2-51eeab82a7f9/2015/12/09/2015-12-09-12-26-54-832.mp3"
-            }
-        }
+        // var audio = {
+        //     ctime: 1462157542000,
+        //     time: Tool.formatMsgTime(1462157542000),
+        //     uid: 301,
+        //     avatar: "http://cdn.me-to-me.com/FpXdLCD5Nhos0NbWPaLHcegzAiMe?imageView2/1/w/100/h/100/q/90",
+        //     uname: "sman",
+        //     me: true,
+        //     same: true,
+        //     mid: 841,
+        //     ustatus: 1,
+        //     class: "audio msgCard",
+        //     type: 4,
+        //     file: {
+        //         original: "https://dn-mdmedia.qbox.me/fe288386-3d26-4eab-b5d2-51eeab82a7f9/2015/12/09/2015-12-09-12-26-54-832.mp3"
+        //     }
+        // }
 
-        var video = {
-            ctime: 1462157542000,
-            time: Tool.formatMsgTime(1462157542000),
-            uid: 301,
-            avatar: "http://cdn.me-to-me.com/FpXdLCD5Nhos0NbWPaLHcegzAiMe?imageView2/1/w/100/h/100/q/90",
-            uname: "sman",
-            me: true,
-            same: true,
-            mid: 841,
-            ustatus: 1,
-            class: "video msgCard",
-            type: 5,
-            file: {
-                original: "http://www.kaltura.com/p/243342/sp/24334200/playManifest/entryId/0_c0r624gh/flavorId/0_w48dtkyq/format/url/protocol/http/a.mp4"
-            }
-        }
+        // var video = {
+        //     ctime: 1462157542000,
+        //     time: Tool.formatMsgTime(1462157542000),
+        //     uid: 301,
+        //     avatar: "http://cdn.me-to-me.com/FpXdLCD5Nhos0NbWPaLHcegzAiMe?imageView2/1/w/100/h/100/q/90",
+        //     uname: "sman",
+        //     me: true,
+        //     same: true,
+        //     mid: 841,
+        //     ustatus: 1,
+        //     class: "video msgCard",
+        //     type: 5,
+        //     file: {
+        //         original: "http://www.kaltura.com/p/243342/sp/24334200/playManifest/entryId/0_c0r624gh/flavorId/0_w48dtkyq/format/url/protocol/http/a.mp4"
+        //     }
+        // }
 
-        messages.push(audio);
+        // messages.push(audio);
 
-        messages.push(video);
+        // messages.push(video);
 
         console.log(messages);
 

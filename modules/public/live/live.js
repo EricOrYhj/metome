@@ -119,6 +119,7 @@
                     Live.options.lastisme = false;
                 }
 
+                Live.options.sinceId = item.mid;
             });
 
             $(".scrollLoading").scrollLoading();
@@ -170,7 +171,7 @@
             console.log(Live.options.sinceId);
             console.log(Live.options.loading);
 
-            Live.options.sinceId++;
+            //Live.options.sinceId++;
             Live.options.loading = Live.GetLiveTimeLine();
         }
     });
