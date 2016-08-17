@@ -6,21 +6,24 @@
 
     var Message = {};
 
+    Message.options = {
+        uid: '',
+        same: false,
+        me: false
+    };
+
     //"contentType": 0,   --消息类型： 0文本。1图片
     //"type": 0,   -- 0 主播文本 1 回复文本 2 转发记录 3 主播贴标记录 4 粉丝贴标5.点赞 6订阅,7分享，8关注 9国王邀请，
     //10 有人@ 11主播@ 12直播小视频 13音频 14 红包
     Message.format = function (datas, cid) {
         var messages = [];
-        var uid = cid;
-        var same = false;
-        var me = false;
 
         for (var i = 0; i < datas.length; i++) {
 
-            var data = datas[i],
-                same = uid === data.uid,
-                uid = data.uid,
-                me = data.uid === cid;
+            var data = datas[i];
+            Message.options.same = Message.options.uid === data.uid,
+            Message.options.uid = data.uid,
+            Message.options.me = data.uid === cid;
 
             var atUid = data.atUid;
 
@@ -32,8 +35,8 @@
                 avatar: data.avatar + Config.AVATAR_100,
                 placeholder: Config.avatarImgPath,
                 uname: data.nickName,
-                me: me,
-                same: same,
+                me: Message.options.me,
+                same: Message.options.same,
                 mid: data.fragmentId,
                 ustatus: data.internalStatus
             };

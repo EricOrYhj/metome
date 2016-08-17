@@ -8,11 +8,12 @@
     var coverTpl = require('./tpl/cover.html');
     var msgmeTpl = require('./tpl/msgme.html');
     var msgyouTpl = require('./tpl/msgyou.html');
+    var msgmelistTpl = require('./tpl/msgmelist.html');
     var msgyoulistTpl = require('./tpl/msgyoulist.html');
 
-    var $App = $('.App');
+    var $container = $('.container');
 
-    var appWidth = $App.width() - 2;
+    var appWidth = $container.width() - 2;
 
     var Live = {};
 
@@ -21,8 +22,10 @@
         cid: '',//直播者
         loading: false,//是否在进行分页加载
         sinceId: 0,//分页页数
-        lastisme: true,//上一条是不是直播者
+        lastisme: false,//上一条是不是直播者
+        lastisyou: false,
         zindex: 10000,//直播者dom层级开始
+        msgmelistnum: 1,
         msgyoulistnum: 1,//其他回复的dom id
         videoId: 0//vodio的序号
     };
@@ -37,7 +40,7 @@
 
             var $cover = $(doT.template(coverTpl)(cover));
 
-            $App.prepend($cover);
+            $container.prepend($cover);
 
             Tool.lazyload($cover);
         });
@@ -69,15 +72,35 @@
                 }
 
                 if (item.me) {
-                    item.zindex = Live.options.zindex;
+                    //item.zindex = Live.options.zindex;
 
-                    Live.options.zindex--;
+                    //Live.options.zindex--;
 
-                    var $msgme = $(doT.template(msgmeTpl)(item));
+                    //var $msgme = $(doT.template(msgmeTpl)(item));
 
-                    $App.append($msgme);
+                    //$container.append($msgme);
+
+                    if (!Live.options.lastisme) {
+                        var $msgmelist = $(doT.template(msgmelistTpl)(Live.options.msgmelistnum));
+
+                        $msgmelist.append($(doT.template(msgmeTpl)(item)));
+
+                        $container.append($msgmelist);
+
+                        Live.options.msgmelistnum++;
+                    }
+                    else {
+                        Live.options.msgmelistnum--;
+
+                        var $msgmelist = $('#mml_' + Live.options.msgmelistnum);
+
+                        $msgmelist.append($(doT.template(msgmeTpl)(item)));
+
+                        Live.options.msgmelistnum++;
+                    }
 
                     Live.options.lastisme = true;
+                    Live.options.lastisyou = false;
 
                     if (item.type === 5) {
                         setTimeout(function () {
@@ -97,12 +120,12 @@
 
                 } else {
 
-                    if (Live.options.lastisme) {
+                    if (!Live.options.lastisyou) {
                         var $msgyoulist = $(doT.template(msgyoulistTpl)(Live.options.msgyoulistnum));
 
                         $msgyoulist.append($(doT.template(msgyouTpl)(item)));
 
-                        $App.append($msgyoulist);
+                        $container.append($msgyoulist);
 
                         Live.options.msgyoulistnum++;
                     }
@@ -117,6 +140,7 @@
                     }
 
                     Live.options.lastisme = false;
+                    Live.options.lastisyou = true;
                 }
 
                 Live.options.sinceId = item.mid;
@@ -124,7 +148,7 @@
 
             $(".scrollLoading").scrollLoading();
 
-            $App.on("click", ".msgItem.audio", Live.PlayAudio);
+            $container.on("click", ".msgItem.audio", Live.PlayAudio);
 
             Live.options.loading = false;
         }

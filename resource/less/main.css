@@ -1,3 +1,32 @@
+.header {
+  position: fixed;
+  width: 100%;
+  background: #000;
+  opacity: 0.8;
+  z-index: 10002;
+  top: 0;
+  height: 60px;
+}
+.header .logo {
+  background: url("../images/common/logo.png") no-repeat;
+  z-index: 10002;
+  height: 50px;
+  background-size: 190px;
+  width: 94%;
+  margin: auto;
+  max-width: 640px;
+  margin-top: 11px;
+}
+.header .open {
+  background: url("../images/common/open.png") no-repeat;
+  top: 0;
+  right: 0;
+  height: 40px;
+  background-size: 70px;
+  width: 70px;
+  margin: auto;
+  margin-top: 3px;
+}
 a {
   text-decoration: none;
 }
@@ -574,6 +603,9 @@ textarea {
 .pBottom5 {
   padding-bottom: 5px !important;
 }
+.pBottom8 {
+  padding-bottom: 8px !important;
+}
 .pBottom10 {
   padding-bottom: 10px !important;
 }
@@ -1026,155 +1058,160 @@ textarea {
 }
 body {
   font-size: 12px;
-  color: #213b55;
-  background-color: #f5f6fa;
+  color: #082441;
+  background-color: #f4f6f9;
+  font-family: "Helvetica Neue", "Helvetica", "Arial", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "WenQuanYi Micro Hei", sans-serif;
+  filter: light;
+  padding: 0;
+  margin: 0;
 }
-.App {
-  width: 99.6%;
+.container {
+  width: 94%;
   margin: 10px auto;
   max-width: 640px;
+  padding-top: 60px;
 }
-.App audio,
-.App canvas,
-.App progress,
-.App video {
+.container audio,
+.container canvas,
+.container progress,
+.container video {
   display: inline-block;
   vertical-align: baseline;
 }
-.App audio:not([controls]) {
+.container audio:not([controls]) {
   display: none;
   height: 0;
 }
-.App [hidden],
-.App template {
+.container [hidden],
+.container template {
   display: none;
 }
-.App a:active,
-.App a:hover {
+.container a:active,
+.container a:hover {
   outline: 0;
 }
-.App abbr[title] {
+.container abbr[title] {
   border-bottom: 1px dotted;
 }
-.App b,
-.App strong {
+.container b,
+.container strong {
   font-weight: bold;
 }
-.App dfn {
+.container dfn {
   font-style: italic;
 }
-.App h1 {
+.container h1 {
   font-size: 2em;
   margin: 0.67em 0;
 }
-.App mark {
+.container mark {
   background: #ff0;
   color: #000;
 }
-.App small {
+.container small {
   font-size: 80%;
 }
-.App sub,
-.App sup {
+.container sub,
+.container sup {
   font-size: 75%;
   line-height: 0;
   position: relative;
   vertical-align: baseline;
 }
-.App sup {
+.container sup {
   top: -0.5em;
 }
-.App sub {
+.container sub {
   bottom: -0.25em;
 }
-.App img {
+.container img {
   border: 0;
 }
-.App svg:not(:root) {
+.container svg:not(:root) {
   overflow: hidden;
 }
-.App figure {
+.container figure {
   margin: 1em 40px;
 }
-.App hr {
+.container hr {
   -moz-box-sizing: content-box;
   box-sizing: content-box;
   height: 0;
 }
-.App pre {
+.container pre {
   overflow: auto;
 }
-.App code,
-.App kbd,
-.App pre,
-.App samp {
+.container code,
+.container kbd,
+.container pre,
+.container samp {
   font-family: monospace, monospace;
   font-size: 1em;
 }
-.App button {
+.container button {
   overflow: visible;
 }
-.App button,
-.App select {
+.container button,
+.container select {
   text-transform: none;
 }
-.App button,
-.App input[type="button"],
-.App input[type="reset"],
-.App input[type="submit"] {
+.container button,
+.container input[type="button"],
+.container input[type="reset"],
+.container input[type="submit"] {
   -webkit-appearance: button;
   cursor: pointer;
 }
-.App button[disabled],
-.App input[disabled] {
+.container button[disabled],
+.container input[disabled] {
   cursor: default;
 }
-.App button::-moz-focus-inner,
-.App input::-moz-focus-inner {
+.container button::-moz-focus-inner,
+.container input::-moz-focus-inner {
   border: 0;
   padding: 0;
 }
-.App input {
+.container input {
   line-height: normal;
 }
-.App input[type="number"]::-webkit-inner-spin-button,
-.App input[type="number"]::-webkit-outer-spin-button {
+.container input[type="number"]::-webkit-inner-spin-button,
+.container input[type="number"]::-webkit-outer-spin-button {
   height: auto;
 }
-.App input[type="search"] {
+.container input[type="search"] {
   -webkit-appearance: textfield;
   -moz-box-sizing: content-box;
   -webkit-box-sizing: content-box;
   box-sizing: content-box;
 }
-.App input[type="search"]::-webkit-search-cancel-button,
-.App input[type="search"]::-webkit-search-decoration {
+.container input[type="search"]::-webkit-search-cancel-button,
+.container input[type="search"]::-webkit-search-decoration {
   -webkit-appearance: none;
 }
-.App fieldset {
+.container fieldset {
   border: 1px solid #c0c0c0;
   margin: 0 2px;
   padding: 0.35em 0.625em 0.75em;
 }
-.App legend {
+.container legend {
   border: 0;
   padding: 0;
 }
-.App textarea {
+.container textarea {
   overflow: auto;
 }
-.App optgroup {
+.container optgroup {
   font-weight: bold;
 }
-.App table {
+.container table {
   border-collapse: collapse;
   border-spacing: 0;
 }
-.App td,
-.App th {
+.container td,
+.container th {
   padding: 0;
 }
-.App button {
+.container button {
   outline: 0;
   border: none;
   cursor: pointer;
@@ -1196,9 +1233,9 @@ body {
 }
 .msgMeItem .userCard .userAvatar {
   float: left;
-  width: 45px;
-  height: 45px;
-  border-radius: 4px;
+  width: 40px;
+  height: 40px;
+  border-radius: 5px;
   margin-right: 10px;
   overflow: hidden;
 }
@@ -1208,7 +1245,7 @@ body {
 }
 .msgMeItem .userCard .userName {
   float: left;
-  height: 45px;
+  height: 40px;
   position: relative;
   width: 70%;
 }
@@ -1216,6 +1253,7 @@ body {
   padding-top: 40px;
   position: absolute;
   bottom: 0;
+  color: #aaafb5;
 }
 .msgMeItem .userCard:before,
 .msgMeItem .userCard:after {
@@ -1228,7 +1266,8 @@ body {
 .msgMeItem .msgContainer {
   width: 100%;
   display: inline-block;
-  padding-top: 6px;
+  padding-top: 10px;
+  margin-bottom: 10px;
 }
 .msgMeItem .msgContainer:before,
 .msgMeItem .msgContainer:after {
@@ -1243,9 +1282,9 @@ body {
   line-height: 1;
   height: 40px;
   display: inline-block;
-  font-size: 14px;
+  font-size: 16px;
   word-break: break-all;
-  border-radius: 4px;
+  border-radius: 5px;
   border: 1px solid #ccc;
 }
 .msgMeItem .msgContent a {
@@ -1266,17 +1305,17 @@ body {
 .msgMeItem .msgWrapper {
   width: 100%;
   position: relative;
-}
-.msgMeItem .msgWrapper::after {
-  content: '';
-  display: block;
-  width: 10px;
-  height: 10px;
-  border-style: solid;
-  border-width: 0 1px 1px 0;
-  border-color: transparent #ccc #ccc transparent;
-  position: absolute;
-  top: 25px;
+  /*&::after {
+            content: '';
+            display: block;
+            width: 10px;
+            height: 10px;
+            border-style: solid;
+            border-width: 0 1px 1px 0;
+            border-color: transparent @bubbleBorderColor @bubbleBorderColor transparent;
+            position: absolute;
+            top: 25px;
+        }*/
 }
 .msgMeItem .msgWrapper .msgDate {
   color: #bbb;
@@ -1284,9 +1323,15 @@ body {
 .msgMeItem .msgImg {
   width: 100%;
   height: auto;
-  border-radius: 0 0 4px 4px;
+  /*border-radius: 0 0 4px 4px;*/
   margin-bottom: -5px;
-  box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.04);
+  /*box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.04);*/
+}
+.msgMeItem .msg-timestamp {
+  background: url("../images/common/time.png") no-repeat 10px center;
+  padding-left: 20px;
+  background-size: 8px;
+  color: #aaafb5;
 }
 .msgMeItem.audio .audioTime {
   top: 14px;
@@ -1296,8 +1341,10 @@ body {
 .msgMeItem.audio .msgContent {
   border: 1px solid #e78002;
 }
-.msgMeItem.audio .msgWrapper::after {
-  border-color: transparent #e78002 #e78002 transparent;
+.msgMeItem.audio .msgWrapper {
+  /*&::after {
+                border-color: transparent @audioColor @audioColor transparent;
+            }*/
 }
 .msgMeItem.text .msgContainer {
   padding-top: 4px;
@@ -1316,7 +1363,6 @@ body {
 .msgMeItem.you .msgContent {
   float: left;
   background: #fff;
-  color: #000;
 }
 .msgMeItem.me .userAvatar,
 .msgMeItem.me .msgContainer {
@@ -1350,7 +1396,7 @@ body {
   clear: both;
 }
 .msgYouItem .userCard {
-  padding-bottom: 8px;
+  padding-bottom: 15px;
 }
 .msgYouItem .userCard:before,
 .msgYouItem .userCard:after {
@@ -1362,9 +1408,9 @@ body {
 }
 .msgYouItem .userCard .userAvatar {
   float: right;
-  width: 35px;
-  height: 35px;
-  border-radius: 4px;
+  width: 30px;
+  height: 30px;
+  border-radius: 5px;
   overflow: hidden;
 }
 .msgYouItem .userCard .userAvatar img {
@@ -1374,15 +1420,17 @@ body {
 .msgYouItem .userCard .userName {
   float: right;
   position: relative;
-  width: 80%;
+  width: 88%;
   text-align: right;
   margin-top: -2px;
   padding-right: 6px;
+  color: #aaafb5;
 }
 .msgYouItem .userCard .msg-timestamp-content {
   padding-top: 40px;
   position: absolute;
   bottom: 0;
+  color: #aaafb5;
 }
 .msgYouItem .userCard:before,
 .msgYouItem .userCard:after {
@@ -1395,15 +1443,15 @@ body {
 .msgYouItem .msgContainer {
   width: 100%;
   display: inline-block;
-  padding-right: 5px;
-  padding-top: 1px;
+  padding-top: 4px;
 }
 .msgYouItem .msgContent {
   display: inline-block;
   word-break: break-all;
-  border-radius: 2px;
+  /*border-radius: 2px;*/
+  border-radius: 5px 0px 5px 5px;
   border: 1px solid #aeaeb6;
-  padding: 2px;
+  padding: 3px 5px;
   text-align: left;
   font-size: 14px;
 }
@@ -1425,17 +1473,17 @@ body {
 .msgYouItem .msgWrapper {
   width: 100%;
   position: relative;
-}
-.msgYouItem .msgWrapper::after {
-  content: '';
-  display: block;
-  width: 4px;
-  height: 4px;
-  border-style: solid;
-  border-width: 0 1px 1px 0;
-  border-color: transparent #aeaeb6 #aeaeb6 transparent;
-  position: absolute;
-  top: 8px;
+  /*&::after {
+            content: '';
+            display: block;
+            width: 4px;
+            height: 4px;
+            border-style: solid;
+            border-width: 0 1px 1px 0;
+            border-color: transparent @msgYouBorderColor @msgYouBorderColor transparent;
+            position: absolute;
+            top: 8px;
+        }*/
 }
 .msgYouItem .msgWrapper .msgDate {
   color: #bbb;
@@ -1455,11 +1503,11 @@ body {
 .msgYouItem.you .msgWrapper::after {
   left: 2px;
   transform: rotate(135deg);
-  background: #f5f6fa;
+  background: #f4f6f9;
 }
 .msgYouItem.you .msgContent {
-  background: #f5f6fa;
-  color: #000;
+  background: #f4f6f9;
+  /*color: @receiveColor;*/
 }
 .msgYouItem.me .userAvatar,
 .msgYouItem.me .msgContainer {
@@ -1471,24 +1519,32 @@ body {
 .msgYouItem.me .msgWrapper::after {
   right: -2px;
   transform: rotate(-45deg);
-  background: #f5f6fa;
+  background: #f4f6f9;
 }
 .msgYouItem.me .msgContent {
   color: #000;
 }
-.msg-timestamp {
-  padding-top: 12px;
-  padding-left: 10px;
+.msgMeList {
+  border-radius: 5px;
+  box-shadow: 0px 0px 2px 2px rgba(0, 0, 0, 0.04);
+}
+.msgMeList .msgMeItem:first-child {
+  border-radius: 5px 5px 0px 0px;
+}
+.msgMeList .msgMeItem:last-child {
+  border-radius: 0px 0px 5px 5px;
+}
+.msgMeList .msgMeItem:only-child {
+  border-radius: 5px;
 }
 .msgYouList {
-  padding: 10px 10px 0 0;
   margin-top: 15px;
   margin-bottom: 15px;
-  border-radius: 4px;
 }
 .coverShadow {
-  border-radius: 4px 4px 4px 4px;
+  border-radius: 4px;
   box-shadow: 0px 0px 2px 2px rgba(0, 0, 0, 0.04);
+  margin-bottom: 15px;
 }
 .msgShadow {
   margin-top: -4px;
@@ -1546,16 +1602,18 @@ body {
 }
 .msgItem.audio .audioIcon {
   display: inline-block;
-  width: 18px;
-  height: 18px;
-  margin-top: -3px;
-  background-size: 18px;
-  background-image: url("../images/audio_start.png");
+  width: 40px;
+  height: 40px;
+  margin-top: -13px;
+  margin-left: -10px;
+  background-size: 40px;
+  background-repeat: no-repeat;
+  background-image: url("../images/audio_playing2.png");
 }
 @media only screen and (-webkit-min-device-pixel-ratio: 2), only screen and (min--moz-device-pixel-ratio: 2), only screen and (-o-min-device-pixel-ratio: 2/1), only screen and (min-device-pixel-ratio: 2), only screen and (min-resolution: 192dpi), only screen and (min-resolution: 2dppx) {
   .msgItem.audio .audioIcon {
-    background-image: url("../images/audio_start.png");
-    background-size: 18px 18px;
+    background-image: url("../images/audio_playing2.png");
+    background-size: 40px 40px;
   }
 }
 .msgItem.audio .audioInfo {
@@ -1567,11 +1625,11 @@ body {
   padding: 14px 10px;
 }
 .msgItem.audio.audioPlaying .audioIcon {
-  background-image: url("../images/audio_playing.gif");
+  background-image: url("../images/audio_playing1.png");
 }
 @media only screen and (-webkit-min-device-pixel-ratio: 2), only screen and (min--moz-device-pixel-ratio: 2), only screen and (-o-min-device-pixel-ratio: 2/1), only screen and (min-device-pixel-ratio: 2), only screen and (min-resolution: 192dpi), only screen and (min-resolution: 2dppx) {
   .msgItem.audio.audioPlaying .audioIcon {
-    background-image: url("../images/audio_playing.gif");
-    background-size: 18px 18px;
+    background-image: url("../images/audio_playing1.png");
+    background-size: 40px 40px;
   }
 }

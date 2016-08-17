@@ -1,15 +1,20 @@
 @import "variables";
 
 body {
-    font-size: 12px;
-    color: #213b55;
+    font-size: @fontSizeS;
+    color: @fontColor;
     background-color: @bodyColor;
+    font-family: "Helvetica Neue","Helvetica","Arial","PingFang SC","Hiragino Sans GB", "Microsoft YaHei","WenQuanYi Micro Hei", sans-serif;
+    filter: light;
+    padding:0;
+    margin:0;
 }
 
-.App {
-    width: 99.6%;
+.container {
+    width: 94%;
     margin: 10px auto;
     max-width: 640px;
+    padding-top:60px;
 
     audio,
     canvas,

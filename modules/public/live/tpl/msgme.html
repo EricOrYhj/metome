@@ -1,4 +1,4 @@
-﻿<div class="msgItem msgMeItem you msgCard  Relative msgShadow {{=it.class}}" data-time="{{=it.ctime}}" style="z-index:{{=it.zindex}}">
+﻿<div class="msgItem msgMeItem you msgCard  Relative {{=it.class}}" data-time="{{=it.ctime}}" style="z-index:{{=it.zindex}}">
     {{? !it.same}}
     <div class="userCard">
         <div class="userAvatar">
@@ -8,27 +8,27 @@
             <div>
                 {{= it.uname}}
             </div>
-            <div class="msg-timestamp-content Gray_9">
+            <div class="msg-timestamp-content">
                 {{= it.time}}
             </div>
         </div>
     </div>
     {{??}}
-    <div class="msg-timestamp-content msg-timestamp Gray_9">
+    <div class="msg-timestamp">
         {{= it.time}}
     </div>
     {{?}}
 
     <div class="msgContainer">
         {{? it.type== 1}}
-        <div class="pBottom10 pLeft10 Font16">
+        <div class="pLeft10 Font16">
             {{=it.content}}
         </div>
         {{?? it.type== 2}}
         <img class="msgImg scrollLoading" data-original="{{=it.file.original}}" data-src="{{=it.file.original}}" data-url="{{=it.file.original}}"
              src="{{=it.file.placeholder}}" alt="pic" />
         {{?? it.type==4}}
-        <div class="msgWrapper {{?it.type==4}} pAll10 MaxWidth90 {{?}}">
+        <div class="msgWrapper pLeft10 MaxWidth90">
             <div class="msgContent" style="width:{{=it.file.width}}%">
                 <div class="msgCard">
                     <div class="cardBody Relative">
