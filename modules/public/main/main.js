@@ -1,6 +1,7 @@
 ﻿define(function (require, exports, module) {
 
     require('emotion');
+    //require('scrollLoading');
 
     var Live = require('../live/live');
     var Tool = require('../common/tool');

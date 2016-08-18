@@ -103,19 +103,21 @@
                     Live.options.lastisyou = false;
 
                     if (item.type === 5) {
-                        setTimeout(function () {
-                            var player = videojs('video_' + Live.options.videoId, { /* Options */ }, function () {
-                                console.log('video_' + Live.options.videoId + 'Good to go!');
+                        require.async(['video', 'videocss'], function () {
+                            setTimeout(function () {
+                                var player = videojs('video_' + Live.options.videoId, { /* Options */ }, function () {
+                                    console.log('video_' + Live.options.videoId + 'Good to go!');
 
-                                $(this).find('.vjs-big-play-button').on('click', function () {
-                                    this.play();
-                                })
+                                    $(this).find('.vjs-big-play-button').on('click', function () {
+                                        this.play();
+                                    })
 
-                                this.on('ended', function () {
-                                    console.log('awww...over so soon?');
+                                    this.on('ended', function () {
+                                        console.log('awww...over so soon?');
+                                    });
                                 });
-                            });
-                        }, 0);
+                            }, 0);
+                        });
                     }
 
                 } else {
@@ -146,7 +148,9 @@
                 Live.options.sinceId = item.mid;
             });
 
-            $(".scrollLoading").scrollLoading();
+            require.async('scrollLoading', function () {
+                $(".scrollLoading").scrollLoading();
+            });
 
             $container.on("click", ".msgItem.audio", Live.PlayAudio);
 
@@ -156,7 +160,7 @@
 
     Live.PlayAudio = function () {
         var $this = $(this);
-        require.async('modules/uicontrol/mp3player/mp3player', function (player) {
+        require.async('mp3player', function (player) {
             var $msg = $this.closest(".msgItem");
             var msg = $msg.find(".audioInfo").data("audio");
             var audio = $msg.data('audio');
