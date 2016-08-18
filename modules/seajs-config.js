@@ -1,6 +1,6 @@
 /* eslint-disable max-len */
 seajs.config({
-    base: '/',
+    base: '/dist/',
     preload: [
       Function.prototype.bind ? '' : 'es5Safe',
       window.JSON ? '' : 'json',

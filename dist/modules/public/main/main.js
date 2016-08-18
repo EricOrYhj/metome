@@ -1,1 +1,1 @@
-define(function(o,e,i){o("emotion");var t=o("../live/live"),n=o("../common/tool"),r={};r.Init=function(){return t.options.topicId=n.getURLQuery("topicId"),t.options.topicId?(t.GetLiveCover(),void t.GetLiveTimeLine()):(alert("û��ֱ����"),!1)},i.exports=r});
+define(function(require,exports,module){require("emotion");var i=require("../live/live"),o=require("../common/tool"),e={};e.Init=function(){return i.options.topicId=o.getURLQuery("topicId"),i.options.topicId?(i.GetLiveCover(),void i.GetLiveTimeLine()):(alert("没有直播id"),!1)},module.exports=e});

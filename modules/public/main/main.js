@@ -1,4 +1,4 @@
-define(function (require, exports, module) {
+ï»¿define(function (require, exports, module) {
 
     require('emotion');
 
@@ -12,7 +12,7 @@ define(function (require, exports, module) {
         Live.options.topicId = Tool.getURLQuery('topicId');
 
         if (!Live.options.topicId) {
-            alert('Ã»ÓÐÖ±²¥ºÅ');
+            alert("æ²¡æœ‰ç›´æ’­id");
 
             return false;
         }

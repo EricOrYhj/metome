@@ -1,1 +1,1 @@
-define(function(n,e,i){return window.jQuery});
+define(function(require,exports,module){return window.jQuery});
