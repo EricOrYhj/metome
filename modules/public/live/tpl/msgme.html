@@ -21,7 +21,7 @@
 
     <div class="msgContainer">
         {{? it.type== 1}}
-        <div class="pLeft10 Font16">
+        <div class="pLeft10 Font16 pRight10">
             {{=it.content}}
         </div>
         {{?? it.type== 2}}
@@ -49,6 +49,13 @@
                 <a href="http://videojs.com/html5-video-support/" target="_blank">supports HTML5 video</a>
             </p>
         </video>
+        {{?? it.type== 6}}
+        <div class="pLeft10 Font16 pRight10">
+            <div class="feelItem Relative">
+                <div class="Absolute feelImg"></div>
+                <div class="Absolute title audioColor">{{=it.content}}aaaa</div>
+            </div>
+        </div>
         {{?}}
     </div>
 </div>

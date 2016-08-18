@@ -7,6 +7,7 @@
 
     var coverTpl = require('./tpl/cover.html');
     var msgmeTpl = require('./tpl/msgme.html');
+    var msgmeatTpl = require('./tpl/msgmeat.html');
     var msgyouTpl = require('./tpl/msgyou.html');
     var msgmelistTpl = require('./tpl/msgmelist.html');
     var msgyoulistTpl = require('./tpl/msgyoulist.html');
@@ -71,14 +72,9 @@
                     item.videoid = Live.options.videoId;
                 }
 
-                if (item.me) {
-                    //item.zindex = Live.options.zindex;
-
-                    //Live.options.zindex--;
-
-                    //var $msgme = $(doT.template(msgmeTpl)(item));
-
-                    //$container.append($msgme);
+                if (item.me && !item.cidat) {
+                    item.zindex = Live.options.zindex;
+                    Live.options.zindex--;
 
                     if (!Live.options.lastisme) {
                         var $msgmelist = $(doT.template(msgmelistTpl)(Live.options.msgmelistnum));
@@ -121,11 +117,19 @@
                     }
 
                 } else {
+                    var $msgyouTpl;
+
+                    if (item.cidat) {
+                        $msgyouTpl = $(doT.template(msgmeatTpl)(item));
+                    }
+                    else {
+                        $msgyouTpl = $(doT.template(msgyouTpl)(item));
+                    }
 
                     if (!Live.options.lastisyou) {
                         var $msgyoulist = $(doT.template(msgyoulistTpl)(Live.options.msgyoulistnum));
 
-                        $msgyoulist.append($(doT.template(msgyouTpl)(item)));
+                        $msgyoulist.append($msgyouTpl);
 
                         $container.append($msgyoulist);
 
@@ -136,7 +140,7 @@
 
                         var $msgyoulist = $('#myl_' + Live.options.msgyoulistnum);
 
-                        $msgyoulist.append($(doT.template(msgyouTpl)(item)));
+                        $msgyoulist.append($msgyouTpl);
 
                         Live.options.msgyoulistnum++;
                     }
@@ -153,6 +157,18 @@
             });
 
             $container.on("click", ".msgItem.audio", Live.PlayAudio);
+            $container.on("click", ".msgItem .feelItem", function () {
+                var $this = $(this);
+                var $img = $this.find('.feelImg');
+
+                if ($img.hasClass('feelRotate180')) {
+                    $this.find('.title').show(500);
+                    $img.removeClass('feelRotate180').addClass('feelRotate0');
+                } else {
+                    $this.find('.title').hide(500);
+                    $img.removeClass('feelRotate0').addClass('feelRotate180');
+                }
+            });
 
             Live.options.loading = false;
         }

@@ -25,6 +25,7 @@ define(function (require, exports, module) {
   Constant.MSGTYPE_FILE = 3;      //文件消息
   Constant.MSGTYPE_AUDIO = 4;     //音频消息
   Constant.MSGTYPE_VIDEO = 5;     //视频消息
+  Constant.MSGTYPE_FEEL = 6;     //感受消息
   Constant.MSGTYPE_EMOTION = 9;     //图片类型的表情消息
 
   /**

@@ -22,8 +22,10 @@
 
             var data = datas[i];
             Message.options.same = Message.options.uid === data.uid,
-            Message.options.uid = data.uid,
-            Message.options.me = data.uid === cid;
+            Message.options.uid = data.uid;
+            //Message.options.me = data.uid === cid;
+
+            Message.options.me = data.internalStatus >= 2;
 
             var atUid = data.atUid;
 
@@ -38,29 +40,51 @@
                 me: Message.options.me,
                 same: Message.options.same,
                 mid: data.fragmentId,
-                ustatus: data.internalStatus
+                ustatus: data.internalStatus,
+                cidat: false,
+                uidat: false
             };
 
-            if (data.contentType === 0) {
+            if (data.contentType === 0 && (data.type === 0 || data.type === 1)) {//普通文本
 
                 message.type = Constant.MSGTYPE_TEXT;
+                message.class = "text";
 
                 data.fragment = data.fragment;
 
-                message.content = Message.parse(data.fragment);
-                Message.Tag(data.fragment);
+                message.content = Message.Emotion(data.fragment);
+                message.content = Message.Tag(data.fragment);
 
+            }
+            else if (data.contentType === 0 && data.type === 4) {//非主播标签
+
+                message.type = Constant.MSGTYPE_TEXT;
                 message.class = "text";
 
-            } else if (data.contentType === 1) {
+                data.fragment = data.fragment;
+
+                message.content = Message.Emotion(data.fragment);
+                message.content = Message.Mark(data.fragment);
+
+            }
+            else if (data.contentType === 0 && data.type === 3) {//主播标签
+
+                message.type = Constant.MSGTYPE_FEEL;
+                message.class = "feel";
+
+                data.fragment = data.fragment;
+
+                message.content = Message.Emotion(data.fragment);
+            }
+            else if (data.contentType === 1 && (data.type === 0 || data.type === 1)) {//图片
 
                 message.type = Constant.MSGTYPE_PIC;
                 message.class = "pic msgCard";
                 message.file = {
-                    original: data.fragmentImage,
+                    original: data.fragmentImage + Config.PREVIEW_IMG,
                     placeholder: Config.placeholderImgPath
                 }
-            } else if (data.type === 13 || data.contentType === 13) {
+            } else if (data.type === 13 || data.contentType === 13) {//音频
 
                 message.type = Constant.MSGTYPE_AUDIO;
                 message.class = "audio msgCard";
@@ -78,7 +102,7 @@
                     duration: duration,
                     width: width
                 }
-            } else if (data.type === 12 || data.contentType === 12) {
+            } else if (data.type === 12 || data.contentType === 12) {//视频
 
                 message.type = Constant.MSGTYPE_VIDEO;
                 message.class = "video msgCard";
@@ -86,48 +110,34 @@
                     original: data.fragment,
                     placeholder: data.fragmentImage
                 }
+            } else if (data.type === 11 || data.contentType === 11) {//主播@
+
+                message.cidat = true;
+
+                message.type = Constant.MSGTYPE_TEXT;
+                message.class = "text";
+
+                var at = JSON.parse(data.fragment);
+
+                var text = Message.At(at.text, at.atStart, at.atEnd);
+
+                message.content = Message.Emotion(text);
+                //message.content = Message.Tag(data.fragment);
+            } else if (data.type === 10 || data.contentType === 10) {//游客@
+
+                message.type = Constant.MSGTYPE_TEXT;
+                message.class = "text";
+
+                var at = JSON.parse(data.fragment);
+
+                var text = Message.At(at.text, at.atStart, at.atEnd);
+
+                message.content = Message.Emotion(text);
+                //message.content = Message.Tag(data.fragment);
             }
 
             messages.push(message)
         }
-
-        // var audio = {
-        //     ctime: 1462157542000,
-        //     time: Tool.formatMsgTime(1462157542000),
-        //     uid: 301,
-        //     avatar: "http://cdn.me-to-me.com/FpXdLCD5Nhos0NbWPaLHcegzAiMe?imageView2/1/w/100/h/100/q/90",
-        //     uname: "sman",
-        //     me: true,
-        //     same: true,
-        //     mid: 841,
-        //     ustatus: 1,
-        //     class: "audio msgCard",
-        //     type: 4,
-        //     file: {
-        //         original: "https://dn-mdmedia.qbox.me/fe288386-3d26-4eab-b5d2-51eeab82a7f9/2015/12/09/2015-12-09-12-26-54-832.mp3"
-        //     }
-        // }
-
-        // var video = {
-        //     ctime: 1462157542000,
-        //     time: Tool.formatMsgTime(1462157542000),
-        //     uid: 301,
-        //     avatar: "http://cdn.me-to-me.com/FpXdLCD5Nhos0NbWPaLHcegzAiMe?imageView2/1/w/100/h/100/q/90",
-        //     uname: "sman",
-        //     me: true,
-        //     same: true,
-        //     mid: 841,
-        //     ustatus: 1,
-        //     class: "video msgCard",
-        //     type: 5,
-        //     file: {
-        //         original: "http://www.kaltura.com/p/243342/sp/24334200/playManifest/entryId/0_c0r624gh/flavorId/0_w48dtkyq/format/url/protocol/http/a.mp4"
-        //     }
-        // }
-
-        // messages.push(audio);
-
-        // messages.push(video);
 
         console.log(messages);
 
@@ -148,7 +158,7 @@
             type: Constant.MSGTYPE_PIC,
             class: "pic msgCard",
             file: {
-                original: data.coverImage,
+                original: data.coverImage + Config.PREVIEW_IMG,
                 placeholder: Config.placeholderImgPath
             },
             title: data.title,
@@ -156,6 +166,11 @@
         };
 
         return cover;
+    }
+
+    Message.Mark = function (msg) {
+        msg = '<span class="audioColor"> 「' + msg + '」</span>';
+        return msg
     }
 
     Message.Tag = function (msg) {
@@ -174,7 +189,15 @@
         return msg;
     }
 
-    Message.parse = function (msg) {
+    Message.At = function (msg, start, end) {
+
+        var at = msg.substr(start, end);
+        msg = msg.replace(at, '<span class="audioColor">' + at + '&nbsp;&nbsp;</span>');
+
+        return msg;
+    }
+
+    Message.Emotion = function (msg) {
         return $.fn.emotion.parse(msg);
     };
 

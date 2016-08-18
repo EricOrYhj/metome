@@ -18,14 +18,88 @@
   margin-top: 11px;
 }
 .header .open {
-  background: url("../images/common/open.png") no-repeat;
-  top: 0;
+  background: url(../images/common/open.png) no-repeat;
+  top: 5px;
   right: 0;
   height: 40px;
-  background-size: 70px;
-  width: 70px;
-  margin: auto;
-  margin-top: 3px;
+  background-size: 60px;
+  width: 60px;
+}
+.feelItem {
+  height: 55px;
+  width: 100%;
+}
+.feelItem .feelImg {
+  top: 0;
+  left: 0;
+  background: url(../images/common/feel.png) no-repeat;
+  height: 55px;
+  background-size: 55px;
+  width: 55px;
+  transform: rotate(-45deg);
+}
+.feelItem .title {
+  box-shadow: 2px 0px 2px 2px rgba(0, 0, 0, 0.1);
+  top: 23px;
+  left: 28px;
+  padding: 2px;
+  border-radius: 0px 5px 5px 0px;
+  font-size: 12px;
+}
+.feelItem .feelRotate0 {
+  animation: rotate0 0.5s forwards;
+}
+.feelItem .feelRotate180 {
+  animation: rotate180 0.5s forwards;
+}
+.footer {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  height: 50px;
+  background-color: #fff;
+  border-top: 1px solid #ccc;
+  z-index: 10002;
+  margin-left: -3%;
+}
+.footer .companyName {
+  float: left;
+  width: 30%;
+  line-height: 50px;
+  text-align: center;
+  font-size: 16px;
+}
+.footer .topicAbout {
+  float: right;
+  width: 70%;
+  line-height: 50px;
+  text-align: center;
+  font-size: 12px;
+  color: #aaafb5;
+}
+.footer:before,
+.footer:after {
+  content: " ";
+  display: table;
+}
+.footer:after {
+  clear: both;
+}
+@keyframes rotate0 {
+  0% {
+    transform: rotate(45deg);
+  }
+  100% {
+    transform: rotate(-45deg);
+  }
+}
+@keyframes rotate180 {
+  0% {
+    transform: rotate(-45deg);
+  }
+  100% {
+    transform: rotate(45deg);
+  }
 }
 a {
   text-decoration: none;
@@ -1070,6 +1144,7 @@ body {
   margin: 10px auto;
   max-width: 640px;
   padding-top: 60px;
+  padding-bottom: 40px;
 }
 .container audio,
 .container canvas,
@@ -1321,7 +1396,7 @@ body {
   color: #bbb;
 }
 .msgMeItem .msgImg {
-  width: 100%;
+  max-width: 100%;
   height: auto;
   /*border-radius: 0 0 4px 4px;*/
   margin-bottom: -5px;
@@ -1352,6 +1427,9 @@ body {
 .msgMeItem.text .msgContent {
   padding: 8px 13px;
 }
+.msgMeItem.feel .msgContainer {
+  margin-bottom: 0;
+}
 .msgMeItem.you .msgWrapper {
   float: left;
 }
@@ -1380,9 +1458,8 @@ body {
   background: #f3f3f3;
   color: #000;
 }
-.msgMeItem.pic .msgWrapper::after,
-.msgMeItem.text .msgWrapper::after {
-  display: none;
+.msgMeItem.pic .msgContainer {
+  text-align: center;
 }
 .msgYouItem {
   font-family: inherit;
@@ -1407,7 +1484,6 @@ body {
   clear: both;
 }
 .msgYouItem .userCard .userAvatar {
-  float: right;
   width: 30px;
   height: 30px;
   border-radius: 5px;
@@ -1448,8 +1524,6 @@ body {
 .msgYouItem .msgContent {
   display: inline-block;
   word-break: break-all;
-  /*border-radius: 2px;*/
-  border-radius: 5px 0px 5px 5px;
   border: 1px solid #aeaeb6;
   padding: 3px 5px;
   text-align: left;
@@ -1497,17 +1571,23 @@ body {
 .msgYouItem.text .msgContent {
   padding: 8px 13px;
 }
-.msgYouItem.you .msgWrapper {
+.msgYouItem.you .userAvatar,
+.msgYouItem.you .msgContainer {
   float: left;
 }
-.msgYouItem.you .msgWrapper::after {
-  left: 2px;
-  transform: rotate(135deg);
-  background: #f4f6f9;
+.msgYouItem.you .userName {
+  float: left;
+  position: relative;
+  width: 88%;
+  text-align: left;
+  margin-top: -2px;
+  padding-left: 6px;
+  color: #aaafb5;
 }
 .msgYouItem.you .msgContent {
+  border-radius: 0px 5px 5px 5px;
+  color: #000;
   background: #f4f6f9;
-  /*color: @receiveColor;*/
 }
 .msgYouItem.me .userAvatar,
 .msgYouItem.me .msgContainer {
@@ -1522,7 +1602,9 @@ body {
   background: #f4f6f9;
 }
 .msgYouItem.me .msgContent {
+  border-radius: 5px 0px 5px 5px;
   color: #000;
+  background: #f4f6f9;
 }
 .msgMeList {
   border-radius: 5px;
