@@ -436,10 +436,11 @@
                 var reg = new RegExp('\\[' + emotion.key + '\\]', 'gi');
                 if (str.search(reg) > -1) {
                     // 对于熊表情，将静态的转化成动态的
-                    if (emotionData[index].tab.name === '明道萌熊') {
-                        emotion.img = emotion.img.replace('.png', '.gif');
-                    }
-                    var src = Emotion.options.imgPath + emotionData[index].tab.path + (isRetina() && emotionData[index].tab.showRetina ? 'retina/' : '') + emotion.img;
+                    //if (emotionData[index].tab.name === '明道萌熊') {
+                    //    emotion.img = emotion.img.replace('.png', '.gif');
+                    //}
+                    //var src = Emotion.options.imgPath + emotionData[index].tab.path + (isRetina() && emotionData[index].tab.showRetina ? 'retina/' : '') + emotion.img;
+                    var src = Emotion.options.imgPath + emotionData[index].tab.path + emotion.img;
                     str = str.replace(reg, '<img src="' + src + '" class="' + emotionData[index].itemClassName + '" height=' + item.tab.size + ' />');
                 }
             });

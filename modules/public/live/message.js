@@ -53,8 +53,6 @@
                 data.fragment = data.fragment;
 
                 message.content = Message.Emotion(data.fragment);
-                message.content = Message.Tag(data.fragment);
-
             }
             else if (data.contentType === 0 && data.type === 4) {//非主播标签
 
@@ -139,8 +137,6 @@
             messages.push(message)
         }
 
-        console.log(messages);
-
         return messages;
     };
 
@@ -162,6 +158,8 @@
                 placeholder: Config.placeholderImgPath
             },
             title: data.title,
+            reviewCount: data.reviewCount,
+            topicCount: data.topicCount,
             zindex: 10001,
         };
 
@@ -169,7 +167,7 @@
     }
 
     Message.Mark = function (msg) {
-        msg = '<span class="audioColor"> 「' + msg + '」</span>';
+        msg = '我感受到 <span class="audioColor"> 「' + msg + '」</span>';
         return msg
     }
 

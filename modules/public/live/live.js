@@ -12,6 +12,8 @@
     var msgmelistTpl = require('./tpl/msgmelist.html');
     var msgyoulistTpl = require('./tpl/msgyoulist.html');
 
+    var loadingTpl = require('./tpl/loading.html');
+
     var $container = $('.container');
 
     var appWidth = $container.width() - 2;
@@ -31,7 +33,16 @@
         videoId: 0//vodio的序号
     };
 
+
+    var $loading = $(doT.template(loadingTpl)());
+    $('body').append($loading);
+
+
     Live.GetLiveCover = function () {
+        $loading = $('#loading');
+
+        $loading.show();
+
         Server.GetLiveCover(Live.options.topicId, function (data) {
             data = data.data;
 
@@ -49,6 +60,8 @@
 
     var sh;
     Live.GetLiveTimeLine = function () {
+        $loading.show();
+
         Server.GetLiveTimeLine(Live.options.topicId, Live.options.sinceId, function (data) {
             sh = setInterval(
                 function () {
@@ -171,6 +184,8 @@
             });
 
             Live.options.loading = false;
+
+            $loading.hide();
         }
     };
 
@@ -206,18 +221,24 @@
         });
     };
 
+    var prevTop = 0,
+            currTop = 0;
     $(document).scroll(function () {
         var scrollTop = $(document).scrollTop();
         var wHeight = $(window).height();
         var dHeight = $(document).height();
         if (scrollTop + wHeight + 10 >= dHeight && !Live.options.loading) {
-
-            console.log(Live.options.sinceId);
-            console.log(Live.options.loading);
-
-            //Live.options.sinceId++;
             Live.options.loading = Live.GetLiveTimeLine();
         }
+
+        var $footer = $('#footer');
+        currTop = $(document).scrollTop();
+        if (prevTop - currTop > 100) { //判断小于则为向上滚动
+            $footer.show();
+        } else {
+            $footer.hide();
+        }
+        prevTop = currTop
     });
 
     module.exports = Live;

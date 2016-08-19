@@ -5,17 +5,17 @@
   opacity: 0.8;
   z-index: 10002;
   top: 0;
-  height: 60px;
+  height: 55px;
 }
 .header .logo {
   background: url("../images/common/logo.png") no-repeat;
   z-index: 10002;
-  height: 50px;
+  height: 40px;
   background-size: 190px;
   width: 94%;
   margin: auto;
   max-width: 640px;
-  margin-top: 11px;
+  margin-top: 8px;
 }
 .header .open {
   background: url(../images/common/open.png) no-repeat;
@@ -84,6 +84,12 @@
 }
 .footer:after {
   clear: both;
+}
+.loading {
+  background: url(../images/chat_ajax_loading.gif) no-repeat center center;
+  height: 55px;
+  width: 100%;
+  top: -80px;
 }
 @keyframes rotate0 {
   0% {
@@ -1143,7 +1149,7 @@ body {
   width: 94%;
   margin: 10px auto;
   max-width: 640px;
-  padding-top: 60px;
+  padding-top: 55px;
   padding-bottom: 40px;
 }
 .container audio,
