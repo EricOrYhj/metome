@@ -15,13 +15,6 @@
 
     var loadingTpl = require('./tpl/loading.html');
 
-    var $container = $('.container');
-    var $body = $('body');
-    var $header = $('#header');
-    var $footer;
-
-    var appWidth = $container.width() - 2;
-
     var Live = {};
 
     Live.options = {
@@ -38,10 +31,15 @@
         videoId: 0//vodio的序号
     };
 
+    var $container = $('.container');
+    var $body = $('body');
+    var $header = $('#header');
+    var $footer;
+
+    var appWidth = $container.width() - 2;
 
     var $loading = $(doT.template(loadingTpl)());
     $body.append($loading);
-
 
     Live.GetLiveCover = function () {
         $loading = $('#loading');
@@ -75,10 +73,14 @@
         $loading.show();
 
         Server.GetLiveTimeLine(Live.options.topicId, Live.options.sinceId, function (data) {
-            sh = setInterval(
-                function () {
-                    Live.CreateMessageItem(data.data.liveElements)
-                }, 1);
+            if (Live.options.cid) {
+                Live.CreateMessageItem(data.data.liveElements);
+            } else {
+                sh = setInterval(
+                    function () {
+                        Live.CreateMessageItem(data.data.liveElements);
+                    }, 0);
+            }
         });
     };
 
@@ -200,7 +202,9 @@
                 }
             });
 
-            Live.options.loading = false;
+            setTimeout(function () {
+                Live.options.loading = false;
+            }, 0)
 
             $loading.hide();
         }
@@ -245,7 +249,8 @@
         var wHeight = $(window).height();
         var dHeight = $(document).height();
         if (scrollTop + wHeight + 10 >= dHeight && !Live.options.loading) {
-            Live.options.loading = Live.GetLiveTimeLine();
+            Live.options.loading = true;
+            Live.GetLiveTimeLine();
         }
 
         if (prevTop - scrollTop > 0) { //判断小于则为向上滚动
@@ -265,6 +270,11 @@
             $footer.show();
             $header.show();
         }
+
+        //if (wHeight === scrollTop) {
+        //    $footer.hide();
+        //    $header.hide();
+        //}
 
         prevTop = scrollTop
     });
