@@ -1,8 +1,7 @@
 .header {
   position: fixed;
   width: 100%;
-  background: #000;
-  opacity: 0.8;
+  background: rgba(0, 0, 0, 0.8);
   z-index: 10002;
   top: 0;
   height: 55px;
@@ -36,13 +35,15 @@
   height: 55px;
   background-size: 55px;
   width: 55px;
-  transform: rotate(-45deg);
+  transform: rotate(0deg);
 }
 .feelItem .title {
-  box-shadow: 2px 0px 2px 2px rgba(0, 0, 0, 0.1);
-  top: 23px;
+  background-color: #fff;
+  /*右左*/
+  box-shadow: 4px 0 2px rgba(0, 0, 0, 0.1), inset 3px 0 2px rgba(0, 0, 0, 0.2), 0 -2px 2px rgba(0, 0, 0, 0.1), 0 2px 2px rgba(0, 0, 0, 0.1);
+  top: 25px;
   left: 28px;
-  padding: 2px;
+  padding: 1px 4px 1px 4px;
   border-radius: 0px 5px 5px 0px;
   font-size: 12px;
 }
@@ -60,29 +61,34 @@
   background-color: #fff;
   border-top: 1px solid #ccc;
   z-index: 10002;
-  margin-left: -3%;
 }
-.footer .companyName {
+.footer .main {
+  width: 94%;
+  height: 50px;
+  margin: auto;
+  max-width: 640px;
+}
+.footer .main .companyName {
   float: left;
   width: 30%;
   line-height: 50px;
-  text-align: center;
+  text-align: left;
   font-size: 16px;
 }
-.footer .topicAbout {
+.footer .main .topicAbout {
   float: right;
   width: 70%;
   line-height: 50px;
-  text-align: center;
+  text-align: right;
   font-size: 12px;
   color: #aaafb5;
 }
-.footer:before,
-.footer:after {
+.footer .main:before,
+.footer .main:after {
   content: " ";
   display: table;
 }
-.footer:after {
+.footer .main:after {
   clear: both;
 }
 .loading {
@@ -91,20 +97,64 @@
   width: 100%;
   top: -80px;
 }
+.headerAnimationTop {
+  animation: headerAnimationTop 0.5s ease-in-out forwards;
+}
+.headerAnimationDown {
+  animation: headerAnimationDown 0.5s ease-in-out forwards;
+}
+.footerAnimationTop {
+  animation: footerAnimationTop 0.5s ease-in-out forwards;
+}
+.footerAnimationDown {
+  animation: footerAnimationDown 0.5s ease-in-out forwards;
+}
 @keyframes rotate0 {
   0% {
     transform: rotate(45deg);
   }
   100% {
-    transform: rotate(-45deg);
+    transform: rotate(0deg);
   }
 }
 @keyframes rotate180 {
   0% {
-    transform: rotate(-45deg);
+    transform: rotate(0deg);
   }
   100% {
     transform: rotate(45deg);
+  }
+}
+@keyframes headerAnimationTop {
+  0% {
+    top: 0;
+  }
+  100% {
+    top: -60px;
+  }
+}
+@keyframes headerAnimationDown {
+  0% {
+    top: -60px;
+  }
+  100% {
+    top: 0;
+  }
+}
+@keyframes footerAnimationTop {
+  0% {
+    bottom: 0;
+  }
+  100% {
+    bottom: -60px;
+  }
+}
+@keyframes footerAnimationDown {
+  0% {
+    bottom: -60px;
+  }
+  100% {
+    bottom: 0;
   }
 }
 a {
@@ -1300,6 +1350,7 @@ body {
 .msgMeItem {
   background-color: #fff;
   font-family: inherit;
+  padding-top: 10px;
 }
 .msgMeItem:before,
 .msgMeItem:after {
@@ -1310,7 +1361,7 @@ body {
   clear: both;
 }
 .msgMeItem .userCard {
-  padding: 10px;
+  padding: 0px 10px 0px 10px;
 }
 .msgMeItem .userCard .userAvatar {
   float: left;
@@ -1328,7 +1379,10 @@ body {
   float: left;
   height: 40px;
   position: relative;
-  width: 70%;
+  width: 80%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 .msgMeItem .userCard .msg-timestamp-content {
   padding-top: 40px;
@@ -1348,7 +1402,6 @@ body {
   width: 100%;
   display: inline-block;
   padding-top: 10px;
-  margin-bottom: 10px;
 }
 .msgMeItem .msgContainer:before,
 .msgMeItem .msgContainer:after {
@@ -1357,31 +1410,6 @@ body {
 }
 .msgMeItem .msgContainer:after {
   clear: both;
-}
-.msgMeItem .msgContent {
-  width: 100%;
-  line-height: 1;
-  height: 40px;
-  display: inline-block;
-  font-size: 16px;
-  word-break: break-all;
-  border-radius: 5px;
-  border: 1px solid #ccc;
-}
-.msgMeItem .msgContent a {
-  color: #007ddb;
-}
-.msgMeItem .msgContent a:hover {
-  text-decoration: underline;
-}
-.msgMeItem .msgContent a.convertLink {
-  display: block;
-}
-.msgMeItem .msgContent .btnDownload {
-  color: #007ddb;
-}
-.msgMeItem .msgContent .btnDownload:not(:hover) {
-  color: #C4C4C4 !important;
 }
 .msgMeItem .msgWrapper {
   width: 100%;
@@ -1404,9 +1432,7 @@ body {
 .msgMeItem .msgImg {
   max-width: 100%;
   height: auto;
-  /*border-radius: 0 0 4px 4px;*/
-  margin-bottom: -5px;
-  /*box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.04);*/
+  margin-bottom: -2px;
 }
 .msgMeItem .msg-timestamp {
   background: url("../images/common/time.png") no-repeat 10px center;
@@ -1415,20 +1441,18 @@ body {
   color: #aaafb5;
 }
 .msgMeItem.audio .audioTime {
-  top: 14px;
+  top: 7px;
   left: 40px;
   color: #e78002;
 }
 .msgMeItem.audio .msgContent {
   border: 1px solid #e78002;
+  border-radius: 5px;
 }
 .msgMeItem.audio .msgWrapper {
   /*&::after {
                 border-color: transparent @audioColor @audioColor transparent;
             }*/
-}
-.msgMeItem.text .msgContainer {
-  padding-top: 4px;
 }
 .msgMeItem.text .msgContent {
   padding: 8px 13px;
@@ -1462,10 +1486,12 @@ body {
 }
 .msgMeItem.me .msgContent {
   background: #f3f3f3;
-  color: #000;
 }
 .msgMeItem.pic .msgContainer {
   text-align: center;
+}
+.msgMeItem.pic .msgWrapper {
+  margin-bottom: -5px;
 }
 .msgYouItem {
   font-family: inherit;
@@ -1530,10 +1556,11 @@ body {
 .msgYouItem .msgContent {
   display: inline-block;
   word-break: break-all;
-  border: 1px solid #aeaeb6;
+  border: 1px solid rgba(0, 0, 0, 0.05);
   padding: 3px 5px;
   text-align: left;
   font-size: 14px;
+  background: #e9ebf0;
 }
 .msgYouItem .msgContent a {
   color: #007ddb;
@@ -1592,8 +1619,7 @@ body {
 }
 .msgYouItem.you .msgContent {
   border-radius: 0px 5px 5px 5px;
-  color: #000;
-  background: #f4f6f9;
+  color: #082441;
 }
 .msgYouItem.me .userAvatar,
 .msgYouItem.me .msgContainer {
@@ -1609,8 +1635,7 @@ body {
 }
 .msgYouItem.me .msgContent {
   border-radius: 5px 0px 5px 5px;
-  color: #000;
-  background: #f4f6f9;
+  color: #082441;
 }
 .msgMeList {
   border-radius: 5px;
@@ -1622,17 +1647,50 @@ body {
 .msgMeList .msgMeItem:last-child {
   border-radius: 0px 0px 5px 5px;
 }
+.msgMeList .msgMeItem:last-child .msgImg,
+.msgMeList .msgMeItem:last-child .video-js,
+.msgMeList .msgMeItem:last-child .vjs-poster {
+  border-radius: 0 0 5px 5px;
+  box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.04);
+}
+.msgMeList .msgMeItem:last-child .msgImg {
+  margin-bottom: -12px;
+}
+.msgMeList .msgMeItem:last-child .msgContainer {
+  padding-bottom: 10px;
+}
 .msgMeList .msgMeItem:only-child {
   border-radius: 5px;
 }
-.msgYouList {
-  margin-top: 15px;
-  margin-bottom: 15px;
+.msgMeList .msgMeItem:only-child .msgImg,
+.msgMeList .msgMeItem:only-child .video-js,
+.msgMeList .msgMeItem:only-child .vjs-poster {
+  border-radius: 0 0 5px 5px;
+  box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.04);
+  margin-bottom: -2px;
+}
+.msgMeList .msgMeItem:only-child .msgContainer {
+  padding-bottom: 10px;
+}
+.msgMeList .msgMeItem:only-child.pic .msgContainer,
+.msgMeList .msgMeItem:only-child.video .msgContainer {
+  padding-bottom: 0px;
+  margin-bottom: -2px;
+}
+.msgYouList .msgYouItem:last-child .userCard {
+  padding-bottom: 10px;
 }
 .coverShadow {
   border-radius: 4px;
   box-shadow: 0px 0px 2px 2px rgba(0, 0, 0, 0.04);
-  margin-bottom: 15px;
+}
+.coverShadow .msgContainer:last-child .msgImg {
+  border-radius: 0 0 5px 5px;
+  box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.04);
+}
+.coverShadow .msgContainer:only-child .msgImg {
+  border-radius: 0 0 5px 5px;
+  box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.04);
 }
 .msgShadow {
   margin-top: -4px;
@@ -1645,6 +1703,9 @@ body {
 }
 .audioColor {
   color: #e78002;
+}
+.atColor {
+  color: #8b572a;
 }
 .msgItem.pic.msgCard .msgContainer {
   border-radius: 4px;
@@ -1690,18 +1751,16 @@ body {
 }
 .msgItem.audio .audioIcon {
   display: inline-block;
-  width: 40px;
-  height: 40px;
-  margin-top: -13px;
-  margin-left: -10px;
-  background-size: 40px;
+  width: 30px;
+  height: 30px;
+  background-size: 30px;
   background-repeat: no-repeat;
   background-image: url("../images/audio_playing2.png");
 }
 @media only screen and (-webkit-min-device-pixel-ratio: 2), only screen and (min--moz-device-pixel-ratio: 2), only screen and (-o-min-device-pixel-ratio: 2/1), only screen and (min-device-pixel-ratio: 2), only screen and (min-resolution: 192dpi), only screen and (min-resolution: 2dppx) {
   .msgItem.audio .audioIcon {
     background-image: url("../images/audio_playing2.png");
-    background-size: 40px 40px;
+    background-size: 30px 30px;
   }
 }
 .msgItem.audio .audioInfo {
@@ -1710,14 +1769,37 @@ body {
   color: rgba(0, 0, 0, 0.54);
 }
 .msgItem.audio .msgContainer .msgWrapper .msgContent .msgCard .cardBody {
-  padding: 14px 10px;
+  height: 30px;
 }
-.msgItem.audio.audioPlaying .audioIcon {
-  background-image: url("../images/audio_playing1.png");
+.msgItem.audio.audioAnimation .audioIcon {
+  animation: audioAnimation 1s infinite linear;
 }
-@media only screen and (-webkit-min-device-pixel-ratio: 2), only screen and (min--moz-device-pixel-ratio: 2), only screen and (-o-min-device-pixel-ratio: 2/1), only screen and (min-device-pixel-ratio: 2), only screen and (min-resolution: 192dpi), only screen and (min-resolution: 2dppx) {
-  .msgItem.audio.audioPlaying .audioIcon {
-    background-image: url("../images/audio_playing1.png");
-    background-size: 40px 40px;
+@keyframes audioAnimation {
+  0% {
+    background-image: url("../images/audio_playing0.png");
+  }
+  @media only screen and (-webkit-min-device-pixel-ratio: 2), only screen and (min--moz-device-pixel-ratio: 2), only screen and (-o-min-device-pixel-ratio: 2/1), only screen and (min-device-pixel-ratio: 2), only screen and (min-resolution: 192dpi), only screen and (min-resolution: 2dppx) {
+    0% {
+      background-image: url("../images/audio_playing0.png");
+      background-size: 30px 30px;
+    }
+  }
+  50% {
+    background-image: url("../images/audio_playing0.png");
+  }
+  @media only screen and (-webkit-min-device-pixel-ratio: 2), only screen and (min--moz-device-pixel-ratio: 2), only screen and (-o-min-device-pixel-ratio: 2/1), only screen and (min-device-pixel-ratio: 2), only screen and (min-resolution: 192dpi), only screen and (min-resolution: 2dppx) {
+    50% {
+      background-image: url("../images/audio_playing1.png");
+      background-size: 30px 30px;
+    }
+  }
+  100% {
+    background-image: url("../images/audio_playing2.png");
+  }
+  @media only screen and (-webkit-min-device-pixel-ratio: 2), only screen and (min--moz-device-pixel-ratio: 2), only screen and (-o-min-device-pixel-ratio: 2/1), only screen and (min-device-pixel-ratio: 2), only screen and (min-resolution: 192dpi), only screen and (min-resolution: 2dppx) {
+    100% {
+      background-image: url("../images/audio_playing2.png");
+      background-size: 30px 30px;
+    }
   }
 }

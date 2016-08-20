@@ -4,10 +4,11 @@
 .msgMeItem {
     background-color: #fff;
     font-family: inherit;
+    padding-top: 10px;
     .clearfix();
 
     .userCard {
-        padding: 10px;
+        padding: 0px 10px 0px 10px;
 
         .userAvatar {
             float: left;
@@ -26,7 +27,10 @@
             float: left;
             height: @AvatarM;
             position: relative;
-            width: 70%;
+            width: 80%;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
         }
 
         .msg-timestamp-content {
@@ -43,39 +47,7 @@
         width: 100%;
         display: inline-block;
         padding-top: 10px;
-        margin-bottom: 10px;
         .clearfix();
-    }
-
-    .msgContent {
-        width: 100%;
-        line-height: 1;
-        height: 40px;
-        display: inline-block;
-        font-size: @fontSizeM;
-        word-break: break-all;
-        border-radius: @AvatarBorderRadius;
-        border: 1px solid @bubbleBorderColor;
-
-        a {
-            color: @msgLinkColor;
-
-            &:hover {
-                text-decoration: underline;
-            }
-
-            &.convertLink {
-                display: block;
-            }
-        }
-
-        .btnDownload {
-            color: @msgLinkColor;
-
-            &:not(:hover) {
-                color: #C4C4C4 !important;
-            }
-        }
     }
 
     .msgWrapper {
@@ -100,9 +72,7 @@
     .msgImg {
         max-width: 100%;
         height: auto;
-        /*border-radius: 0 0 4px 4px;*/
-        margin-bottom: -5px;
-        /*box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.04);*/
+        margin-bottom: -2px;
     }
 
     .msg-timestamp {
@@ -114,13 +84,14 @@
 
     &.audio {
         .audioTime {
-            top: 14px;
+            top: 7px;
             left: 40px;
             color: @audioColor;
         }
 
         .msgContent {
             border: 1px solid @audioColor;
+            border-radius: @AvatarBorderRadius;
         }
 
         .msgWrapper {
@@ -131,10 +102,6 @@
     }
 
     &.text {
-        .msgContainer {
-            padding-top: 4px;
-        }
-
         .msgContent {
             padding: 8px 13px;
         }
@@ -180,13 +147,16 @@
 
         .msgContent {
             background: @sendColorBg;
-            color: @sendColor;
         }
     }
 
     &.pic {
         .msgContainer {
             text-align: center;
+        }
+
+        .msgWrapper {
+            margin-bottom: -5px;
         }
     }
 }
@@ -239,10 +209,11 @@
     .msgContent {
         display: inline-block;
         word-break: break-all;
-        border: 1px solid @msgYouBorderColor;
+        border: 1px solid @bubbleBorderColor;
         padding: 3px 5px;
         text-align: left;
         font-size: 14px;
+        background: @youBgColor;
 
         a {
             color: @msgLinkColor;
@@ -315,8 +286,7 @@
 
         .msgContent {
             border-radius: 0px 5px 5px 5px;
-            color: @sendColor;
-            background: @bodyColor;
+            color: @fontColor;
         }
     }
 
@@ -337,8 +307,7 @@
 
         .msgContent {
             border-radius: 5px 0px 5px 5px;
-            color: @sendColor;
-            background: @bodyColor;
+            color: @fontColor;
         }
     }
 }
@@ -353,22 +322,68 @@
 
     .msgMeItem:last-child {
         border-radius: 0px 0px @AvatarBorderRadius @AvatarBorderRadius;
+
+        .msgImg, .video-js, .vjs-poster {
+            border-radius: 0 0 @AvatarBorderRadius @AvatarBorderRadius;
+            box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.04);
+        }
+
+        .msgImg {
+            margin-bottom: -12px;
+        }
+
+        .msgContainer {
+            padding-bottom: 10px;
+        }
     }
 
     .msgMeItem:only-child {
         border-radius: @AvatarBorderRadius;
+
+        .msgImg, .video-js, .vjs-poster {
+            border-radius: 0 0 @AvatarBorderRadius @AvatarBorderRadius;
+            box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.04);
+            margin-bottom: -2px;
+        }
+
+        .msgContainer {
+            padding-bottom: 10px;
+        }
+
+        &.pic, &.video {
+            .msgContainer {
+                padding-bottom: 0px;
+                margin-bottom: -2px;
+            }
+        }
     }
 }
 
 .msgYouList {
-    margin-top: 15px;
-    margin-bottom: 15px;
+    .msgYouItem:last-child {
+        .userCard {
+            padding-bottom: 10px;
+        }
+    }
 }
 
 .coverShadow {
     border-radius: 4px;
     box-shadow: 0px 0px 2px 2px rgba(0, 0, 0, 0.04);
-    margin-bottom: 15px;
+
+    .msgContainer:last-child {
+        .msgImg {
+            border-radius: 0 0 @AvatarBorderRadius @AvatarBorderRadius;
+            box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.04);
+        }
+    }
+
+    .msgContainer:only-child {
+        .msgImg {
+            border-radius: 0 0 @AvatarBorderRadius @AvatarBorderRadius;
+            box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.04);
+        }
+    }
 }
 
 .msgShadow {
@@ -384,4 +399,8 @@
 
 .audioColor {
     color: @audioColor;
+}
+
+.atColor {
+    color: @fontAtColor;
 }

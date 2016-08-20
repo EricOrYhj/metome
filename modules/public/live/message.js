@@ -19,6 +19,7 @@
         var messages = [];
 
         for (var i = 0; i < datas.length; i++) {
+            var isPush = true;
 
             var data = datas[i];
             Message.options.same = Message.options.uid === data.uid,
@@ -63,7 +64,6 @@
 
                 message.content = Message.Emotion(data.fragment);
                 message.content = Message.Mark(data.fragment);
-
             }
             else if (data.contentType === 0 && data.type === 3) {//主播标签
 
@@ -132,9 +132,13 @@
 
                 message.content = Message.Emotion(text);
                 //message.content = Message.Tag(data.fragment);
+            } else {
+                isPush = false;
             }
 
-            messages.push(message)
+            if (isPush) {
+                messages.push(message)
+            }
         }
 
         return messages;
@@ -190,7 +194,7 @@
     Message.At = function (msg, start, end) {
 
         var at = msg.substr(start, end);
-        msg = msg.replace(at, '<span class="audioColor">' + at + '&nbsp;&nbsp;</span>');
+        msg = msg.replace(at, '<span class="atColor">' + at + '&nbsp;&nbsp;</span>');
 
         return msg;
     }

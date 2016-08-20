@@ -289,7 +289,7 @@
             if (milliseconds <= 1000 * 60 * 1) {
                 timeSpanStr = '刚刚';
             }
-            if (1000 * 60 * 1 < milliseconds && milliseconds <= 1000 * 60 * 60) {
+            else if (1000 * 60 * 1 < milliseconds && milliseconds <= 1000 * 60 * 60) {
                 timeSpanStr = parseInt(milliseconds / (1000 * 60)) + '分钟前';
             }
             else if (1000 * 60 * 60 * 1 < milliseconds && milliseconds <= 1000 * 60 * 60 * 24) {

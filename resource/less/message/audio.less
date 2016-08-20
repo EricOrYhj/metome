@@ -1,31 +1,44 @@
 @import "../mixins";
 
 .msgItem.audio {
-  .audioIcon {
-    display: inline-block;
-    width: 40px;
-    height: 40px;
-    margin-top: -13px;
-    margin-left:-10px;
-    background-size: 40px;
-    background-repeat:no-repeat;
-    .img-retina("../images/audio_playing2.png", "../images/audio_playing2.png", 40px, 40px);
-
-  }
-  .audioInfo {
-    float: right;
-    margin-right: 10px;
-    color: rgba(0, 0, 0, .54);
-  }
-  .msgContainer .msgWrapper .msgContent {
-    .msgCard .cardBody {
-      padding: 14px 10px;
-    }
-  }
-
-  &.audioPlaying {
     .audioIcon {
-      .img-retina("../images/audio_playing1.png", "../images/audio_playing1.png", 40px, 40px);
+        display: inline-block;
+        width: 30px;
+        height: 30px;
+        background-size: 30px;
+        background-repeat: no-repeat;
+        .img-retina("../images/audio_playing2.png", "../images/audio_playing2.png", 30px, 30px);
     }
-  }
+
+    .audioInfo {
+        float: right;
+        margin-right: 10px;
+        color: rgba(0, 0, 0, .54);
+    }
+
+    .msgContainer .msgWrapper .msgContent {
+        .msgCard .cardBody {
+            height: 30px;
+        }
+    }
+
+    &.audioAnimation {
+        .audioIcon {
+            animation: audioAnimation 1s infinite linear;
+        }
+    }
+}
+
+@keyframes audioAnimation {
+    0% {
+        .img-retina("../images/audio_playing0.png", "../images/audio_playing0.png", 30px, 30px);
+    }
+
+    50% {
+        .img-retina("../images/audio_playing0.png", "../images/audio_playing1.png", 30px, 30px);
+    }
+
+    100% {
+        .img-retina("../images/audio_playing2.png", "../images/audio_playing2.png", 30px, 30px);
+    }
 }

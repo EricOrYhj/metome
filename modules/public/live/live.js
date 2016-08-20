@@ -5,6 +5,7 @@
     var Server = require('../server/server');
     var Message = require('./message');
 
+    var footTpl = require('./tpl/footer.html');
     var coverTpl = require('./tpl/cover.html');
     var msgmeTpl = require('./tpl/msgme.html');
     var msgmeatTpl = require('./tpl/msgmeat.html');
@@ -15,6 +16,9 @@
     var loadingTpl = require('./tpl/loading.html');
 
     var $container = $('.container');
+    var $body = $('body');
+    var $header = $('#header');
+    var $footer;
 
     var appWidth = $container.width() - 2;
 
@@ -27,6 +31,7 @@
         sinceId: 0,//分页页数
         lastisme: false,//上一条是不是直播者
         lastisyou: false,
+        lastismeat: false,//是否是主播@
         zindex: 10000,//直播者dom层级开始
         msgmelistnum: 1,
         msgyoulistnum: 1,//其他回复的dom id
@@ -35,7 +40,7 @@
 
 
     var $loading = $(doT.template(loadingTpl)());
-    $('body').append($loading);
+    $body.append($loading);
 
 
     Live.GetLiveCover = function () {
@@ -55,6 +60,13 @@
             $container.prepend($cover);
 
             Tool.lazyload($cover);
+
+            $footer = $(doT.template(footTpl)(cover));
+
+            $body.append($footer);
+
+            document.title = cover.title + ' @' + cover.uname + " --米汤";
+            document.getElementById("description").content = '@' + cover.uname + '正在meTome王国中讲述想法和故事';
         });
     };
 
@@ -86,8 +98,11 @@
                 }
 
                 if (item.me && !item.cidat) {
-                    item.zindex = Live.options.zindex;
-                    Live.options.zindex--;
+                    if (Live.options.lastismeat)
+                        item.same = false;
+
+                    //item.zindex = Live.options.zindex;
+                    //Live.options.zindex--;
 
                     if (!Live.options.lastisme) {
                         var $msgmelist = $(doT.template(msgmelistTpl)(Live.options.msgmelistnum));
@@ -133,9 +148,11 @@
                     var $msgyouTpl;
 
                     if (item.cidat) {
+                        Live.options.lastismeat = true;
                         $msgyouTpl = $(doT.template(msgmeatTpl)(item));
                     }
                     else {
+                        Live.options.lastismeat = false;
                         $msgyouTpl = $(doT.template(msgyouTpl)(item));
                     }
 
@@ -203,20 +220,20 @@
                     mp3_url: msg,
                     wav_url: msg,
                     onStop: function () {
-                        $msg.removeClass("audioPlaying");
+                        $msg.removeClass("audioAnimation");
                     },
                 });
 
                 window.chatAudioPlayer = audio;
                 window.chatAudioPlayer.play();
-                $msg.addClass("audioPlaying").data("audio", audio);
-            } else if ($msg.hasClass("audioPlaying")) { // 取消播放
+                $msg.addClass("audioAnimation").data("audio", audio);
+            } else if ($msg.hasClass("audioAnimation")) { // 取消播放
                 audio.stop();
                 window.chatAudioPlayer.stop();
             } else { // 重播
                 window.chatAudioPlayer = audio;
                 window.chatAudioPlayer.play();
-                $msg.addClass("audioPlaying");
+                $msg.addClass("audioAnimation");
             }
         });
     };
@@ -231,14 +248,25 @@
             Live.options.loading = Live.GetLiveTimeLine();
         }
 
-        var $footer = $('#footer');
-        currTop = $(document).scrollTop();
-        if (prevTop - currTop > 100) { //判断小于则为向上滚动
-            $footer.show();
-        } else {
-            $footer.hide();
+        if (prevTop - scrollTop > 0) { //判断小于则为向上滚动
+            //$footer.fadeIn();
+            //$header.fadeIn();
+            $header.removeClass('headerAnimationTop').addClass('headerAnimationDown');
+            $footer.removeClass('footerAnimationTop').addClass('footerAnimationDown');
+
+        } else if (scrollTop > 50 && scrollTop - prevTop > 50) {
+            //$footer.fadeOut();
+            //$header.fadeOut();
+            $header.removeClass('headerAnimationDown').addClass('headerAnimationTop');
+            $footer.removeClass('footerAnimationDown').addClass('footerAnimationTop');
         }
-        prevTop = currTop
+
+        if (scrollTop <= 50) {
+            $footer.show();
+            $header.show();
+        }
+
+        prevTop = scrollTop
     });
 
     module.exports = Live;
