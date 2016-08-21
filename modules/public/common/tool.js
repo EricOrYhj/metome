@@ -271,39 +271,28 @@
 
         var now = new Date();
 
-        var today = new Date();
-        today.setFullYear(now.getFullYear());
-        today.setMonth(now.getMonth());
-        today.setDate(now.getDate());
-        today.setHours(0);
-        today.setMinutes(0);
-        today.setSeconds(0);
-
         var milliseconds = 0;
         var timeSpanStr;
-        if (dateTime - today >= 0) {
-            timeSpanStr = hour + ":" + minute;
-        } else {
-            milliseconds = today - dateTime;
 
-            if (milliseconds <= 1000 * 60 * 1) {
-                timeSpanStr = '刚刚';
-            }
-            else if (1000 * 60 * 1 < milliseconds && milliseconds <= 1000 * 60 * 60) {
-                timeSpanStr = parseInt(milliseconds / (1000 * 60)) + '分钟前';
-            }
-            else if (1000 * 60 * 60 * 1 < milliseconds && milliseconds <= 1000 * 60 * 60 * 24) {
-                timeSpanStr = parseInt(milliseconds / (1000 * 60 * 60)) + '小时前';
-            }
-            else if (1000 * 60 * 60 * 24 < milliseconds && milliseconds <= 1000 * 60 * 60 * 24 * 15) {
-                timeSpanStr = parseInt(milliseconds / (1000 * 60 * 60 * 24)) + '天前';
-            }
-            else if (milliseconds > 1000 * 60 * 60 * 24 * 15 && year == today.getFullYear()) {
-                timeSpanStr = (month + 1) + '-' + day + ' ' + hour + ':' + minute;
-            } else {
-                timeSpanStr = year + '-' + (month + 1) + '-' + day + ' ' + hour + ':' + minute;
-            }
+        milliseconds = now - dateTime;
+        if (milliseconds <= 1000 * 60 * 1) {
+            timeSpanStr = '刚刚';
         }
+        else if (1000 * 60 * 1 < milliseconds && milliseconds <= 1000 * 60 * 60) {
+            timeSpanStr = parseInt(milliseconds / (1000 * 60)) + '分钟前';
+        }
+        else if (1000 * 60 * 60 * 1 < milliseconds && milliseconds <= 1000 * 60 * 60 * 24) {
+            timeSpanStr = parseInt(milliseconds / (1000 * 60 * 60)) + '小时前';
+        }
+        else if (1000 * 60 * 60 * 24 < milliseconds && milliseconds <= 1000 * 60 * 60 * 24 * 15) {
+            timeSpanStr = parseInt(milliseconds / (1000 * 60 * 60 * 24)) + '天前';
+        }
+        else if (milliseconds > 1000 * 60 * 60 * 24 * 15 && year == now.getFullYear()) {
+            timeSpanStr = (month + 1) + '-' + day + ' ' + hour + ':' + minute;
+        } else {
+            timeSpanStr = year + '-' + (month + 1) + '-' + day + ' ' + hour + ':' + minute;
+        }
+
         return timeSpanStr;
     };
 

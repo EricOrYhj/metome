@@ -183,11 +183,18 @@
         .userName {
             float: right;
             position: relative;
-            width: 88%;
             text-align: right;
             margin-top: -2px;
             padding-right: 6px;
             color: @timeColor;
+            width: 85%;
+
+            .nickName {
+                max-width: 100%;
+                overflow: hidden;
+                text-overflow: ellipsis;
+                white-space: nowrap;
+            }
         }
 
         .msg-timestamp-content {
@@ -277,11 +284,18 @@
         .userName {
             float: left;
             position: relative;
-            width: 88%;
             text-align: left;
             margin-top: -2px;
             padding-left: 6px;
             color: @timeColor;
+            width: 85%;
+
+            .nickName {
+                max-width: 100%;
+                overflow: hidden;
+                text-overflow: ellipsis;
+                white-space: nowrap;
+            }
         }
 
         .msgContent {

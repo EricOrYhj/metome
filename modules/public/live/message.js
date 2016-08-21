@@ -24,9 +24,11 @@
             var data = datas[i];
             Message.options.same = Message.options.uid === data.uid,
             Message.options.uid = data.uid;
-            //Message.options.me = data.uid === cid;
 
             Message.options.me = data.internalStatus >= 2;
+            if (!Message.options.me) {
+                Message.options.me = data.uid === cid;
+            }
 
             var atUid = data.atUid;
 
