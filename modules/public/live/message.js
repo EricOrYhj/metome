@@ -32,13 +32,17 @@
 
             var atUid = data.atUid;
 
+            if (data.avatar && data.avatar.indexOf('default.jpg') > 0) {
+                data.avatar = Config.placeholderAvatar;
+            }
+
             var message = {
                 id: data.id,
                 ctime: data.createTime,
                 time: Tool.formatMsgTime(data.createTime),
                 uid: data.uid,
                 avatar: data.avatar + Config.AVATAR_100,
-                placeholder: Config.avatarImgPath,
+                placeholder: Config.placeholderAvatar,
                 uname: data.nickName,
                 me: Message.options.me,
                 same: Message.options.same,
@@ -164,8 +168,9 @@
                 placeholder: Config.placeholderImgPath
             },
             title: data.title,
-            reviewCount: data.reviewCount,
-            topicCount: data.topicCount,
+            membersCount: data.membersCount,//成员数
+            readCount: data.readCount,//阅读数
+            topicCount: data.topicCount,//更新数
             zindex: 10001,
         };
 

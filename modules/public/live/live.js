@@ -47,24 +47,32 @@
         $loading.show();
 
         Server.GetLiveCover(Live.options.topicId, function (data) {
-            data = data.data;
+            if (data.data) {
+                data = data.data;
 
-            Live.options.cid = data.uid;
+                Live.options.cid = data.uid;
 
-            var cover = Message.cover(data);
+                var cover = Message.cover(data);
 
-            var $cover = $(doT.template(coverTpl)(cover));
+                var $cover = $(doT.template(coverTpl)(cover));
 
-            $container.prepend($cover);
+                $container.prepend($cover);
 
-            Tool.lazyload($cover);
+                Tool.lazyload($cover);
 
-            $footer = $(doT.template(footTpl)(cover));
+                $footer = $(doT.template(footTpl)(cover));
 
-            $body.append($footer);
+                $body.append($footer);
 
-            document.title = cover.title + ' @' + cover.uname + " --米汤";
-            document.getElementById("description").content = '@' + cover.uname + '正在meTome王国中讲述想法和故事';
+                document.title = cover.title + ' @' + cover.uname + " --米汤";
+                document.getElementById("description").content = '@' + cover.uname + '正在meTome王国中讲述想法和故事';
+            } else {
+                if (data.code === 500) {
+                    alert('该直播间已关闭');
+                } else {
+                    alert('发生错误');
+                }
+            }
         });
     };
 
@@ -73,13 +81,21 @@
         $loading.show();
 
         Server.GetLiveTimeLine(Live.options.topicId, Live.options.sinceId, function (data) {
-            if (Live.options.cid) {
-                Live.CreateMessageItem(data.data.liveElements);
+            if (data.data) {
+                if (Live.options.cid) {
+                    Live.CreateMessageItem(data.data.liveElements);
+                } else {
+                    sh = setInterval(
+                        function () {
+                            Live.CreateMessageItem(data.data.liveElements);
+                        }, 0);
+                }
             } else {
-                sh = setInterval(
-                    function () {
-                        Live.CreateMessageItem(data.data.liveElements);
-                    }, 0);
+                if (data.code === 500) {
+                    alert('该直播间已关闭');
+                } else {
+                    alert('发生错误');
+                }
             }
         });
     };
@@ -204,7 +220,7 @@
 
             setTimeout(function () {
                 Live.options.loading = false;
-            }, 0)
+            }, 500);
 
             $loading.hide();
         }

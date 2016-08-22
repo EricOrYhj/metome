@@ -1,6 +1,7 @@
 ﻿define(function (require, exports, module) {
-    var apiUrl = "http://114.215.196.92:8080";
-
+    //var apiUrl = "http://114.215.196.92:8080";
+    var apiUrl = " http://app2.me-to-me.com/";
+   
     var api = {
         liveCover: apiUrl + '/api/live/liveCover',
         liveTimeline: apiUrl + '/api/live/liveTimeline',
