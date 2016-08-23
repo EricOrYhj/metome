@@ -20,6 +20,6 @@ seajs.config({
         'scrollLoading': 'modules/vendor/jquery/1.8.3/jquery.scrollLoading.js'
     },
     map: [
-       [/^(.*\.(?:css|js|htm|html))(\?.*)?$/i, '$1?2016']
+       [/^(.*\.(?:css|js|htm|html))(\?.*)?$/i, '$1?20160823']
     ]
 });

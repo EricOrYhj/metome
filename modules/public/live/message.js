@@ -159,7 +159,7 @@
             time: Tool.formatMsgTime(data.createTime),
             uid: data.uid,
             avatar: data.avatar + Config.AVATAR_100,
-            placeholder: Config.avatarImgPath,
+            placeholder: Config.placeholderAvatar,
             uname: data.nickName,
             type: Constant.MSGTYPE_PIC,
             class: "pic msgCard",

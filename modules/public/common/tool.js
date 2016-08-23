@@ -288,9 +288,9 @@
             timeSpanStr = parseInt(milliseconds / (1000 * 60 * 60 * 24)) + '天前';
         }
         else if (milliseconds > 1000 * 60 * 60 * 24 * 15 && year == now.getFullYear()) {
-            timeSpanStr = (month + 1) + '-' + day + ' ' + hour + ':' + minute;
+            timeSpanStr = month + '-' + day + ' ' + hour + ':' + minute;
         } else {
-            timeSpanStr = year + '-' + (month + 1) + '-' + day + ' ' + hour + ':' + minute;
+            timeSpanStr = year + '-' + month + '-' + day + ' ' + hour + ':' + minute;
         }
 
         return timeSpanStr;

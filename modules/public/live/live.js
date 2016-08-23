@@ -13,8 +13,6 @@
     var msgmelistTpl = require('./tpl/msgmelist.html');
     var msgyoulistTpl = require('./tpl/msgyoulist.html');
 
-    var loadingTpl = require('./tpl/loading.html');
-
     var Live = {};
 
     Live.options = {
@@ -38,11 +36,9 @@
 
     var appWidth = $container.width() - 2;
 
-    var $loading = $(doT.template(loadingTpl)());
-    $body.append($loading);
+    var $loading = $('#loading');
 
     Live.GetLiveCover = function () {
-        $loading = $('#loading');
 
         $loading.show();
 
@@ -119,9 +115,6 @@
                     if (Live.options.lastismeat)
                         item.same = false;
 
-                    //item.zindex = Live.options.zindex;
-                    //Live.options.zindex--;
-
                     if (!Live.options.lastisme) {
                         var $msgmelist = $(doT.template(msgmelistTpl)(Live.options.msgmelistnum));
 
@@ -143,6 +136,7 @@
 
                     Live.options.lastisme = true;
                     Live.options.lastisyou = false;
+                    Live.options.lastismeat = false;
 
                     if (item.type === 5) {
                         require.async(['video', 'videocss'], function () {
